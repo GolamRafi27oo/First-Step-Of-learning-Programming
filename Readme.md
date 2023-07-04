@@ -1,1 +1,57 @@
-#Daily Learning
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <H1>Daily Learning</H1>
+<div>
+<h2>Basic</h2>
+<p>
+  Day-1 (Date: 7-4-2023)
+  <h3>Why Binary not Decimal</h3>
+  <p>
+    Computers use binary numbers instead of decimal numbers because binary is well-suited for electronic systems and digital processing. Here are a few reasons why binary is preferred over decimal in computer systems:
+
+  1. Simplicity of representation: Binary numbers consist of only two digits, 0 and 1, which aligns well with the on/off states of electronic switches (transistors). This simplicity makes it easier to design and implement digital circuits.
+
+  2. Hardware compatibility: The internal components of computers, such as logic gates and memory cells, are designed to work with binary signals. Using binary allows for direct compatibility and seamless integration with the underlying electronic hardware.
+
+  3. Reliability and noise resistance: Binary signals are more robust against noise and interference. The distinction between the binary digits 0 and 1 is easier to maintain in electronic circuits, reducing the chances of errors due to signal distortion.
+
+  4. Efficiency in storage: Binary numbers require fewer bits to represent the same value compared to decimal numbers. This efficiency in storage is crucial for memory and storage devices, as it allows for more information to be stored using the same amount of physical resources.
+
+  5. Logical operations: Binary numbers lend themselves well to logical operations like AND, OR, and NOT. These operations form the basis of computational operations in computers. Using binary simplifies the design and implementation of logical circuits and arithmetic units.
+
+  Although decimal numbers are more intuitive for human comprehension, they are not as efficient or compatible with the underlying electronic components and operations performed within computers. Binary numbers, while requiring a mental shift for human users, provide a highly efficient and reliable system for representing and manipulating information in computer systems.
+  </p>
+
+  <h4>Number System</h4>
+  <pre>
+    1.Binary - Two base number.
+    2.Octal - Eight base number.
+    2.Decimal - Ten base number.
+    2.Hexadecimal - Sixteen base number.
+  </pre>
+  
+  <h4>DIFFERENT BETWEEM INTERPRETER AND COMPILAR</h4>
+  A compiler translates the entire source code in a single run. 
+  An interpreter translates the entire source code line by line
+
+  <div>
+    <h3>#KEYWORDS</h3>
+    
+    1. High level Language > INTERPRETER(Work line by line) > Machine Language
+    2. Assembly language > Assembler > Machine Language
+    3. Mid level language ( C )
+    4. High level language(python, c++, c# etc)
+    5. compiler(GNU, CSS) - A compiler translates the entire source code in a single run
+    6. CodeBlocks(IDE-Integrated Development Environment)
+    
+  </div>
+</p>
+</div>
+</body>
+</html>
