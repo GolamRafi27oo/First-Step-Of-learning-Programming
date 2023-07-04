@@ -28,6 +28,52 @@
     2.Decimal - Ten base number.
     2.Hexadecimal - Sixteen base number.
   </pre>
+  <div>
+    <h4>Binary to Decimal</h4>
+    <pre>
+      <img style="width: 80%;" src="Image/asd.png" alt="">
+    </pre>
+    <h4>Decimal to Binary</h4>
+    <pre>
+      <img style="width: 80%;" src="Image/binary to decimal.jpg" alt="">
+
+</br>
+
+Other way - decimal 75
+75 >= 64 = 1
+75 - 64 = 11
+
+11 <= 32 = 0
+11 <= 16 = 0
+
+11 >= 8 = 1
+11 - 8 = 3
+
+3 >= 2 = 1
+3 - 2 = 0
+
+1 >= 1 = 1
+
+64 = 1 
+32 = 0 
+16 = 0 
+8 = 1 
+4 = 0 
+2 = 1 
+1 = 1
+
+75 = 1001011
+    </pre>
+  </div>
+
+  <h4>Decimal to Octal</h4>
+  <pre>
+    <img style="width: 80%;" src="Image/decimal-to-octal.png" alt="">
+  </pre>
+  <h4>Octal to Decimal</h4>
+  <pre>
+    <img style="width: 80%;" src="Image/octaltodecimal.png" alt="">
+  </pre>
   
   <h4>DIFFERENT BETWEEM INTERPRETER AND COMPILAR</h4>
   A compiler translates the entire source code in a single run. 
