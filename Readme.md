@@ -65,6 +65,15 @@ Other way - decimal 75
 75 = 1001011
     </pre>
   </div>
+
+  <h4>Decimal to Octal</h4>
+  <pre>
+    <img style="width: 80%;" src="Image/decimal-to-octal.png" alt="">
+  </pre>
+  <h4>Octal to Decimal</h4>
+  <pre>
+    <img style="width: 80%;" src="Image/octaltodecimal.png" alt="">
+  </pre>
   
   <h4>DIFFERENT BETWEEM INTERPRETER AND COMPILAR</h4>
   A compiler translates the entire source code in a single run. 
