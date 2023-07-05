@@ -197,9 +197,10 @@ convertToDecimalTOOCatal(100);
     #In this case computer can store 4bit.
     1111 + 1 = 10000 
     so, answer = 0000 = -0
+    <h3>#KEYWORDS</h3>
+    CodeBlocks,Environment setup,terminal,GCC,cmd 
   </pre>
-  <h3>#KEYWORDS</h3>
-  CodeBlocks,Environment setup,terminal,GCC,cmd 
+
 </div>
 
   
