@@ -159,8 +159,10 @@ convertToDecimalTOOCatal(100);
   <h1>Learn About Compiler and C/C++ </h1>
   <h4>Day-2 (Date: 7-5-2023)</h4>
   <p>Watch some videos read some documents about how compiler works</p>
-  <a href="Book-Files/COMPUTER-PROGRAMMING-TAMIM-SHAHRIAR-SHUBEEN.pdf"><h4>Book(Bangla) - COMPUTER PROGRAMMING TAMIM SHAHRIAR SHUBEEN (Language C)</h4></a>
-  <a href="Book-Files/Programming in C - Stephen G.Cochan.pdf"><h4>Book(English) - PROGRAMMING IN C - STEPHEN G.COCHAN (Language C)</h4></a>
+
+  <a href="Book-Files/COMPUTER-PROGRAMMING-TAMIM-SHAHRIAR-SHUBEEN.pdf">Book(Bangla) - COMPUTER PROGRAMMING TAMIM SHAHRIAR SHUBEEN (Language C)</a> 
+  </br>
+  <a href="Book-Files/Programming in C - Stephen G.Cochan.pdf">Book(English) - PROGRAMMING IN C - STEPHEN G.COCHAN (Language C)</a>
   
   <h4>MEMORY</h4>
   <pre>
@@ -181,7 +183,7 @@ convertToDecimalTOOCatal(100);
     1 -> Negative
     MSB = Most Significant Bit
     LSB = Most Significant Bit
-    <img style="width: 80%;" src="Image/sign_and_magnitude.png" alt="">
+    <img style="width: 80%;" src="Image/sign_and_magnitude.jpg" alt="">
     In this case in magnitude area first number is MSB and last number is LSB.
     <h4>PROBLEM OF SIGN BIT</h4>
     0 0 0 0 !== 1 0 0 0
