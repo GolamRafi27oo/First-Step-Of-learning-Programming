@@ -145,7 +145,7 @@ convertToDecimalTOOCatal(100);
   An interpreter translates the entire source code line by line
 
   <div>
-    <h3>#KEYWORDS</h3>
+  <h3>#KEYWORDS</h3>
     
     1. High level Language > INTERPRETER(Work line by line) > Machine Language
     2. Assembly language > Assembler > Machine Language
@@ -155,6 +155,52 @@ convertToDecimalTOOCatal(100);
     6. CodeBlocks(IDE-Integrated Development Environment)
     
   </div>
+<div>
+  <h1>Learn About Compiler and C/C++ </h1>
+  <h4>Day-2 (Date: 7-5-2023)</h4>
+  <p>Watch some videos read some documents about how compiler works</p>
+  <a href="Book-Files/COMPUTER-PROGRAMMING-TAMIM-SHAHRIAR-SHUBEEN.pdf"><h4>Book(Bangla) - COMPUTER PROGRAMMING TAMIM SHAHRIAR SHUBEEN (Language C)</h4></a>
+  <a href="Book-Files/Programming in C - Stephen G.Cochan.pdf"><h4>Book(English) - PROGRAMMING IN C - STEPHEN G.COCHAN (Language C)</h4></a>
+  
+  <h4>MEMORY</h4>
+  <pre>
+    Int (32bit) = {
+      2 byte = 2 x 8 bit
+             = 16 bit 
+    }
+    Int(64bit) = {
+      4 byte = 4 x 8 bit
+             = 32 bit 
+    }
+    32 bit maximum number = 2^n - 1
+                          = 2^32 - 1
+                          = 2 ^ 31
+    <h4>HOW TO STORE NEGATIVE NUMBER MEMORY</h4>
+    #Sign bit
+    0 -> Positive
+    1 -> Negative
+    MSB = Most Significant Bit
+    LSB = Most Significant Bit
+    <img style="width: 80%;" src="Image/sign_and_magnitude.png" alt="">
+    In this case in magnitude area first number is MSB and last number is LSB.
+    <h4>PROBLEM OF SIGN BIT</h4>
+    0 0 0 0 !== 1 0 0 0
+    +0 !== -0
+    #SOLVE
+    0011 = +3
+    => 1100(flip of 0011) = 1's complement
+    1's complement + 1
+    1100 + 1 = 1101 = -2 (2's complement)
+    0010 + 1 = +3 (2's complement) 
+    #In this case computer can store 4bit.
+    1111 + 1 = 10000 
+    so, answer = 0000 = -0
+  </pre>
+  <h3>#KEYWORDS</h3>
+  CodeBlocks,Environment setup,terminal,GCC,cmd 
+</div>
+
+  
 </p>
 </div>
 </body>
