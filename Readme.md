@@ -32,6 +32,21 @@
     <h4>Binary to Decimal</h4>
     <pre>
       <img style="width: 80%;" src="Image/asd.png" alt="">
+      </br>
+function convertToDecimal(x) {
+    let bin = 0;
+    let rem, i = 1, step = 1;
+    while (x != 0) {
+        rem = x % 10;
+        x = parseInt(x / 10);
+        bin = bin + rem * i;
+        i = i * 2;
+    }
+console.log(`Decimal:  ${bin}`);
+}
+// take input
+//let number = prompt('Enter a Binary number: ');
+convertToDecimal(101);
     </pre>
     <h4>Decimal to Binary</h4>
     <pre>
@@ -63,16 +78,66 @@ Other way - decimal 75
 1 = 1
 
 75 = 1001011
+
+function convertToBinary(x) {
+    let bin = 0;
+    let rem, i = 1, step = 1;
+    while (x != 0) {
+        rem = x % 2;
+        console.log(
+            `Step ${step++}: ${x}/2, Remainder = ${rem}, Quotient = ${parseInt(x/2)}`
+        );
+        x = parseInt(x / 2);
+        bin = bin + rem * i;
+        i = i * 10;
+    }
+    console.log(`Binary:  ${bin}`);
+}
+// take input
+//let number = prompt('Enter a decimal number: ');
+convertToBinary(5);
     </pre>
   </div>
 
   <h4>Decimal to Octal</h4>
   <pre>
     <img style="width: 80%;" src="Image/decimal-to-octal.png" alt="">
+    </br>
+function convertToCOtalTOdecimal(x) {
+    let bin = 0;
+    let rem, i = 1, step = 1;
+    while (x != 0) {
+        rem = x % 8;
+        x = parseInt(x / 8);
+        bin = bin + rem * i;
+        i = i * 10;    
+    }
+console.log(`Octal:  ${bin}`);
+}
+// take input
+//let number = prompt('Enter a Decimal number: ');
+convertToCOtalTOdecimal(8);
+
   </pre>
   <h4>Octal to Decimal</h4>
   <pre>
     <img style="width: 80%;" src="Image/octaltodecimal.png" alt="">
+    </br>
+function convertToDecimalTOOCatal(x) {
+    let bin = 0;
+    let rem, i = 1, step = 1;
+    while (x != 0) {
+        rem = x % 10;
+        x = parseInt(x / 10);
+        bin = bin + rem * i;
+        i = i * 8;    
+    }
+    console.log(`Decimal:  ${bin}`);
+}
+// take input
+//let number = prompt('Enter a Octal number: ');
+
+convertToDecimalTOOCatal(100);
   </pre>
   
   <h4>DIFFERENT BETWEEM INTERPRETER AND COMPILAR</h4>
