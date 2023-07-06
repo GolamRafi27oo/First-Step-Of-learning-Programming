@@ -177,7 +177,7 @@ convertToDecimalTOOCatal(100);
     32 bit maximum number = 2^n - 1
                           = 2^31 - 1
                           
-    <h4>HOW TO STORE NEGATIVE NUMBER MEMORY</h4>
+  <h4>HOW TO STORE NEGATIVE NUMBER MEMORY</h4>
     #Sign bit
     0 -> Positive
     1 -> Negative
@@ -211,14 +211,14 @@ convertToDecimalTOOCatal(100);
 The result is 1 if both bits are 1; otherwise, it is 0.
 
    Example:
-   ```
+    ```
    10101010 &
    11001100
    ---------
    10001000
    ```
 
-2. Bitwise OR (|): Performs a logical OR operation on each corresponding pair of bits. 
+3. Bitwise OR (|): Performs a logical OR operation on each corresponding pair of bits. 
 The result is 1 if either of the bits is 1; otherwise, it is 0.
 
    Example:
@@ -229,7 +229,7 @@ The result is 1 if either of the bits is 1; otherwise, it is 0.
    11101110
    ```
 
-3. Bitwise XOR (^): Performs a logical XOR (exclusive OR) operation on each corresponding pair of bits. 
+4. Bitwise XOR (^): Performs a logical XOR (exclusive OR) operation on each corresponding pair of bits. 
 The result is 1 if the bits are different; otherwise, it is 0.
 
    Example:
@@ -240,7 +240,7 @@ The result is 1 if the bits are different; otherwise, it is 0.
    01100110
    ```
 
-4. Bitwise NOT (~): Flips the bits of a binary number. The result is the one's complement of the number.
+5. Bitwise NOT (~): Flips the bits of a binary number. The result is the one's complement of the number.
 
    Example:
    ```
@@ -249,7 +249,7 @@ The result is 1 if the bits are different; otherwise, it is 0.
    01010101
    ```
 
-5. Bitwise left shift (<<): Shifts the bits of a number to the left by a specified number of positions. 
+6. Bitwise left shift (<<): Shifts the bits of a number to the left by a specified number of positions. 
 This operation effectively multiplies the number by 2 raised to the power of the shift amount.
 
    Example:
@@ -259,7 +259,7 @@ This operation effectively multiplies the number by 2 raised to the power of the
    1010101000
    ```
 
-6. Bitwise right shift (>>): Shifts the bits of a number to the right by a specified number of positions. 
+7. Bitwise right shift (>>): Shifts the bits of a number to the right by a specified number of positions. 
 This operation effectively divides the number by 2 raised to the power of the shift amount.
 
    Example:
