@@ -175,8 +175,8 @@ convertToDecimalTOOCatal(100);
              = 32 bit 
     }
     32 bit maximum number = 2^n - 1
-                          = 2^32 - 1
-                          = 2 ^ 31
+                          = 2^31 - 1
+                          
     <h4>HOW TO STORE NEGATIVE NUMBER MEMORY</h4>
     #Sign bit
     0 -> Positive
@@ -200,8 +200,8 @@ convertToDecimalTOOCatal(100);
     <h3>#KEYWORDS</h3>
     CodeBlocks,Environment setup,terminal,GCC,cmd 
   </pre>
-
 </div>
+
 
   
 </p>
