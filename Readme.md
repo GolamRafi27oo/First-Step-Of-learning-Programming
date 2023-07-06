@@ -276,15 +276,17 @@ performance in certain scenarios.
   </pre>
   <h3>Example of bit off or on test</h3>
   <pre>
+    
     let x,y,z;
     x = parseInt(prompt("Inter number ", y));
     bit = parseInt(prompt("Inter bit number ", z));
 
-  if(x & (1 << bit)){
-    console.log(`${bit} nd bit is ON`);
-  }else{
-    console.log(`${bit} nd bit is OFF`);
-  }
+    if(x & (1 << bit)){
+      console.log(`${bit} nd bit is ON`);
+    }else{
+      console.log(`${bit} nd bit is OFF`);
+    }
+    
   </pre>
 
 </div>
