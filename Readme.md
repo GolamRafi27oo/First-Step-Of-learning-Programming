@@ -157,7 +157,7 @@ convertToDecimalTOOCatal(100);
   </div>
 <div>
   <h1>Learn About Compiler and C/C++ </h1>
-  <h4>Day-2 (Date: 7-5-2023)</h4>
+  <h4>Day-2 (Date: 7-6-2023)</h4>
   <p>Watch some videos read some documents about how compiler works</p>
 
   <a href="Book-Files/COMPUTER-PROGRAMMING-TAMIM-SHAHRIAR-SHUBEEN.pdf">Book(Bangla) - COMPUTER PROGRAMMING TAMIM SHAHRIAR SHUBEEN (Language C)</a> 
