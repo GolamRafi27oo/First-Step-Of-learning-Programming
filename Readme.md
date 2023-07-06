@@ -207,7 +207,8 @@ convertToDecimalTOOCatal(100);
   <pre>
     Bit manipulation is a technique used in computer programming to manipulate individual bits within a binary representation of data. It involves performing logical and arithmetic operations at the bit level, allowing developers to perform various tasks efficiently and compactly. Here are some commonly used bit manipulation operations:
 
-1. Bitwise AND (&): Performs a logical AND operation on each corresponding pair of bits. The result is 1 if both bits are 1; otherwise, it is 0.
+1. Bitwise AND (&): Performs a logical AND operation on each corresponding pair of bits. 
+The result is 1 if both bits are 1; otherwise, it is 0.
 
    Example:
    ```
@@ -217,7 +218,8 @@ convertToDecimalTOOCatal(100);
    10001000
    ```
 
-2. Bitwise OR (|): Performs a logical OR operation on each corresponding pair of bits. The result is 1 if either of the bits is 1; otherwise, it is 0.
+2. Bitwise OR (|): Performs a logical OR operation on each corresponding pair of bits. 
+The result is 1 if either of the bits is 1; otherwise, it is 0.
 
    Example:
    ```
@@ -227,7 +229,8 @@ convertToDecimalTOOCatal(100);
    11101110
    ```
 
-3. Bitwise XOR (^): Performs a logical XOR (exclusive OR) operation on each corresponding pair of bits. The result is 1 if the bits are different; otherwise, it is 0.
+3. Bitwise XOR (^): Performs a logical XOR (exclusive OR) operation on each corresponding pair of bits. 
+The result is 1 if the bits are different; otherwise, it is 0.
 
    Example:
    ```
