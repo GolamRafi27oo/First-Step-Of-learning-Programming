@@ -177,7 +177,7 @@ convertToDecimalTOOCatal(100);
     32 bit maximum number = 2^n - 1
                           = 2^31 - 1
                           
-    <h4>HOW TO STORE NEGATIVE NUMBER MEMORY</h4>
+  <h4>HOW TO STORE NEGATIVE NUMBER MEMORY</h4>
     #Sign bit
     0 -> Positive
     1 -> Negative
