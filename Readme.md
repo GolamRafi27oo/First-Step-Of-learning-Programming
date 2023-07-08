@@ -175,9 +175,8 @@ convertToDecimalTOOCatal(100);
              = 32 bit 
     }
     32 bit maximum number = 2^n - 1
-                          = 2^31 - 1
-                          
-<h4>HOW TO STORE NEGATIVE AND POSITIVE NUMBER IN MEMORY</h4>
+                          = 2^31 - 1                    
+  <h4>HOW TO STORE NEGATIVE AND POSITIVE NUMBER IN MEMORY</h4>
     #Sign bit
     0 -> Positive
     1 -> Negative
@@ -273,10 +272,9 @@ Bit manipulation is often used in various applications, such as optimizing code,
 and working with low-level operations like device drivers, network protocols, and cryptography algorithms. 
 It allows for compact representation of data and efficient bitwise operations that can significantly improve 
 performance in certain scenarios.
-  </pre>
-  <h3>Example of bit off or on test</h3>
+
+<h3>Example of bit off or on test</h3>
   <pre>
-    
     let x,y,z;
     x = parseInt(prompt("Inter number ", y));
     bit = parseInt(prompt("Inter bit number ", z));
@@ -285,13 +283,52 @@ performance in certain scenarios.
       console.log(`${bit} nd bit is ON`);
     }else{
       console.log(`${bit} nd bit is OFF`);
-    }
-    
+    }    
   </pre>
-
+</pre>
 </div>
 
-  
+
+<div>
+  <h1>IF ELSE LOOP</h1>
+  <h4>Day-3 (Date: 7-8-2023)</h4>
+  <p>
+    1.for
+    2.while
+    3.Do-while
+  </p>
+  <h3>IF ELSE</h3>
+  <pre>
+    if (test expression) {
+      // run code if test expression is true
+    }
+    else if(test expression){
+      // run code if test expression is true
+    }
+    else {
+      // run code if test expression is false
+    }
+  </pre>
+  <h3>FOR</h3>
+  <pre>
+    for (initializationStatement; testExpression; updateStatement){
+    // statements inside the body of loop
+    }
+  </pre>
+  <h3>WHILE</h3>
+  <pre>
+    while(condition) {
+      statement(s);
+   }
+  </pre>
+  <h3>DO-WHILE</h3>
+  <pre>
+    do {
+      // the body of the loop
+    }
+    while (testExpression);
+  </pre>
+</div>
 </p>
 </div>
 </body>
