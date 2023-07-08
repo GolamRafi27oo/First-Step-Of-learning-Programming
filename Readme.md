@@ -208,84 +208,84 @@ convertToDecimalTOOCatal(100);
     performing logical and arithmetic operations at the bit level, allowing developers to perform various tasks efficiently and compactly. Here are some 
     commonly used bit manipulation operations:
 
-    1. Bitwise AND (&): Performs a logical AND operation on each corresponding pair of bits. 
-    The result is 1 if both bits are 1; otherwise, it is 0.
+      1. Bitwise AND (&): Performs a logical AND operation on each corresponding pair of bits. 
+      The result is 1 if both bits are 1; otherwise, it is 0.
 
-      Example:
-      ```
-      10101010 &
-      11001100
-      ---------
-      10001000
-      ```
+        Example:
+        ```
+        10101010 &
+        11001100
+        ---------
+        10001000
+        ```
 
-    3. Bitwise OR (|): Performs a logical OR operation on each corresponding pair of bits. 
-    The result is 1 if either of the bits is 1; otherwise, it is 0.
+      3. Bitwise OR (|): Performs a logical OR operation on each corresponding pair of bits. 
+      The result is 1 if either of the bits is 1; otherwise, it is 0.
 
-      Example:
-      ```
-      10101010 |
-      11001100
-      ---------
-      11101110
-      ```
+        Example:
+        ```
+        10101010 |
+        11001100
+        ---------
+        11101110
+        ```
 
-    4. Bitwise XOR (^): Performs a logical XOR (exclusive OR) operation on each corresponding pair of bits. 
-    The result is 1 if the bits are different; otherwise, it is 0.
+      4. Bitwise XOR (^): Performs a logical XOR (exclusive OR) operation on each corresponding pair of bits. 
+      The result is 1 if the bits are different; otherwise, it is 0.
 
-      Example:
-      ```
-      10101010 ^
-      11001100
-      ---------
-      01100110
-      ```
+        Example:
+        ```
+        10101010 ^
+        11001100
+        ---------
+        01100110
+        ```
 
-    5. Bitwise NOT (~): Flips the bits of a binary number. The result is the one's complement of the number.
+      5. Bitwise NOT (~): Flips the bits of a binary number. The result is the one's complement of the number.
 
-      Example:
-      ```
-      ~10101010
-      ---------
-      01010101
-      ```
+        Example:
+        ```
+        ~10101010
+        ---------
+        01010101
+        ```
 
-    6. Bitwise left shift (<<): Shifts the bits of a number to the left by a specified number of positions. 
-    This operation effectively multiplies the number by 2 raised to the power of the shift amount.
+      6. Bitwise left shift (<<): Shifts the bits of a number to the left by a specified number of positions. 
+      This operation effectively multiplies the number by 2 raised to the power of the shift amount.
 
-      Example:
-      ```
-      10101010 << 2
-      -------------
-      1010101000
-      ```
+        Example:
+        ```
+        10101010 << 2
+        -------------
+        1010101000
+        ```
 
-    7. Bitwise right shift (>>): Shifts the bits of a number to the right by a specified number of positions. 
-    This operation effectively divides the number by 2 raised to the power of the shift amount.
+      7. Bitwise right shift (>>): Shifts the bits of a number to the right by a specified number of positions. 
+      This operation effectively divides the number by 2 raised to the power of the shift amount.
 
-      Example:
-      ```
-      10101010 >> 2
-      -------------
-      00101010
-      ```
+        Example:
+        ```
+        10101010 >> 2
+        -------------
+        00101010
+        ```
 
     Bit manipulation is often used in various applications, such as optimizing code, implementing data structures, 
     and working with low-level operations like device drivers, network protocols, and cryptography algorithms. 
     It allows for compact representation of data and efficient bitwise operations that can significantly improve 
     performance in certain scenarios.
-
-<h3>Example of bit off or on test</h3>
-  let x,y,z;
-  x = parseInt(prompt("Inter number ", y));
-  bit = parseInt(prompt("Inter bit number ", z));
-
-  if(x & (1 << bit)){
-    console.log(`${bit} nd bit is ON`);
-  }else{
-    console.log(`${bit} nd bit is OFF`);
-  }    
-</pre>
+    
+    #Example of bit off or on test
+      let x,y,z;
+      x = parseInt(prompt("Inter number ", y));
+      bit = parseInt(prompt("Inter bit number ", z));
+      
+      if(x & (1 << bit)){
+        console.log(`${bit} nd bit is ON`);
+      }else{
+        console.log(`${bit} nd bit is OFF`);
+      }    
+  </pre>
 </div>
 
 <div>
