@@ -201,7 +201,7 @@ convertToDecimalTOOCatal(100);
   </pre>
 </div>
 <div>
-  <h1>Bit Manupulaion</h1>
+  <h1>Bit Manipulaion</h1>
   <h4>Day-2 (Date: 7-5-2023)</h4>
   <pre>
     Bit manipulation is a technique used in computer programming to manipulate individual bits within a binary representation of data. It involves        
@@ -291,11 +291,6 @@ convertToDecimalTOOCatal(100);
 <div>
   <h1>IF ELSE LOOP</h1>
   <h4>Day-3 (Date: 7-8-2023)</h4>
-  <p>
-    1.for
-    2.while
-    3.Do-while
-  </p>
   <h3>IF ELSE</h3>
   <pre>
     if (test expression) {
@@ -326,6 +321,114 @@ convertToDecimalTOOCatal(100);
       // the body of the loop
     }
     while (testExpression);
+  </pre>
+</div>
+
+<div>
+  <h1>NESTED LOOP</h1>
+  <h4>Day-4 (Date: 7-9-2023)</h4>
+  <h3>Left Triangle Pattern </h3>
+  <pre>
+    
+    *
+    * *
+    * * *
+
+    #js
+    let n=3
+    let string = "";
+    for(let l = 0; l < n; l++){
+      for(let i = 0; i <= l ; i++){
+        string += "* "
+      }
+      string += "\n"; 
+    }
+    console.log(string);
+
+    #C
+
+    #include <stdio.h>
+
+      int main() {
+      int n=3;
+      
+      for(int l = 0; l < n; l++){
+          for(int i = 0;i <= l; i++){
+              printf("* ");
+          }
+          printf("\n");
+        }
+        return 0;
+      }
+  </pre>
+  <h3>Reverse Left Triangle Pattern</h3>
+  <pre>
+
+    * * *
+    * *
+    *
+
+    #JS 
+    let n = 3;
+    let string = "";
+    for (let i = n; i >= 1; i--) {
+      for (let j = 0; j < i; j++) {
+        string += "* ";
+      }
+      string += "\n";
+    }
+    console.log(string);
+
+    #C
+    #include <stdio.h>
+      int main() {
+      int n=3;
+      
+      for(int l = n; l >= 1; l--){
+          for(int i = 0;i < l; i++){
+            printf("* ");
+          }
+          printf("\n");
+        }
+        return 0;
+      }
+  </pre>
+  <h3>Right Triangle Pattern</h3>
+  <pre>
+
+    * * *
+      * *
+        *
+
+    #JS 
+    let n = 3;
+    let string = "";
+    for (let i = 0; i < n; i++) {
+      for (let j = 0; j < i; j++) {
+        string += " ";
+      }
+      for (let x = 0; x < n-i; x++) {
+        string += "*";
+      }
+      string += "\n";
+    }
+    console.log(string);
+
+    #C
+    #include <stdio.h>
+      int main() {
+      int n=3;
+      for(int l = 0; l < n; l++){
+          for(int i = 0;i < l; i++){
+            printf(" ");
+          }
+          for(int star = 0; star < n-l; star++){
+              printf("*");
+          }
+          printf("\n");
+        }
+        return 0;
+      }
   </pre>
 </div>
 </p>
