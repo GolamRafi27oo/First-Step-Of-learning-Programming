@@ -431,6 +431,171 @@ convertToDecimalTOOCatal(100);
       }
   </pre>
 </div>
+
+<div>
+  <h1>Switch-Statement and Array</h1>
+  <h4>Day-4 (Date: 7-11-2023)</h4>
+  <h3>Structure</h3>
+  <pre>
+    switch(variable){
+      case value 1;
+      //statement
+      break;
+      case value 2;
+      //statement
+      break;
+
+      #Example
+      console.log("1.User login\n 2.User list\n 3.Sign up\n");
+      let op;
+      let answer = parseInt(prompt("which option to choese? ", op));
+
+      switch(answer){
+          case 1:
+              console.log("User login successful\n");
+              break;
+          case 2:
+              console.log("User list shown\n");
+              break;
+          case 3:
+              console.log("Sign up done\n");
+              break;
+          default:
+              console.log("Inter number 1 to 3\n");
+      }
+    }
+  </pre>
+  <h3>Array</h3>
+  In computer programming, an array is a data structure that stores a fixed-size sequence of elements of the same type. 
+  It is a collection of variables, each identified by an index or a key, that can be accessed individually. 
+  The elements in an array are typically stored in contiguous memory locations, which allows for efficient access and manipulation of the data.
+
+  Arrays are commonly used to store collections of related data, such as a list of numbers, strings, or objects. 
+  The index of an array starts from zero, so the first element is accessed using index 0, the second element with index 1, and so on.
+  
+  Arrays can be one-dimensional, two-dimensional, or multi-dimensional depending on the number of indices needed to access the elements. 
+  A one-dimensional array is like a simple list, while a two-dimensional array is like a table with rows and columns. 
+  Multi-dimensional arrays can have more than two dimensions and are used to represent complex data structures.
+  
+  Arrays provide an efficient way to store and retrieve large amounts of data and are a fundamental concept in many programming languages. 
+  They offer benefits such as random access to elements, constant time access (assuming the index is known), and support for various operations 
+  like sorting, searching, and iterating over the elements.
+  <br>
+  Data type array name[size] = [Elements]
+
+  <img style="width: 80%;" src="Image/arrays.jpg" alt="">
+  <pre>
+    #Example of input array
+    #include <stdio.h>
+     
+      int main() {
+        printf("Input array index: ");
+        int i=0, n;
+
+        scanf("%d", &n);
+        int ara[n];
+
+        printf("Input array: ");
+
+        for(int idx = 0; idx < n; idx++){
+          scanf("%d", &ara[idx]);
+        }
+        printf("Displaying integers: ");
+
+        for(int idx = 0; idx < n; idx++){
+          printf("%d,", ara[idx]);
+        } 
+        return 0;
+      }
+  </pre>
+  <h3>Brace Initializer</h3>
+  The brace initializer, also known as initializer list syntax, is a way to initialize the elements of an array in many programming languages, 
+  including C++, Java, and JavaScript. It allows you to provide a list of values enclosed in braces { }, which are used to populate the array with the specified values.
+  <br>
+  Here's an example in C++:
+  <pre>
+    int myArray[] = {1, 2, 3, 4, 5};
+  </pre>
+  In this example, we declare an integer array called `myArray` and initialize it with the values 1, 2, 3, 4, and 5 using the brace initializer. 
+  The number of elements in the array is determined by the number of values provided within the braces.
+  The brace initializer can also be used for multi-dimensional arrays. 
+  <br>
+  Here's an example of a 2D array:
+
+  <pre>
+    int myArray2D[][3] = {{1, 2, 3}, {4, 5, 6}};
+  </pre>
+  In this case, we declare a 2D integer array called `myArray2D` with two rows and three columns. We use the brace initializer to provide the values for each row. 
+  The inner braces are used to specify the values for each row, and the outer braces encompass the entire initializer list.
+  
+  The brace initializer syntax can be handy when you want to quickly initialize an array with a known set of values. 
+  It eliminates the need for individual assignments to each element of the array and provides a concise and readable way to 
+  initialize the array elements directly within the declaration statement.
+
+  # If you specify the values for array it will replace the garbage value into 0.
+  #Example
+  <pre>
+    #include <stdio.h>
+     
+      int main() {
+        int ara[10]= {1,2,3,4,5};
+        int value = sizeof(ara)/ sizeof(ara[0]);
+        
+        printf("Displaying integers: ");
+        for(int idx = 0; idx < value; idx++){
+          printf("%d ", ara[idx]);
+        } 
+        return 0;
+      }
+
+  Or use memset,
+
+  #include <stdio.h>
+    #include <cstring>
+    
+     int main() {
+       printf("Input array index: ");
+       int MXN = 100;
+       int ara[MXN];
+       
+       memset(ara, 0, sizeof ara);
+       
+       printf("Displaying integers: ");
+       for(int i = 0; i < MXN; i++){
+          printf("%d ", ara[i]);
+       } 
+       
+       return 0;
+     }
+
+     #note memsent work on three value.
+     1. memset(arrayName, 0, sizeof arrayName);
+     2. memset(arrayName, -1, sizeof arrayName);
+     3. memset(arrayName, 0x3f3f3f3f, sizeof arrayName); (Infinity Number = 0x3f3f3f3f);
+
+  </pre> 
+  <h3>Memeset Library</h3>
+  The `memset` function is a standard C library function that is used to set a block of memory with a specified value. 
+  It takes three arguments: a pointer to the memory block, the value to be set, and the number of bytes to set.
+
+  The `memset` function works well when you need to set memory blocks with values such as 0 or -1. 
+  However, it may not work as expected when you try to set memory blocks with values other than 0 or -1.
+
+  The reason for this limitation is that `memset` operates on a byte level and sets each byte of the memory block to the specified value. 
+  If the desired value is not representable in a single byte, the behavior of `memset` becomes undefined.
+  For example, consider setting a memory block with the value 255 (0xFF) using `memset`:
+  <pre>
+    int myArray[10];
+    memset(myArray, 255, sizeof(myArray));
+  </pre>
+  In this case, since the value 255 cannot be represented by a single byte, `memset` will set each byte of the memory block to 255 independently. 
+  This can result in unexpected behavior, as the resulting value in each element of `myArray` may not be 255.
+
+  To initialize an array with a specific value other than 0 or -1, you can use a loop to individually set each element of the array to the desired value. 
+  Alternatively, you can use language-specific features or library functions that provide array initialization mechanisms, 
+  such as brace initialization in C++ or `Arrays.fill()` method in Java, to achieve the desired result reliably.
+</div>
+
 </p>
 </div>
 </body>
