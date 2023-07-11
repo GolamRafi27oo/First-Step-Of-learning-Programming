@@ -510,12 +510,14 @@ convertToDecimalTOOCatal(100);
   </pre>
   <h3>Brace Initializer</h3>
   The brace initializer, also known as initializer list syntax, is a way to initialize the elements of an array in many programming languages, 
-  including C++, Java, and JavaScript. It allows you to provide a list of values enclosed in braces { }, which are used to populate the array with the specified values.
+  including C++, Java, and JavaScript. It allows you to provide a list of values enclosed in braces { }, which are used to populate the array with the    
+  specified values.
   <br>
   Here's an example in C++:
   <pre>
     int myArray[] = {1, 2, 3, 4, 5};
   </pre>
+
   In this example, we declare an integer array called `myArray` and initialize it with the values 1, 2, 3, 4, and 5 using the brace initializer. 
   The number of elements in the array is determined by the number of values provided within the braces.
   The brace initializer can also be used for multi-dimensional arrays. 
