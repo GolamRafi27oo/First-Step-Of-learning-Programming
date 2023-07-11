@@ -568,7 +568,7 @@ convertToDecimalTOOCatal(100);
        return 0;
      }
 
-     #note memsent work on three value.
+     #note memsent works on three value.
      1. memset(arrayName, 0, sizeof arrayName);
      2. memset(arrayName, -1, sizeof arrayName);
      3. memset(arrayName, 0x3f3f3f3f, sizeof arrayName); (Infinity Number = 0x3f3f3f3f);
