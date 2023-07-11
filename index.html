@@ -532,7 +532,7 @@ convertToDecimalTOOCatal(100);
   It eliminates the need for individual assignments to each element of the array and provides a concise and readable way to 
   initialize the array elements directly within the declaration statement.
 
-  # If you specify the values for array it will replace the garbage value into 0.
+  # If you specify the value for the array index it will replace the garbage value into 0.
   #Example
   <pre>
     #include <stdio.h>
