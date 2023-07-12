@@ -433,7 +433,7 @@ convertToDecimalTOOCatal(100);
 </div>
 
 <div>
-  <h1>Switch-Statement and Array</h1>
+  <h1>SWITCH-STATEMENT AND ARRAY</h1>
   <h4>Day-4 (Date: 7-11-2023)</h4>
   <h3>Structure</h3>
   <pre>
@@ -595,6 +595,230 @@ convertToDecimalTOOCatal(100);
   To initialize an array with a specific value other than 0 or -1, you can use a loop to individually set each element of the array to the desired value. 
   Alternatively, you can use language-specific features or library functions that provide array initialization mechanisms, 
   such as brace initialization in C++ or `Arrays.fill()` method in Java, to achieve the desired result reliably.
+</div>
+
+<div>
+  <h1>PRECISION LOSS</h1>
+  <h4>Day-5 (Date: 7-12-2023)</h4>
+  Precision loss in programming refers to the loss of precision or accuracy in numerical calculations due to limitations in the representation of numbers in computer systems. 
+  Computers use finite binary representations to store and manipulate numbers, which can lead to rounding errors and loss of precision.
+
+  One common example of precision loss is observed when working with floating-point numbers. Floating-point numbers are represented as a combination of a sign, 
+  a significand or mantissa, and an exponent. However, the binary representation of floating-point numbers cannot precisely represent all decimal numbers. As a result, 
+  operations involving floating-point numbers may introduce small errors due to rounding or truncation.
+
+  For example, consider the following code snippet in Python:
+  
+  <pre>
+    x = 0.1
+    y = 0.2
+    z = x + y
+    print(z)
+  </pre>
+
+  The expected result of this addition operation would be 0.3. However, due to precision loss in floating-point arithmetic, the actual result may be slightly different, 
+  such as 0.30000000000000004. This small discrepancy is a result of the limited precision of the binary representation used to store the numbers.
+
+  Precision loss can also occur in other areas of programming, such as when performing calculations involving large numbers or when working with algorithms that involve multiple operations. 
+  The cumulative effect of these small errors can lead to significant discrepancies in the final results.
+
+  To mitigate precision loss, programming languages and libraries provide various techniques and functions for handling numerical computations with improved precision. 
+  For instance, some programming languages offer decimal data types that provide arbitrary precision arithmetic, 
+  allowing calculations with high precision at the cost of increased memory usage and computational overhead.
+
+  It is important for programmers to be aware of precision loss and consider it when designing algorithms or performing critical calculations where accuracy is crucial. 
+  Additionally, understanding the limitations and properties of different data types and their representations can help minimize precision loss in programming.
+
+  <h4>HOW TO PREVENT PRECISION LOSS</h4>
+  <pre>
+    #include <stdio.h>
+      int main() {
+        const double eps = 1e-6;
+        double a,b, sum;
+        a = 2.99999999999;
+        b = 3.00000000001;
+        
+        sum = a-b;
+        if(sum < eps){
+            printf("a and b are same");
+        }
+        return 0;
+      }
+  </pre>
+
+  <h4>INSERT IN ARRAY</h4>
+  <pre>
+    #include <stdio.h>
+ 
+      int main()
+      {
+        int array[100], position, c, n, value;
+        printf("array size ");
+        scanf("%d", &n);
+      
+        printf("Enter %d elements ", n);
+      
+        for (c = 0; c < n; c++){
+         scanf("%d", &array[c]);
+        }
+        printf("Insert index ");
+        scanf("%d", &position);
+      
+        printf("Enter value ");
+        scanf("%d", &value);
+      
+        for (c = n - 1; c >= position - 1; c--){
+         array[c+1] = array[c];
+        }
+        array[position-1] = value;
+      
+        printf("Resultant array is ");
+      
+        for (c = 0; c <= n; c++){
+         printf("%d ", array[c]);
+        }
+        return 0;
+      }
+  </pre>
+
+  <h4>REMOVE FROM ARRAY</h4>
+  <pre>
+    #include <stdio.h>
+ 
+      int main()
+      {
+         int array[100], position, c, n, value;
+         printf("array size: ");
+         scanf("%d", &n);
+       
+         printf("Enter %d elements ", n);
+       
+         for (c = 0; c < n; c++)
+            scanf("%d", &array[c]);
+       
+         printf("remove index ");
+         scanf("%d", &position);
+      
+         for (c = position -1 ; c < n - 1 ; c++){
+             array[c] = array[c+1];
+         }
+         n--;
+         printf("Now array is ");
+       
+         for (c = 0; c <= n-1; c++){
+              printf("%d ", array[c]);
+         }
+         return 0;
+      }
+  </pre>
+
+  <h4>FIND FROM ARRAY</h4>
+  <pre>
+    #include <stdio.h>
+      int main(){
+        int find, flag = 0, ara[] = {100, 23, 60, 1, 45};
+        int n = sizeof(ara)/sizeof ara[0];
+        printf("%d\n", n);
+      
+        printf("Find number: ");
+        scanf("%d", &find);
+        
+        for(int i = 0; i < n; i++){
+            if(ara[i] == find){
+                printf("found in index: %d\n", i);
+                break;
+            }
+            flag++;
+        }
+        if(flag == n){
+            printf("Not Found");
+        }
+        return 0;
+    }
+  </pre>
+  <h4>MULTIDIMENSIONAL ARRAY</h4>
+  A multidimensional array is a data structure that consists of multiple arrays, where each array is called a dimension. 
+  It extends the concept of a one-dimensional array to multiple dimensions, typically two or three, although it can have 
+  more dimensions if needed. This allows you to represent data in a tabular or matrix-like format.
+
+  In a one-dimensional array, elements are arranged in a linear sequence, whereas in a multidimensional array, elements 
+  are organized in a grid-like structure, with rows and columns (and potentially additional dimensions). This structure 
+  enables you to access and manipulate data using multiple indices or subscripts.
+
+  For example, a two-dimensional array can be thought of as a table or a grid, where each element is identified by its row 
+  and column position. To access a specific element, you provide two indices: one for the row and one for the column.
+  <img style="width: 80%;" src="Image/multidimensional-array.webp" alt="">
+  In C, a multidimensional array is a data structure that allows you to store elements in multiple dimensions. It is essentially an array of arrays.
+
+  To declare a multidimensional array in C, you specify the type of the elements and the size of each dimension. The general syntax is as follows:
+  <pre>
+    datatype array_name[size1][size2]...[sizeN];
+  </pre>
+
+  Here, `datatype` represents the type of data that will be stored in the array, `array_name` is the name you choose for the array, 
+  and `size1`, `size2`, ..., `sizeN` are the sizes or lengths of each dimension.
+
+  For example, to create a 2D array of integers with 3 rows and 4 columns, you would write:
+  <pre>
+    int matrix[3][4];
+  </pre>
+
+  This creates a multidimensional array named `matrix` with 3 rows and 4 columns. Each element in the array can be accessed using two indices: 
+  one for the row and one for the column. The indices range from 0 to the size of each dimension minus 1.
+
+  To initialize the elements of a multidimensional array, you can use nested loops. For example, to assign values to the elements of a 2D array:
+  <pre>
+    int matrix[3][4];
+
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 4; j++) {
+            matrix[i][j] = i + j;
+        }
+    }
+  </pre>
+
+  This code assigns the sum of the row index `i` and the column index `j` to each element in the `matrix` array.
+
+  You can also have multidimensional arrays with more than two dimensions by extending the syntax. For example, a 
+  3D array with dimensions 3x4x5 can be declared as:
+  <pre>
+    int cube[3][4][5];
+  </pre>
+
+  Multidimensional arrays in C provide a way to represent and work with structured data that involves multiple dimensions or axes, 
+  such as matrices, grids, or cubes. They are commonly used in various applications, including scientific computing, image processing, and simulations.
+  
+  <h4>POINTER</h4>
+  In C, a pointer is a variable that stores the memory address of another variable. It provides a way to indirectly access and manipulate the data stored in memory. 
+  Pointers play a crucial role in C programming, as they allow for dynamic memory allocation, passing parameters by reference, and working with complex data structures.
+
+  To declare a pointer in C, you use the `*` (asterisk) symbol. The general syntax for declaring a pointer is as follows:
+  <pre>
+    datatype *pointer_name;
+  </pre>
+
+  Here, `datatype` represents the type of data that the pointer points to, and `pointer_name` is the name of the pointer variable.
+  To initialize a pointer, you assign it the memory address of a variable using the `&` (address-of) operator. For example:
+  <pre>
+    int num = 42;
+    int *ptr = &num;
+  </pre>
+
+
+  In this code, `ptr` is a pointer to an integer (`int`). It is initialized with the memory address of the `num` variable using the `&` operator.
+  To access the value pointed to by a pointer, you use the `*` (dereference) operator. For example:
+  <pre>
+    printf("%d", *ptr);
+  </pre>
+
+  This code prints the value stored at the memory address pointed to by `ptr`, which is the value of `num`.
+
+  Pointers are often used in conjunction with dynamic memory allocation to allocate memory for data at runtime using functions 
+  like `malloc()` and `free()`. They can also be used to pass parameters by reference to functions, allowing the function to modify the original value of a variable.
+
+  It's important to note that working with pointers requires careful memory management to avoid issues like memory leaks and accessing invalid memory locations. 
+  Additionally, uninitialized or improperly used pointers can lead to undefined behavior or crashes. Therefore, understanding and using pointers correctly is 
+  essential for effective C programming.
 </div>
 </p>
 </div>
