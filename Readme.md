@@ -834,6 +834,179 @@ convertToDecimalTOOCatal(100);
   correctly is 
   essential for effective C programming.
 </div>
+
+<div>
+  <h1>STRING</h1>
+  <h4>Day-6 (Date: 7-13-2023)</h4>
+  <br>
+  In the C programming language, a string is a sequence of characters stored in contiguous memory locations. 
+  It is represented as an array of characters terminated by a null character ('\0').
+
+  Here are some key points about strings in C:
+
+  1. Declaration: To declare a string in C, you use the `char` data type followed by the array name and its size. For example:
+   <pre>
+    char str[10];
+   </pre>
+   This declares a string named `str` that can hold up to 10 characters (9 characters plus the null terminator).
+
+  2. Initialization: You can initialize a string during declaration or assign a value to it later using string literals. 
+  String literals are sequences of characters enclosed in double quotes. For example:
+   <pre>
+    char str[6] = "Hello";
+   </pre>
+   This initializes the `str` array with the characters 'H', 'e', 'l', 'l', 'o', and the null terminator.
+
+  3. Null terminator: In C, strings are null-terminated, which means that the last character of the string is always the null character ('\0'). 
+  It marks the end of the string and is used to determine the length of the string.
+
+  4. Accessing characters: You can access individual characters of a string using array indexing. The first character of the string is at index 0. For example:
+   <pre>
+    char ch = str[0];  // Accesses the first character of the string
+   </pre>
+  5. Manipulating strings: C provides a library of functions for manipulating strings, such as concatenation, copying, length calculation, 
+  comparison, and more. These functions are defined in the `<string.h>` header file and have names prefixed with `str`. For example:
+   <pre>
+    #include <string.h>
+
+    char str1[10] = "Hello";
+    char str2[10] = "World";
+   
+    strcat(str1, str2);  // Concatenates str2 to str1
+    printf("%s\n", str1);  // Prints "HelloWorld"
+   </pre>
+  6. Input and output: Strings can be read from the user or written to the console using functions like `scanf` and `printf` from the `<stdio.h>` header file.
+
+  It's important to note that C does not have a built-in string data type like some other programming languages. Instead, strings 
+  are represented as arrays of characters, and various functions and conventions are used to work with them effectively.
+  
+  #Example Of String
+  <pre>
+    #input sentence
+    #include <stdio.h>
+      int main(){
+          char str[20];
+          //scanf("%[^\n]s", str);
+          fgets(str,20, stdin);
+          printf("%s", str);
+          
+          return 0;
+      }
+
+    #size of String
+    #include <stdio.h>
+      int main(){
+        int n, sz = 0;
+        char str[110];
+        scanf("%d", &n);
+
+        while(n--){
+          scanf("%s", str);
+          for(; str[sz] ; sz++){
+            if(str[sz] == '\0'){
+              break;
+            }
+          }
+          printf("Size of string: %d\n", sz);
+        }
+      }
+
+    `OR`,
+    #include <stdio.h>
+      int main(){
+        int n, sz = 0;
+        char str[110];
+        
+        scanf("%d", &n);
+        while(n--){
+          scanf("%s", str);
+          int sz = strlen(str);
+          printf("Size of string: %d\n", sz);
+        }
+      }
+  </pre>
+  <h4></h4>
+  "Lexicographically smaller" refers to the comparison of two strings or sequences based on the order of their individual characters. 
+  In lexicographic order, strings are compared character by character, starting from the leftmost character. The comparison is made by 
+  looking at the Unicode or ASCII values of the characters.
+  <br>
+  <a href="https://www.ascii-code.com/">ASCII Table</a>
+  <br>
+
+  To determine which string is lexicographically smaller, you compare the corresponding characters from both strings until a difference is found. 
+  The string with the character that has a lower Unicode or ASCII value is considered lexicographically smaller. If all the characters are the same 
+  up to the length of the shorter string, then the shorter string is considered lexicographically smaller.
+
+  For example, let's compare two strings "apple" and "banana" lexicographically. Starting from the leftmost character, 'a' and 'b' are compared. Since 
+  'a' has a lower Unicode value than 'b', "apple" is lexicographically smaller than "banana". The comparison stops at the first difference encountered.
+
+  In another example, comparing "cat" and "car," the first three characters are the same. However, the fourth character 't' has a lower Unicode value 
+  than 'r,' so "cat" is lexicographically smaller than "car."
+
+  Lexicographic order is commonly used in sorting algorithms and dictionary implementations to determine the ordering of words or sequences based on their characters.
+
+  Here's an example of a C code snippet that compares two strings to determine which one is lexicographically smaller:
+  <pre>
+    #include <stdio.h>
+
+      int main() {
+        char str1[100], str2[100];
+      
+        printf("Enter the first string: ");
+        scanf("%s", str1);
+    
+        printf("Enter the second string: ");
+        scanf("%s", str2);
+    
+        int i;
+    
+        for (i = 0; str1[i] != '\0' && str2[i] != '\0'; i++) {
+          if (str1[i] < str2[i]) {
+            printf("%s is lexicographically smaller than %s\n", str1, str2);
+            return 0;
+            } 
+            else if (str1[i] > str2[i]) {
+              printf("%s is lexicographically smaller than %s\n", str2, str1);
+              return 0;
+            }
+          }
+        
+        if (str1[i] == '\0' && str2[i] != '\0') {
+          printf("%s is lexicographically smaller than %s\n", str1, str2);
+        } 
+        else {
+          printf("Both strings are equal\n");
+        }
+        return 0;
+      }
+      
+    `OR`
+
+    #include <stdio.h>
+      #include <string.h>
+      
+      int main() {
+        char str1[100], str2[100];
+      
+        printf("Enter the first string: ");
+        scanf("%s", str1);
+    
+        printf("Enter the second string: ");
+        scanf("%s", str2);
+    
+        int result = strcmp(str1, str2);
+    
+        if (result < 0) {
+          printf("%s is lexicographically smaller than %s\n", str1, str2);
+        } else if (result > 0) {
+          printf("%s is lexicographically smaller than %s\n", str2, str1);
+        } else {
+          printf("Both strings are equal\n");
+        }
+        return 0;
+      }
+  </pre>
+</div>
 </p>
 </div>
 </body>
