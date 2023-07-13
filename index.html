@@ -914,7 +914,7 @@ convertToDecimalTOOCatal(100);
         }
       }
   </pre>
-  <h4></h4>
+  <h4>LEXICOGRAPHICALLY SMALLER</h4>
   "Lexicographically smaller" refers to the comparison of two strings or sequences based on the order of their individual characters. 
   In lexicographic order, strings are compared character by character, starting from the leftmost character. The comparison is made by 
   looking at the Unicode or ASCII values of the characters.
@@ -995,6 +995,55 @@ convertToDecimalTOOCatal(100);
         return 0;
       }
   </pre>
+
+  <h4>PALINDR0ME</h4>
+  A palindrome is a word, phrase, number, or sequence of characters that reads the same forwards and backwards. 
+  In C, we can write a program to check whether a given string is a palindrome or not.
+
+  Here's an example code snippet that demonstrates how to check for a palindrome in C:
+
+  <pre>
+    #include <stdio.h>
+      #include <string.h>
+      
+      int isPalindrome(char str[]) {
+          int length = strlen(str);
+          int i, j;
+      
+          // Compare characters from both ends towards the middle
+          for (i = 0, j = length - 1; i < j; i++, j--) {
+              if (str[i] != str[j]) {
+                  return 0; // Not a palindrome
+              }
+          }
+      
+          return 1; // Palindrome
+      }
+      
+      int main() {
+          char str[100];
+      
+          printf("Enter a string: ");
+          scanf("%s", str);
+      
+          if (isPalindrome(str)) {
+              printf("%s is a palindrome.\n", str);
+          } else {
+              printf("%s is not a palindrome.\n", str);
+          }
+      
+          return 0;
+      }
+  </pre>
+  In this code, we define a function `isPalindrome()` that takes a string `str` as input and returns an integer value indicating 
+  whether the string is a palindrome (1) or not (0). The function uses two pointers, `i` and `j`, initialized to the beginning and 
+  end of the string, respectively. It compares the characters at these positions and moves inward until the middle of the string is reached. 
+  If any pair of characters is not equal, the function returns 0, indicating that the string is not a palindrome. Otherwise, if all character 
+  pairs are equal, the function returns 1, indicating a palindrome.
+
+  In the `main()` function, we prompt the user to enter a string, read it using `scanf()`, and then call the `isPalindrome()` function to check
+  whether the entered string is a palindrome or not. Based on the return value, we print the appropriate message to indicate whether the string 
+  is a palindrome or not.
 </div>
 
 </p>
