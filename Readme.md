@@ -1000,9 +1000,11 @@ convertToDecimalTOOCatal(100);
     
         if (result < 0) {
           printf("%s is lexicographically smaller than %s\n", str1, str2);
-        } else if (result > 0) {
+        } 
+        else if (result > 0) {
           printf("%s is lexicographically smaller than %s\n", str2, str1);
-        } else {
+        } 
+        else {
           printf("Both strings are equal\n");
         }
         return 0;
