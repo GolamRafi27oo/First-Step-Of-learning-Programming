@@ -1058,6 +1058,342 @@ convertToDecimalTOOCatal(100);
   In the `main()` function, we prompt the user to enter a string, read it using `scanf()`, and then call the `isPalindrome()` function to check
   whether the entered string is a palindrome or not. Based on the return value, we print the appropriate message to indicate whether the string 
   is a palindrome or not.
+
+  <h4>PALINDR0ME</h4>
+  A palindrome is a word, phrase, number, or sequence of characters that reads the same forwards and backwards. 
+  In C, we can write a program to check whether a given string is a palindrome or not.
+
+  Here's an example code snippet that demonstrates how to check for a palindrome in C:
+
+  <pre>
+    #include <stdio.h>
+      #include <string.h>
+      
+      int isPalindrome(char str[]) {
+          int length = strlen(str);
+          int i, j;
+      
+          // Compare characters from both ends towards the middle
+          for (i = 0, j = length - 1; i < j; i++, j--) {
+              if (str[i] != str[j]) {
+                  return 0; // Not a palindrome
+              }
+          }
+      
+          return 1; // Palindrome
+      }
+      
+      int main() {
+          char str[100];
+      
+          printf("Enter a string: ");
+          scanf("%s", str);
+      
+          if (isPalindrome(str)) {
+              printf("%s is a palindrome.\n", str);
+          } else {
+              printf("%s is not a palindrome.\n", str);
+          }
+      
+          return 0;
+      }
+  </pre>
+  In this code, we define a function `isPalindrome()` that takes a string `str` as input and returns an integer value indicating 
+  whether the string is a palindrome (1) or not (0). The function uses two pointers, `i` and `j`, initialized to the beginning and 
+  end of the string, respectively. It compares the characters at these positions and moves inward until the middle of the string is reached. 
+  If any pair of characters is not equal, the function returns 0, indicating that the string is not a palindrome. Otherwise, if all character 
+  pairs are equal, the function returns 1, indicating a palindrome.
+
+  In the `main()` function, we prompt the user to enter a string, read it using `scanf()`, and then call the `isPalindrome()` function to check
+  whether the entered string is a palindrome or not. Based on the return value, we print the appropriate message to indicate whether the string 
+  is a palindrome or not.
+
+  <h4>CONTATENATION OF STRING</h4>
+  In C, string concatenation refers to the process of combining two or more strings to create a single string. 
+  This operation is commonly performed using the strcat() function from the C standard library or by manually manipulating character arrays.
+
+  The strcat() function is declared in the `string.h` header file and has the following syntax:
+
+  <pre>
+    char* strcat(char* destination, const char* source);
+  </pre>
+
+  It takes two arguments: the destination string, which is the string to which the source string will be appended, 
+  and the source string, which is the string that will be appended to the destination string.
+
+  Here's an example that demonstrates the usage of strcat():
+
+  <pre>
+    #include <stdio.h>
+      #include <string.h>
+    
+      int main() {
+        char destination[50] = "Hello, ";
+        const char* source = "world!";
+  
+        strcat(destination, source);
+  
+        printf("%s\n", destination);
+  
+        return 0;
+      }
+  </pre>
+
+  In this example, we have a character array `destination` with a size of 50, initialized with the string "Hello, ". The `source` string is a constant string literal "world!". The strcat() function appends the contents of the source string to the end of the destination string, resulting in `destination` now containing "Hello, world!".
+
+  Alternatively, you can manually concatenate strings by using character arrays and manipulating them with loops and indexing. Here's an example of manual string concatenation:
+
+  <pre>
+    #include <stdio.h>
+
+    int main() {
+      char destination[50] = "Hello, ";
+      const char* source = "world!";
+      
+      int i, j;
+
+      // Find the end of the destination string
+      i = 0;
+      while (destination[i] != '\0') {
+          i++;
+      }
+
+      // Concatenate characters of the source string to the destination string
+      j = 0;
+      while (source[j] != '\0') {
+          destination[i] = source[j];
+          i++;
+          j++;
+      }
+
+      // Add null terminator at the end of the concatenated string
+      destination[i] = '\0';
+
+      printf("%s\n", destination);
+
+      return 0;
+    }
+  </pre>
+
+  This code manually iterates over the characters in the destination string to find the end of it and then appends the characters 
+  of the source string one by one. Finally, a null terminator ('\0') is added to mark the end of the concatenated string.
+
+  Both approaches achieve string concatenation, but using the `strcat()` function is generally considered safer and more convenient, 
+  as it handles the details of finding the end of the destination string and ensures proper termination.
+</div>
+<div>
+  <h1>TIME COMPLEXITY ANALYSIS</h1>
+  <h4>Day-7 (Date: 7-16-2023)</h4>
+
+  <ul>
+    <li>Big-O notation (Upper Bound)</li>
+    <li>Omega Notation (Lower Bound)</li>
+    <li>Theta Notation (average case)</li>
+  </ul>
+
+  <h4>BIG-O NOTATION</h4>
+  Big O notation is a mathematical notation used to describe the performance characteristics of an algorithm or the growth rate of a function. 
+  It is commonly used to analyze the time complexity and space complexity of algorithms.
+
+  In C, Big O notation helps us understand how the runtime of an algorithm or the memory usage of a program scales with respect to the input size. 
+  It provides a way to compare algorithms and determine their efficiency.
+
+  When using Big O notation, we focus on the dominant term or the term that grows the fastest as the input size increases. The dominant term 
+  represents the worst-case performance of the algorithm.
+
+  Here are some commonly used notations in Big O notation:
+
+  1. O(1) - Constant Time Complexity:
+    This indicates that the algorithm takes a constant amount of time regardless of the input size. For example, 
+    accessing an element in an array by index or performing a simple arithmetic operation.
+
+  2. O(log n) - Logarithmic Time Complexity:
+    This indicates that the algorithm's runtime grows logarithmically as the input size increases. Common examples include binary 
+    search or operations on balanced search trees.
+
+  3. O(n) - Linear Time Complexity:
+    This indicates that the algorithm's runtime grows linearly with the input size. For example, iterating through an array or a linked list.
+
+  4. O(n^2) - Quadratic Time Complexity:
+    This indicates that the algorithm's runtime grows quadratically with the input size. Common examples include nested loops or algorithms 
+    that involve comparing each element with every other element.
+
+  5. O(2^n) - Exponential Time Complexity:
+    This indicates that the algorithm's runtime grows exponentially with the input size. This is usually considered very inefficient 
+    and should be avoided when possible.
+
+  It's important to note that Big O notation represents an upper bound on the growth rate of an algorithm or function. It describes 
+  how the algorithm scales as the input size increases but doesn't provide information about the actual execution time.
+
+  By analyzing the Big O notation of different algorithms, you can make informed decisions about choosing the most efficient algorithm 
+  for a particular task or understand the scalability of your code.
+
+  <h4>OMEGA NOTATION</h4>
+  Omega notation, also known as Ω notation, is a mathematical notation used to describe the lower bound or best-case performance 
+  of an algorithm or function. It provides a way to analyze the minimum growth rate or lower limit of a function as the input size increases.
+
+  In C, Omega notation helps us understand the best-case scenario or lower bound of an algorithm's runtime or the memory usage of a program. 
+  It complements the Big O notation, which describes the upper bound or worst-case scenario.
+
+  When using Omega notation, we focus on the dominant term or the term that grows the slowest as the input size increases. 
+  The dominant term represents the best-case performance of the algorithm.
+
+  Here are some examples of commonly used Omega notations:
+
+  1. Ω(1) - Constant Lower Bound:
+    This indicates that the algorithm takes a constant amount of time regardless of the input size in the best-case scenario. 
+    For example, finding the minimum element in a sorted array.
+
+  2. Ω(log n) - Logarithmic Lower Bound:
+    This indicates that the algorithm's runtime has a lower bound of logarithmic growth. Common examples include binary search or operations 
+    on balanced search trees in the best-case scenario.
+
+  3. Ω(n) - Linear Lower Bound:
+    This indicates that the algorithm's runtime has a lower bound of linear growth with the input size. For example, traversing an array 
+    or a linked list to find a specific element in the best-case scenario.
+
+  4. Ω(n^2) - Quadratic Lower Bound:
+    This indicates that the algorithm's runtime has a lower bound of quadratic growth. Common examples include nested loops or algorithms that 
+    involve comparing each element with every other element in the best-case scenario.
+
+  5. Ω(2^n) - Exponential Lower Bound:
+    This indicates that the algorithm's runtime has a lower bound of exponential growth. This is generally considered very efficient or the 
+    best possible for some problems.
+
+  Similar to Big O notation, Omega notation represents a lower bound on the growth rate of an algorithm or function. It provides insights into 
+  the best-case performance but doesn't provide information about the actual execution time.
+
+  By analyzing the Omega notation of different algorithms, you can understand the minimum growth rate or lower limit of the algorithm's performance 
+  in the best-case scenario. This can help you evaluate the efficiency of your code or make informed decisions when choosing the most suitable algorithm for a specific task.
+
+  <h4>THETA NOTATION</h4>
+  Omega notation and theta notation are both mathematical notations used to describe the performance characteristics of algorithms or the growth rate of functions. 
+  While omega notation represents the lower bound or best-case performance, theta notation represents both the upper and lower bounds or the average-case performance.
+
+  In C, theta notation helps us understand both the best-case and worst-case scenarios of an algorithm's runtime or the memory usage of a program. 
+  It provides a tighter bound on the growth rate compared to omega notation, which only provides the lower bound.
+
+  When using theta notation, we focus on the dominant term or the term that grows at the same rate as the input size increases. 
+  The dominant term represents the average-case performance of the algorithm.
+
+  Here's how theta notation is defined:
+
+  1. Θ(g(n)) - Theta Notation:
+    A function f(n) belongs to Θ(g(n)) if there exist positive constants c1, c2, and n0 such that for all values of n greater than or 
+    equal to n0, c1 * g(n) ≤ f(n) ≤ c2 * g(n).
+
+  In simpler terms, if a function f(n) is both an upper bound and a lower bound of g(n) multiplied by a constant factor, we say that f(n) belongs to Θ(g(n)).
+
+  Theta notation essentially represents the tightest bound on the growth rate of a function or algorithm. It provides information about both the best-case 
+  and worst-case scenarios.
+
+  For example, if the worst-case runtime complexity of an algorithm is Θ(n^2), it means that the algorithm takes at least quadratic time and at most quadratic 
+  time to complete its execution. Similarly, if the average-case runtime complexity is Θ(n), it means that the algorithm takes linear time on average.
+
+  By analyzing theta notation, you can get a comprehensive understanding of an algorithm's performance across different scenarios. 
+  It helps in evaluating the efficiency of algorithms and making informed decisions when choosing the most appropriate algorithm for a particular task.
+
+  <a href="https://www.bigocheatsheet.com/">More Details About Big-O</a>
+
+  <h1>MEMORY COMPLEXITY ANALYSIS</h1>
+  Memory complexity, also known as space complexity, refers to the amount of memory or storage required by an algorithm or program to solve a problem. 
+  In C, understanding the memory complexity of your code helps you assess its efficiency and resource usage.
+
+  Memory complexity is typically expressed in terms of how the memory usage grows with respect to the input size. 
+  It provides insights into the amount of memory required by an algorithm as the problem size increases.
+
+  There are several common memory complexity notations:
+
+  1. O(1) - Constant Space Complexity:
+   This indicates that the algorithm uses a fixed or constant amount of memory regardless of the input size. For example, 
+   algorithms that have a fixed number of variables or data structures.
+
+  2. O(n) - Linear Space Complexity:
+    This indicates that the algorithm's memory usage grows linearly with the input size. For example, algorithms that create an array 
+    or a linked list of size proportional to the input.
+
+  3. O(n^2) - Quadratic Space Complexity:
+    This indicates that the algorithm's memory usage grows quadratically with the input size. Common examples include algorithms that 
+    involve nested loops or creating two-dimensional arrays.
+
+  4. O(log n) - Logarithmic Space Complexity:
+    This indicates that the algorithm's memory usage grows logarithmically with the input size. For example, algorithms that use divide 
+    and conquer strategies and maintain a small amount of auxiliary data.
+
+  5. O(2^n) - Exponential Space Complexity:
+    This indicates that the algorithm's memory usage grows exponentially with the input size. Such algorithms are generally considered 
+    inefficient in terms of memory usage.
+
+  It's important to note that memory complexity focuses on the additional memory used by an algorithm, excluding the input itself. 
+  It quantifies the growth in memory consumption as the input size increases.
+
+  Analyzing the memory complexity of your code helps you understand the trade-off between memory usage and algorithmic efficiency. 
+  By minimizing unnecessary memory allocations or optimizing data structures, you can reduce the memory requirements of your code 
+  and improve its overall performance.
+
+  It's worth mentioning that in C, memory complexity analysis often involves considering the sizes and types of data structures, 
+  dynamically allocated memory, recursion stack usage, and other factors that impact memory consumption.
+
+  <a href="https://www.bigocheatsheet.com/">More Details About Space Complexity</a>
+
+  <h1>FUNCTION</h1>
+  In C, a function is a self-contained block of code that performs a specific task or computation. 
+  It is a fundamental building block of a C program and helps organize code into modular and reusable units. 
+  Functions allow you to break down a complex problem into smaller, manageable parts, making code more organized, readable, and maintainable.
+
+  A function in C has the following components:
+
+  1. Function Declaration/Prototype:
+    A function declaration or prototype specifies the function's name, return type, and the types and order of its parameters. 
+    It informs the compiler about the function's existence and signature before it is used. A function prototype typically appears 
+    at the beginning of the source file or in a header file.
+
+  2. Function Definition:
+    The function definition contains the actual implementation of the function. 
+    It includes the function's header, which specifies the return type, function name, and parameters, followed by the body enclosed in curly braces {}. 
+    The body contains the statements or instructions that define the function's behavior.
+
+  3. Function Parameters:
+    Function parameters are inputs to the function and allow you to pass values into the function. 
+    They are declared in the function's header, specifying their types and names. Functions can have zero or more parameters.
+
+  4. Return Type:
+    The return type of a function indicates the type of value that the function returns after performing its computation. 
+    It is specified in the function's header. Functions can have a return type of void if they do not return a value.
+
+  5. Function Call:
+    To use a function in C, you call or invoke it by using its name followed by parentheses (). 
+    If the function has parameters, you provide the values or variables as arguments within the parentheses.
+
+  Here's an example that demonstrates a simple function in C:
+
+  <pre>
+    #include <stdio.h>
+
+      // Function declaration
+      int addNumbers(int a, int b);
+    
+      // Function definition
+      int addNumbers(int a, int b) {
+        int sum = a + b;
+        return sum;
+      }
+    
+      int main() {
+        // Function call
+        int result = addNumbers(3, 5);
+        printf("The sum is: %d\n", result);
+        return 0;
+      }
+  </pre>
+
+  In this example, we define a function called `addNumbers` that takes two integer parameters, `a` and `b`, and returns their sum. 
+  We declare the function prototype at the beginning and then define the function with its implementation. In the `main` function, 
+  we call `addNumbers` with arguments 3 and 5, and the returned result is printed.
+
+  Functions are a powerful feature of C programming that enables code modularity, reusability, and abstraction. 
+  They help manage complex programs, improve code organization, and promote code reuse by encapsulating specific 
+  functionality within separate units of code.
 </div>
 
 </p>
