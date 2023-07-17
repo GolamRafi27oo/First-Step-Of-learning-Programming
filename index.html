@@ -926,7 +926,7 @@ convertToDecimalTOOCatal(100);
       }
   </pre>
 
-  <h4>LEXICOGRAPHICALLY SMALLER</h4>
+  <h2>LEXICOGRAPHICALLY SMALLER</h2>
 
   "Lexicographically smaller" refers to the comparison of two strings or sequences based on the order of their individual characters. 
   In lexicographic order, strings are compared character by character, starting from the leftmost character. The comparison is made by 
@@ -1010,7 +1010,7 @@ convertToDecimalTOOCatal(100);
         return 0;
       }
   </pre>
-  <h4>PALINDR0ME</h4>
+  <h2>PALINDR0ME</h2>
   A palindrome is a word, phrase, number, or sequence of characters that reads the same forwards and backwards. 
   In C, we can write a program to check whether a given string is a palindrome or not.
 
@@ -1059,7 +1059,7 @@ convertToDecimalTOOCatal(100);
   whether the entered string is a palindrome or not. Based on the return value, we print the appropriate message to indicate whether the string 
   is a palindrome or not.
 
-  <h4>PALINDR0ME</h4>
+  <h2>PALINDR0ME</h2>
   A palindrome is a word, phrase, number, or sequence of characters that reads the same forwards and backwards. 
   In C, we can write a program to check whether a given string is a palindrome or not.
 
@@ -1108,7 +1108,7 @@ convertToDecimalTOOCatal(100);
   whether the entered string is a palindrome or not. Based on the return value, we print the appropriate message to indicate whether the string 
   is a palindrome or not.
 
-  <h4>CONTATENATION OF STRING</h4>
+  <h2>CONTATENATION OF STRING</h2>
   In C, string concatenation refers to the process of combining two or more strings to create a single string. 
   This operation is commonly performed using the strcat() function from the C standard library or by manually manipulating character arrays.
 
@@ -1191,7 +1191,7 @@ convertToDecimalTOOCatal(100);
     <li>Theta Notation (average case)</li>
   </ul>
 
-  <h4>BIG-O NOTATION</h4>
+  <h2>BIG-O NOTATION</h2>
   Big O notation is a mathematical notation used to describe the performance characteristics of an algorithm or the growth rate of a function. 
   It is commonly used to analyze the time complexity and space complexity of algorithms.
 
@@ -1228,7 +1228,7 @@ convertToDecimalTOOCatal(100);
   By analyzing the Big O notation of different algorithms, you can make informed decisions about choosing the most efficient algorithm 
   for a particular task or understand the scalability of your code.
 
-  <h4>OMEGA NOTATION</h4>
+  <h2>OMEGA NOTATION</h2>
   Omega notation, also known as Ω notation, is a mathematical notation used to describe the lower bound or best-case performance 
   of an algorithm or function. It provides a way to analyze the minimum growth rate or lower limit of a function as the input size increases.
 
@@ -1266,7 +1266,7 @@ convertToDecimalTOOCatal(100);
   By analyzing the Omega notation of different algorithms, you can understand the minimum growth rate or lower limit of the algorithm's performance 
   in the best-case scenario. This can help you evaluate the efficiency of your code or make informed decisions when choosing the most suitable algorithm for a specific task.
 
-  <h4>THETA NOTATION</h4>
+  <h2>THETA NOTATION</h2>
   Omega notation and theta notation are both mathematical notations used to describe the performance characteristics of algorithms or the growth rate of functions. 
   While omega notation represents the lower bound or best-case performance, theta notation represents both the upper and lower bounds or the average-case performance.
 
@@ -1395,7 +1395,505 @@ convertToDecimalTOOCatal(100);
   They help manage complex programs, improve code organization, and promote code reuse by encapsulating specific 
   functionality within separate units of code.
 </div>
+<div>
+  <h1>FUNCTION CALLING</h1>
+  <h4>Day-8 (Date: 7-17-2023)</h4>
 
+  <ul>
+    <li>Call by reference</li>
+    <li>Call by pointer</li>
+  </ul>
+
+  <h2>CALL BY REFERENCE</h2>
+  In C, "call by reference" is a mechanism where a function receives the memory address (reference) of a variable as a parameter. 
+  By using this reference, the function can directly access and modify the original value of the variable in the calling code. 
+  In other words, any changes made to the parameter within the function will affect the original variable outside the function.
+
+  To pass a variable by reference in C, you need to use pointers. Pointers are variables that store memory addresses. Here's how you can achieve call by reference in C:
+
+  1. Define a function that takes a pointer as a parameter. For example:
+    <pre>
+      void modifyValue(int *ptr) {
+        *ptr = 10;  // Assign a new value to the memory location pointed by 'ptr'
+      }
+    </pre>
+  2. In the calling code, declare a variable and pass its address using the `&` operator:
+    <pre>
+      int number = 5;
+      modifyValue(&number);  // Pass the address of 'number'
+    </pre>
+  3. Inside the function, use the pointer to access the original variable and modify its value by dereferencing the pointer with the `*` operator:
+    <pre>
+      *ptr = 10;
+    </pre>
+
+  After the function call, the value of the `number` variable will be modified to 10 because the function modified the original variable 
+  directly through the pointer.
+
+  Call by reference is useful when you need to modify variables within a function and have those changes reflected in the calling code. 
+  It allows you to avoid returning values and provides a more efficient way to manipulate large data structures without creating copies. 
+  However, it requires careful handling of pointers to avoid unintended consequences such as invalid memory accesses or unintended modifications.
+
+  <h2>CALL BY POINTER</h2>
+  In C, "call by pointer" is similar to call by reference, as it allows a function to modify the original value of a variable in the calling code. However, instead of passing the memory address directly, you pass a pointer variable that holds the memory address of the variable you want to modify.
+
+  Here's how call by pointer works in C:
+
+  1. Define a function that takes a pointer as a parameter. For example:
+    <pre>
+      void modifyValue(int *ptr) {
+        *ptr = 10;  // Assign a new value to the memory location pointed by 'ptr'
+      }
+    </pre>
+  2. In the calling code, declare a variable and create a pointer that points to its address:
+    <pre>
+      int number = 5;
+      int *ptr = &number;  // Create a pointer and assign the address of 'number' to it
+      modifyValue(ptr);   // Pass the pointer as an argument
+    </pre>
+  3. Inside the function, use the pointer to access the original variable and modify its value by dereferencing the pointer with the `*` operator:
+    <pre>
+      *ptr = 10;
+    </pre>
+  After the function call, the value of the `number` variable will be modified to 10, as the function modified the original variable through the pointer.
+
+  Call by pointer is essentially passing the address of a variable instead of the variable itself. 
+  This allows the function to directly manipulate the original variable's value. It is useful when you need to modify variables 
+  within a function and have those changes reflected in the calling code, similar to call by reference. However, 
+  it requires explicit handling of pointers and can introduce issues like null pointer dereference or incorrect pointer arithmetic if not used carefully.
+
+  <h2>RECURSION</h2>
+  Recursion is a programming technique where a function calls itself repeatedly until a specific condition is met. In the context of the C programming language, recursion allows you to solve complex problems by breaking them down into smaller, more manageable sub-problems.
+
+  The basic idea behind recursion is to have a function that solves a problem by solving smaller instances of the same problem. Each recursive call reduces the problem's size until it reaches a base case, which is a simple version of the problem that can be solved directly without further recursion.
+
+  Here's an example to demonstrate recursion in C. Let's consider the calculation of the factorial of a positive integer:
+
+  <pre>
+    #include <stdio.h>
+      int factorial(int n) {
+        // Base case: factorial of 0 or 1 is 1
+        if (n == 0 || n == 1) {
+          return 1;
+        }
+        else {
+          // Recursive call to calculate factorial of n-1
+          return n * factorial(n - 1);
+        }
+      }
+    
+      int main() {
+        int num = 5;
+        int result = factorial(num);
+        printf("The factorial of %d is %d\n", num, result);
+        return 0;
+      }
+  </pre>
+  In this example, the `factorial` function calculates the factorial of a given number `n`. If `n` is 0 or 1 (the base case), it returns 1. 
+  Otherwise, it recursively calls itself with `n-1` as the argument and multiplies the result by `n`.
+
+  When we execute the `factorial` function with `num` as 5, it first checks if 5 is equal to 0 or 1 (which is false), 
+  so it proceeds to the else block. It calls `factorial(4)` and waits for the result. This process continues until the 
+  base case is reached (`n == 0`), at which point the recursive calls start returning their values. The values are then 
+  multiplied together as they "unwind" the recursive calls, ultimately giving us the factorial of the original number.
+  
+  The output of the above code will be:
+
+  <pre>
+    The factorial of 5 is 120
+  </pre>
+  It's important to note that when working with recursion, you need to ensure that the base case(s) are defined and that 
+  the recursive calls eventually reach the base case to avoid infinite recursion.
+
+  <h2>FUNCTION OVERLOADING</h2>
+  Function overloading is a feature in some programming languages, but it is not directly supported in the C programming language. 
+  C does not provide built-in support for function overloading like some other languages such as C++ or Java.
+
+  Function overloading refers to the ability to define multiple functions with the same name but different parameter lists. 
+  Each function with the same name but different parameter lists is considered a separate function and can be called based on the arguments provided.
+
+  However, in C, if you define multiple functions with the same name, the compiler will generate an error indicating a redefinition of the function. 
+  This is because C uses a process called name mangling, where function names are "mangled" or modified to include additional information based on 
+  the function signature to create a unique symbol in the compiled object code. Since C does not support overloading, it expects each function to 
+  have a unique name in the source code.
+
+  To achieve similar behavior to function overloading in C, you can use different function names for different functionalities or use different 
+  function names along with unique identifier prefixes to differentiate them. Alternatively, you can define a single function with multiple 
+  parameters and use conditional statements within the function body to handle different cases based on the arguments provided.
+
+  Here's an example of simulating function overloading in C:
+
+  <pre>
+    #include <stdio.h>
+
+      void printNumber(int num) {
+        printf("Integer: %d\n", num);
+      }
+    
+      void printNumber(float num) {
+        printf("Float: %f\n", num);
+      }
+    
+      int main() {
+        int integer = 42;
+        float floating = 3.14;
+    
+        printNumber(integer);   // Calls the first printNumber function
+        printNumber(floating);  // Calls the second printNumber function
+    
+        return 0;
+      }
+  </pre>
+  In this example, we define two separate functions named `printNumber`, one accepting an integer and the other accepting a float. 
+  Although this is not true function overloading, we can achieve similar behavior by providing different function names. 
+  When we call the `printNumber` function with an integer or a float argument, the corresponding version of the function will be invoked.
+
+  The output of the above code will be:
+
+  <pre>
+    Integer: 42
+    Float: 3.140000
+  </pre>
+  Remember that this is a workaround in C to achieve similar functionality, but it is not true function overloading as supported in languages like C++.
+
+  <h2>OPERATOR OVERLOADING</h2>
+  Operator overloading is a feature in some programming languages, such as C++, that allows operators to be redefined for user-defined types. 
+  However, operator overloading is not directly supported in the C programming language.
+
+  In C, operators have fixed predefined behaviors based on the data types they operate on. For example, the "+" operator performs addition for 
+  numeric types and string concatenation for strings. You cannot change the behavior of operators or define new operators in C.
+
+  If you want to achieve similar functionality to operator overloading in C, you can create functions that mimic the behavior of operators. 
+  Instead of using operators directly, you would call these functions to perform the desired operations.
+
+  Here's an example to illustrate this approach in C:
+
+  <pre>
+    #include <stdio.h>
+      typedef struct {
+        int x;
+        int y;
+      } Point;
+    
+      Point addPoints(Point p1, Point p2) {
+        Point result;
+        result.x = p1.x + p2.x;
+        result.y = p1.y + p2.y;
+        return result;
+      }
+    
+      int main() {
+        Point p1 = {2, 3};
+        Point p2 = {4, 5};
+        Point sum = addPoints(p1, p2);
+        printf("Sum: (%d, %d)\n", sum.x, sum.y);
+        return 0;
+      }
+  </pre>
+  In this example, we define a `Point` structure to represent a point in a Cartesian coordinate system. We create a function `addPoints` that takes two `Point` 
+  arguments and returns the sum of their coordinates as a new `Point`. Instead of using the "+" operator directly, we call the `addPoints` function to perform the addition.
+
+  The output of the above code will be:
+
+  <pre>
+    Sum: (6, 8)
+  </pre>
+
+  By defining functions like `addPoints` that provide custom behavior for operations, you can achieve a similar effect to operator overloading in C. 
+  However, it's important to note that this is not true operator overloading as supported in languages like C++.
+
+  <h1>CLASS</h1>
+  In the C programming language, there is no native support for classes as in object-oriented programming (OOP) languages like C++. 
+  However, you can achieve similar concepts and structures that resemble classes in C by using structs and functions.
+
+  In C, a struct is a composite data type that allows you to group together multiple variables with different data types into a single unit. 
+  You can use a struct to define a collection of related variables, similar to the properties of a class.
+
+  Here's an example that demonstrates how you can create a "class-like" structure using a struct and functions in C:
+
+  <pre>
+    #include <stdio.h>
+
+      // Define a struct to represent a Rectangle
+      struct Rectangle {
+        int width;
+        int height;
+      };
+    
+      // Function to calculate the area of a Rectangle
+      int calculateArea(struct Rectangle rect) {
+        return rect.width * rect.height;
+      }
+    
+      int main() {
+        // Create an instance of the Rectangle struct
+        struct Rectangle rect;
+  
+        // Assign values to its properties
+        rect.width = 5;
+        rect.height = 3;
+  
+        // Call the calculateArea() function
+        int area = calculateArea(rect);
+  
+        printf("Area: %d\n", area);
+  
+        return 0;
+      }
+  </pre>
+  In this example, we define a struct called `Rectangle` with two integer properties: `width` and `height`. 
+  We also define a function `calculateArea()` that takes a `Rectangle` as an argument and returns the calculated area.
+
+  In the `main()` function, we create an instance of the `Rectangle` struct named `rect`. We assign values to its `width` and `height` properties. 
+  Then we pass the `rect` object to the `calculateArea()` function, which calculates the area and returns it. Finally, we print the result to the console.
+
+  The output of the above code will be:
+
+  <pre>
+    Area: 15
+  </pre>
+
+  While C doesn't provide the full range of features found in classes in OOP languages, you can emulate some class-like behavior using structs and functions. 
+  However, it's important to note that C does not provide inherent support for concepts like encapsulation, inheritance, or polymorphism, 
+  which are core principles of object-oriented programming.
+
+  <h2>DIFFERENT BETWEEM PUBLIC CLASS AND PRIVET CLASS</h2>
+  In the context of object-oriented programming, the terms "public class" and "private class" are not commonly used. 
+  However, there are concepts related to visibility and access control that are relevant, such as public and private members within a class.
+
+  1. Public Members:
+    - Public members are accessible from anywhere in the program, including outside the class.
+    - They can be accessed and manipulated directly by any part of the program that has access to an instance of the class.
+    - Public members are typically used to provide an interface to the functionality or data of the class.
+
+  2. Private Members:
+    - Private members are only accessible within the class where they are defined.
+    - They cannot be accessed or manipulated directly from outside the class.
+    - Private members are typically used for internal implementation details or data that should not be exposed to the outside world.
+
+  The visibility and accessibility of members (variables and functions) within a class are controlled using access specifiers. 
+  In languages like C++ and Java, the common access specifiers are "public", "private", and "protected".
+
+  For example, in C++:
+
+  <pre>
+    class MyClass {
+      public:
+        int publicVar;        // Public member variable
+    
+        void publicMethod();  // Public member function
+    
+      private:
+        int privateVar;       // Private member variable
+    
+        void privateMethod(); // Private member function
+      };
+  </pre>
+
+  In this example, `publicVar` and `publicMethod()` are declared as public members, which means they can be accessed from anywhere in the program. 
+  `privateVar` and `privateMethod()` are declared as private members, which can only be accessed within the class itself.
+
+  The distinction between public and private members allows for encapsulation, which is an important principle in object-oriented programming. 
+  It helps in controlling access to the internal details of a class and provides a clear separation between the interface (public members) and 
+  implementation (private members) of a class.
+
+  It's worth noting that in some languages, such as C#, there is a concept of nested classes, where one class can be declared within another class. 
+  In this case, the outer class is often referred to as the "parent" or "containing" class, and the inner class is called the "nested" or "inner" class. 
+  However, the visibility of the nested class members is still controlled using access specifiers like public and private.
+</div>
+<div>
+  <h1>SORTING</h1>
+  <ul>
+    <li>Marge Sort</li>
+    <li>Bubble Sort</li>
+    <li>Insertion Sort</li>
+    <li>Counting Sort</li>
+    <li>Selection Sort</li>
+    <li>Counting Sort</li>
+  </ul>
+
+  <h2>INSERTION SORT</h2>
+  Insertion Sort is a simple sorting algorithm that iterates through an array and builds a sorted portion of the array by repeatedly 
+  inserting elements in their correct positions. It works similar to how we sort a hand of playing cards.
+
+  Here's an implementation of Insertion Sort in C:
+
+  <pre>
+    #include <stdio.h>
+      void insertionSort(int arr[], int size) {
+          int i, j, key;
+    
+          for (i = 1; i < size; i++) {
+            key = arr[i];
+            j = i - 1;
+    
+            // Move elements greater than the key to one position ahead of their current position
+            while (j >= 0 && arr[j] > key) {
+              arr[j + 1] = arr[j];
+              j--;
+            }
+            arr[j + 1] = key;
+          }
+        }
+    
+      void printArray(int arr[], int size) {
+          for (int i = 0; i < size; i++) {
+            printf("%d ", arr[i]);
+          }
+          printf("\n");
+      }
+    
+      int main() {
+        int arr[] = {8, 3, 11, 2, 1, 6, 4, 7};
+        int size = sizeof(arr) / sizeof(arr[0]);
+    
+        printf("Original array: ");
+        printArray(arr, size);
+    
+        insertionSort(arr, size);
+    
+        printf("Sorted array: ");
+        printArray(arr, size);
+    
+        return 0;
+      }
+  </pre>
+  In this implementation, the `insertionSort()` function takes an array `arr[]` and its size as input. 
+  It starts with the second element (`i = 1`) and considers it as the key. It then compares the key with 
+  the elements before it (`arr[j]`), shifting them to the right until it finds the correct position for the key. 
+  This process is repeated for each subsequent element in the array until the entire array is sorted.
+
+  The `printArray()` function is a utility function to print the elements of an array.
+
+  In the `main()` function, an array is initialized with some elements, and its size is calculated. 
+  The original array is printed, and then `insertionSort()` is called to sort the array. Finally, the sorted array is printed.
+
+  The output of the above code will be:
+  <pre>
+    Original array: 8 3 11 2 1 6 4 7
+    Sorted array: 1 2 3 4 6 7 8 11
+  </pre>
+  Insertion Sort has an average and worst-case time complexity of O(n^2). It is efficient for small arrays or partially 
+  sorted arrays but may not be the best choice for larger or highly unsorted arrays.
+
+
+
+
+
+  <h2>MARGE SORT</h2>
+  Merge Sort is a popular sorting algorithm that follows the divide-and-conquer approach to sort a list of elements. 
+  It recursively divides the input list into smaller sublists, sorts them, and then merges them back together to produce a sorted result. 
+  Merge Sort has a time complexity of O(n log n), making it an efficient sorting algorithm.
+
+  Here's an implementation of Merge Sort in C:
+
+  <pre>
+    #include <stdio.h>
+
+      // Function to merge two sorted subarrays
+      void merge(int arr[], int left[], int leftSize, int right[], int rightSize) {
+          int i = 0;     // Index for the left subarray
+          int j = 0;     // Index for the right subarray
+          int k = 0;     // Index for the merged array
+    
+          while (i < leftSize && j < rightSize) {
+            if (left[i] <= right[j]) {
+              arr[k] = left[i];
+              i++;
+          }
+          else {
+              arr[k] = right[j];
+              j++;
+          }
+          k++;
+          }
+    
+          // Copy the remaining elements of the left subarray, if any
+          while (i < leftSize) {
+            arr[k] = left[i];
+            i++;
+            k++;
+          }
+    
+          // Copy the remaining elements of the right subarray, if any
+          while (j < rightSize) {
+            arr[k] = right[j];
+            j++;
+            k++;
+          }
+      }
+    
+      // Recursive function to perform Merge Sort
+      void mergeSort(int arr[], int size) {
+          if (size <= 1) {
+              return;  // Base case: already sorted
+          }
+    
+          int mid = size / 2;                  // Middle index
+          int left[mid];                       // Left subarray
+          int right[size - mid];               // Right subarray
+    
+          // Populate the left subarray
+          for (int i = 0; i < mid; i++) {
+            left[i] = arr[i];
+          }
+    
+          // Populate the right subarray
+          for (int i = mid; i < size; i++) {
+            right[i - mid] = arr[i];
+          }
+    
+          // Recursively sort the left and right subarrays
+          mergeSort(left, mid);
+          mergeSort(right, size - mid);
+    
+          // Merge the sorted subarrays
+          merge(arr, left, mid, right, size - mid);
+      }
+    
+      // Function to print an array
+      void printArray(int arr[], int size) {
+          for (int i = 0; i < size; i++) {
+            printf("%d ", arr[i]);
+          }
+          printf("\n");
+      }
+    
+      int main() {
+        int arr[] = {8, 3, 11, 2, 1, 6, 4, 7};
+        int size = sizeof(arr) / sizeof(arr[0]);
+    
+        printf("Original array: ");
+        printArray(arr, size);
+    
+        mergeSort(arr, size);
+    
+        printf("Sorted array: ");
+        printArray(arr, size);
+    
+        return 0;
+      }
+  </pre>
+  In this implementation, the `merge()` function merges two sorted subarrays (`left[]` and `right[]`) into a single sorted array (`arr[]`). 
+  It iterates through both subarrays, comparing the elements and placing them in the merged array in ascending order.
+
+  The `mergeSort()` function is the recursive part of the algorithm. It divides the input array into two halves, 
+  then recursively calls itself on the left and right halves until the base case (size <= 1) is reached. 
+  After sorting the subarrays, it calls the `merge()` function to merge them back into a single sorted array.
+
+  The `printArray()` function is a utility function to print the elements of an array.
+
+  In the `main()` function, an array is initialized with some elements, and its size is calculated. 
+  The original array is printed, and then `mergeSort()` is called to sort the array. Finally, the sorted array is printed.
+
+  The output of the above code will be:
+  <pre>
+    Original array: 8 3 11 2 1 6 4 7
+    Sorted array: 1 2 3 4 6 7 8 11
+  </pre>
+  Merge Sort is an efficient algorithm for sorting large arrays or linked lists and is widely used due to its stability and good performance.
+
+</div>
 </p>
 </div>
 </body>
