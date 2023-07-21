@@ -1709,7 +1709,6 @@ convertToDecimalTOOCatal(100);
     <li>Insertion Sort</li>
     <li>Counting Sort</li>
     <li>Selection Sort</li>
-    <li>Counting Sort</li>
   </ul>
 
   <h2>INSERTION SORT</h2>
@@ -1776,10 +1775,6 @@ convertToDecimalTOOCatal(100);
   Insertion Sort has an average and worst-case time complexity of O(n^2). It is efficient for small arrays or partially 
   sorted arrays but may not be the best choice for larger or highly unsorted arrays.
 
-
-
-
-
   <h2>MARGE SORT</h2>
   Merge Sort is a popular sorting algorithm that follows the divide-and-conquer approach to sort a list of elements. 
   It recursively divides the input list into smaller sublists, sorts them, and then merges them back together to produce a sorted result. 
@@ -1825,30 +1820,30 @@ convertToDecimalTOOCatal(100);
     
       // Recursive function to perform Merge Sort
       void mergeSort(int arr[], int size) {
-          if (size <= 1) {
-              return;  // Base case: already sorted
-          }
-    
-          int mid = size / 2;                  // Middle index
-          int left[mid];                       // Left subarray
-          int right[size - mid];               // Right subarray
-    
-          // Populate the left subarray
-          for (int i = 0; i < mid; i++) {
-            left[i] = arr[i];
-          }
-    
-          // Populate the right subarray
-          for (int i = mid; i < size; i++) {
-            right[i - mid] = arr[i];
-          }
-    
-          // Recursively sort the left and right subarrays
-          mergeSort(left, mid);
-          mergeSort(right, size - mid);
-    
-          // Merge the sorted subarrays
-          merge(arr, left, mid, right, size - mid);
+        if (size <= 1) {
+          return;  // Base case: already sorted
+      }
+
+      int mid = size / 2;                  // Middle index
+      int left[mid];                       // Left subarray
+      int right[size - mid];               // Right subarray
+
+      // Populate the left subarray
+      for (int i = 0; i < mid; i++) {
+        left[i] = arr[i];
+      }
+
+      // Populate the right subarray
+      for (int i = mid; i < size; i++) {
+        right[i - mid] = arr[i];
+      }
+
+      // Recursively sort the left and right subarrays
+      mergeSort(left, mid);
+      mergeSort(right, size - mid);
+
+      // Merge the sorted subarrays
+      merge(arr, left, mid, right, size - mid);
       }
     
       // Function to print an array
@@ -1893,6 +1888,372 @@ convertToDecimalTOOCatal(100);
   </pre>
   Merge Sort is an efficient algorithm for sorting large arrays or linked lists and is widely used due to its stability and good performance.
 
+  <h2>BUBBLE SORT</h2>
+  Bubble sort is a simple sorting algorithm that repeatedly steps through the list of elements to be sorted, compares adjacent elements, and swaps them if they are in the wrong order. The pass through the list is repeated until the list becomes sorted. It is called "bubble sort" because smaller elements "bubble" to the top of the list while larger elements "sink" to the bottom.
+
+  Here's the step-by-step explanation of the bubble sort algorithm in C:
+
+  1. Start with an unsorted array of elements to be sorted.
+
+  2. Repeat the following steps until the array is completely sorted:
+    a. Compare each pair of adjacent elements in the array.
+    b. If the elements are in the wrong order (e.g., the current element is greater than the next element for ascending order), swap them.
+
+  3. After each pass through the array, the largest (or smallest, depending on the sorting order) element "bubbles" to its correct 
+  position at the end (or beginning) of the array.
+
+  4. Reduce the range of the unsorted array by one element (since the last element of the array is already in its correct position).
+
+  5. Repeat the steps from 2 to 4 until the entire array is sorted.
+
+  Here's a C code implementation of the bubble sort algorithm:
+
+  <pre>
+    #include <stdio.h>
+
+      // Function to perform bubble sort on an array
+      void bubbleSort(int arr[], int n) {
+          int i, j, temp;
+          for (i = 0; i < n - 1; i++) {
+              // The inner loop runs from the first element to the (n-i-1)-th element
+              // because the last i elements are already in their correct positions
+              for (j = 0; j < n - i - 1; j++) {
+                // Compare adjacent elements
+                if (arr[j] > arr[j + 1]) {
+                  // Swap the elements if they are in the wrong order
+                  temp = arr[j];
+                  arr[j] = arr[j + 1];
+                  arr[j + 1] = temp;
+                }
+              }
+          }
+      }
+    
+      int main() {
+        int arr[] = {64, 34, 25, 12, 22, 11, 90};
+        int n = sizeof(arr) / sizeof(arr[0]);
+  
+        printf("Original array: ");
+        for (int i = 0; i < n; i++) {
+            printf("%d ", arr[i]);
+        }
+        printf("\n");
+  
+        bubbleSort(arr, n);
+  
+        printf("Sorted array: ");
+        for (int i = 0; i < n; i++) {
+            printf("%d ", arr[i]);
+        }
+        printf("\n");
+  
+        return 0;
+      }
+  </pre>
+  In this example, we sort an array of integers in ascending order using bubble sort. The array is first printed in its original order, 
+  then after applying the bubble sort, the sorted array is printed. The output will show the array in ascending order.
+
+  <h2>COUNTING SORT</h2>
+  Counting Sort is a linear sorting algorithm that works well for non-negative integer inputs within a specific range. 
+  It operates by counting the occurrences of each element in the input array and then using this information to determine the final sorted order. 
+  The counting sort algorithm's time complexity is O(n + k), where n is the number of elements in the input array and k is the range of the input 
+  (maximum element value minus the minimum element value plus one).
+
+  Here's a step-by-step explanation of the Counting Sort algorithm in C:
+
+  1. Find the range of the input array: Calculate the minimum and maximum elements in the array to determine the range of input values (k).
+
+  2. Create a "count" array: Create an auxiliary array of size (k + 1), initialized with all elements set to 0. 
+  This "count" array will store the frequency of each element in the input array.
+
+  3. Count the occurrences: Traverse the input array and increment the corresponding index in the "count" array for each element encountered.
+
+  4. Calculate cumulative frequency: Modify the "count" array by taking the cumulative sum of the elements. 
+  The element at index i now represents the number of elements less than or equal to i in the input array.
+
+  5. Build the sorted output array: Create a new output array of the same size as the input array. 
+  Traverse the input array from right to left, and for each element, find its correct position in the 
+  output array using the cumulative frequency from the "count" array. Decrement the count value in 
+  the "count" array for that element to handle duplicate elements.
+
+  6. Copy the sorted elements to the output array.
+
+  Here's a C code implementation of the Counting Sort algorithm:
+
+  <pre>
+    #include <stdio.h>
+
+      // Function to perform counting sort on an array
+      void countingSort(int arr[], int n) {
+          int i, min_val = arr[0], max_val = arr[0];
+    
+          // Find the minimum and maximum elements in the array
+          for (i = 1; i < n; i++) {
+            if (arr[i] < min_val) {
+              min_val = arr[i];
+          } else if (arr[i] > max_val) {
+              max_val = arr[i];
+          }
+          }
+    
+          int range = max_val - min_val + 1;
+    
+          // Create and initialize the "count" array
+          int count[range];
+          for (i = 0; i < range; i++) {
+            count[i] = 0;
+          }
+    
+          // Count the occurrences of each element in the input array
+          for (i = 0; i < n; i++) {
+            count[arr[i] - min_val]++;
+          }
+    
+          // Modify the "count" array to store the cumulative sum
+          for (i = 1; i < range; i++) {
+            count[i] += count[i - 1];
+          }
+    
+          // Create the output array to store sorted elements
+          int output[n];
+    
+          // Build the sorted output array
+          for (i = n - 1; i >= 0; i--) {
+              output[count[arr[i] - min_val] - 1] = arr[i];
+              count[arr[i] - min_val]--;
+          }
+    
+          // Copy the sorted elements back to the original array
+          for (i = 0; i < n; i++) {
+            arr[i] = output[i];
+          }
+      }
+    
+      int main() {
+        int arr[] = {4, 2, 2, 8, 3, 3, 1};
+        int n = sizeof(arr) / sizeof(arr[0]);
+  
+        printf("Original array: ");
+        for (int i = 0; i < n; i++) {
+            printf("%d ", arr[i]);
+        }
+        printf("\n");
+  
+        countingSort(arr, n);
+  
+        printf("Sorted array: ");
+        for (int i = 0; i < n; i++) {
+            printf("%d ", arr[i]);
+        }
+        printf("\n");
+  
+        return 0;
+      }
+  </pre>
+  In this example, we sort an array of integers using counting sort. The array is first printed in its original order, 
+  then after applying counting sort, the sorted array is printed. The output will show the array in ascending order. 
+  Note that counting sort is suitable for small range integer inputs and may not be efficient for large range or floating-point inputs.
+</div>
+
+<h2>SELECTION SORT</h2>
+Selection Sort is a simple and intuitive sorting algorithm that repeatedly selects the smallest (or largest, depending on the sorting order) 
+element from the unsorted part of the array and swaps it with the first unsorted element. The algorithm divides the input array into 
+two parts: the sorted part at the beginning and the unsorted part at the end. The sorted part starts as an empty array and gradually 
+grows as the smallest elements are selected and moved to their correct positions.
+
+Here's a step-by-step explanation of the Selection Sort algorithm in C:
+
+1. Start with an unsorted array of elements to be sorted.
+
+2. Divide the array into two parts: the sorted part and the unsorted part. Initially, the sorted part is empty, 
+and the unsorted part includes all the elements.
+
+3. Repeat the following steps until the unsorted part becomes empty:
+   a. Find the smallest (or largest, depending on the sorting order) element in the unsorted part of the array.
+   b. Swap the found smallest element with the first element of the unsorted part (i.e., the first element after the sorted part).
+   c. Expand the sorted part by one element (move the boundary between sorted and unsorted parts one element to the right).
+
+4. The array is now sorted.
+
+Here's a C code implementation of the Selection Sort algorithm:
+
+<pre>
+  #include <stdio.h>
+
+    // Function to perform selection sort on an array
+    void selectionSort(int arr[], int n) {
+      int i, j, min_idx, temp;
+      for (i = 0; i < n - 1; i++) {
+        // Assume the current element is the minimum
+        min_idx = i;
+        
+        // Find the smallest element in the unsorted part
+        for (j = i + 1; j < n; j++) {
+            if (arr[j] < arr[min_idx]) {
+              min_idx = j;
+            }
+        }
+        
+        // Swap the found smallest element with the first element of the unsorted part
+        temp = arr[i];
+        arr[i] = arr[min_idx];
+        arr[min_idx] = temp;
+      }
+    }
+    
+    int main() {
+      int arr[] = {64, 34, 25, 12, 22, 11, 90};
+      int n = sizeof(arr) / sizeof(arr[0]);
+  
+      printf("Original array: ");
+      for (int i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+      }
+      printf("\n");
+  
+      selectionSort(arr, n);
+  
+      printf("Sorted array: ");
+      for (int i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+      }
+      printf("\n");
+  
+      return 0;
+    }
+</pre>
+In this example, we sort an array of integers using selection sort. The array is first printed in its original order, then after applying selection sort, 
+the sorted array is printed. The output will show the array in ascending order. Note that selection sort has a time complexity of O(n^2), 
+which makes it less efficient compared to more advanced sorting algorithms like Merge Sort or Quick Sort, especially for large arrays.
+
+<div>
+  <h1>STL(Standard Template Library)</h1>
+  <h4>Day-9 (Date: 7-19-2023)</h4>
+
+  STL Sort time complexity O(nlogn)
+
+  Sure! In C++, the `std::sort` function is part of the Standard Template Library (STL) and is used for sorting elements in a range, 
+  such as an array or a container like `std::vector` or `std::list`. It provides an efficient implementation of the sorting algorithm, 
+  typically using an optimized version of the introsort algorithm (a hybrid sorting algorithm that combines quicksort, heapsort, and insertion sort).
+
+  The function signature of `std::sort` is as follows:
+  <pre>
+    template <typename RandomAccessIterator>
+      void sort(RandomAccessIterator first, RandomAccessIterator last);
+    
+      template <typename RandomAccessIterator, typename Compare>
+      void sort(RandomAccessIterator first, RandomAccessIterator last, Compare comp);
+  </pre>
+
+  The first version takes two iterators `first` and `last`, representing the range of elements to be sorted. It sorts the elements in ascending order by default.
+
+  The second version also takes two iterators `first` and `last`, along with a comparison function `comp`. 
+  The comparison function is used to determine the sorting order of elements. If `comp(a, b)` returns `true`, 
+  it means that element `a` should come before element `b` in the sorted order. If `comp(a, b)` returns `false`, 
+  it means that element `b` should come before element `a`.
+
+  Here's an example of using `std::sort` to sort a vector of integers:
+  <pre>
+      #include <iostream>
+      #include <vector>
+      #include <algorithm> // For std::sort
+      
+      int main() {
+        std::vector<int> numbers = {5, 2, 9, 1, 5, 6};
+            
+        // Sorting the vector in ascending order
+        std::sort(numbers.begin(), numbers.end());
+  
+        // Print the sorted vector
+        for (int num : numbers) {
+          std::cout << num << " ";
+        }
+        std::cout << std::endl;
+  
+        return 0;
+      }
+  </pre>
+  The output will be: `1 2 5 5 6 9`
+
+  In this example, `std::sort` is used to sort the `numbers` vector in ascending order, and the result is printed to the console.
+
+  Remember that when using `std::sort`, the elements in the range specified by the iterators must support comparison operations 
+  (either the default `operator<` or a custom comparison function passed as an argument). Additionally, 
+  the complexity of `std::sort` is typically O(N log N), where N is the number of elements in the range, 
+  making it an efficient sorting algorithm for most scenarios.
+
+  <a href="https://en.cppreference.com/w/cpp/algorithm/sort">STL Sort C++ Reference</a>
+
+  <h1>BINARY SEARCH</h1>
+  Binary search is an efficient algorithm used to search for a specific element in a sorted array or list. It repeatedly divides the search space in half, narrowing down the possible location of the target element, until the element is found or the search space becomes empty. This search technique has a time complexity of O(log n), making it much faster than linear search for large datasets.
+
+  Here's an explanation of the binary search algorithm in C:
+
+  1. **Algorithm**:
+  Let's say we want to find the index of a target element `key` in a sorted array `arr` of size `n`.
+
+  2. **Implementation**:
+
+  <pre>
+      #include <stdio.h>
+
+          int binarySearch(int arr[], int n, int key) {
+              int low = 0;            // The leftmost index of the search space
+              int high = n - 1;       // The rightmost index of the search space
+      
+              while (low <= high) {
+                int mid = low + (high - low) / 2; // Calculate the middle index
+      
+                // If the middle element is the target key, return its index
+                if (arr[mid] == key) {
+                    return mid;
+                }
+                // If the middle element is greater than the key, search the left half
+                else if (arr[mid] > key) {
+                    high = mid - 1;
+                }
+                // If the middle element is less than the key, search the right half
+                else {
+                    low = mid + 1;
+                }
+              }
+      
+              // If the key is not found, return -1 to indicate that it does not exist in the array
+              return -1;
+          }
+      
+          int main() {
+              int arr[] = {2, 4, 6, 8, 10, 12, 14, 16, 18, 20};
+              int n = sizeof(arr) / sizeof(arr[0]);
+              int key = 12;
+              int result = binarySearch(arr, n, key);
+      
+              if (result != -1) {
+                printf("Element %d found at index %d.\n", key, result);
+              } else {
+                printf("Element %d not found in the array.\n", key);
+              }
+      
+            return 0;
+          }
+  </pre>
+
+  3. **Explanation**:
+  - The `binarySearch` function takes the sorted array `arr`, its size `n`, and the target element `key` as input.
+  - It initializes two variables, `low` and `high`, to represent the search space. `low` is set to the leftmost index (0), and `high` is set to the rightmost index (`n - 1`).
+  - The algorithm uses a `while` loop to keep dividing the search space in half until `low` becomes greater than `high`, which indicates that the target element is not present in the array.
+  - At each iteration, it calculates the middle index `mid` as the average of `low` and `high`.
+  - If the middle element is equal to the `key`, the search is successful, and the function returns the index of the `key`.
+  - If the middle element is greater than the `key`, the search continues in the left half of the array, so the `high` is updated to `mid - 1`.
+  - If the middle element is less than the `key`, the search continues in the right half of the array, so the `low` is updated to `mid + 1`.
+  - The process repeats until the target element is found, or the search space is exhausted.
+  - If the `key` is not found, the function returns -1 to indicate its absence in the array.
+
+  4. **Example**:
+  In the given example, the target element is 12, and the algorithm successfully finds it at index 5 in the sorted array `arr`.
+
+  Note: Binary search requires a sorted array as input. If the array is not sorted, the algorithm will not work correctly. 
+  Additionally, binary search works best with random access data structures like arrays, as it needs to access elements by index efficiently.
 </div>
 </p>
 </div>
