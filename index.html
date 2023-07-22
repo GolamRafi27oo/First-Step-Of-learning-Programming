@@ -160,9 +160,9 @@ convertToDecimalTOOCatal(100);
   <h4>Day-2 (Date: 7-6-2023)</h4>
   <p>Watch some videos read some documents about how compiler works</p>
 
-  <a href="Book-Files/COMPUTER-PROGRAMMING-TAMIM-SHAHRIAR-SHUBEEN.pdf">Book(Bangla) - COMPUTER PROGRAMMING TAMIM SHAHRIAR SHUBEEN (Language C)</a> 
+  <a href="Book-Files/COMPUTER-PROGRAMMING-TAMIM-SHAHRIAR-SHUBEEN.pdf" target="_blank">Book(Bangla) - COMPUTER PROGRAMMING TAMIM SHAHRIAR SHUBEEN (Language C)</a> 
   </br>
-  <a href="Book-Files/Programming in C - Stephen G.Cochan.pdf">Book(English) - PROGRAMMING IN C - STEPHEN G.COCHAN (Language C)</a>
+  <a href="Book-Files/Programming in C - Stephen G.Cochan.pdf" target="_blank">Book(English) - PROGRAMMING IN C - STEPHEN G.COCHAN (Language C)</a>
   
   <h4>MEMORY</h4>
   <pre>
@@ -932,7 +932,7 @@ convertToDecimalTOOCatal(100);
   In lexicographic order, strings are compared character by character, starting from the leftmost character. The comparison is made by 
   looking at the Unicode or ASCII values of the characters.
   <br>
-  <a href="https://www.ascii-code.com/">ASCII Table</a>
+  <a href="https://www.ascii-code.com/" target="_blank">ASCII Table</a>
   <br>
 
   To determine which string is lexicographically smaller, you compare the corresponding characters from both strings until a difference is found. 
@@ -1027,11 +1027,10 @@ convertToDecimalTOOCatal(100);
           // Compare characters from both ends towards the middle
           for (i = 0, j = length - 1; i < j; i++, j--) {
               if (str[i] != str[j]) {
-                  return 0; // Not a palindrome
-              }
+                return 0; // Not a palindrome
+            }
           }
-      
-          return 1; // Palindrome
+        return 1; // Palindrome
       }
       
       int main() {
@@ -1041,11 +1040,10 @@ convertToDecimalTOOCatal(100);
           scanf("%s", str);
       
           if (isPalindrome(str)) {
-              printf("%s is a palindrome.\n", str);
+            printf("%s is a palindrome.\n", str);
           } else {
-              printf("%s is not a palindrome.\n", str);
+            printf("%s is not a palindrome.\n", str);
           }
-      
           return 0;
       }
   </pre>
@@ -1293,7 +1291,7 @@ convertToDecimalTOOCatal(100);
   By analyzing theta notation, you can get a comprehensive understanding of an algorithm's performance across different scenarios. 
   It helps in evaluating the efficiency of algorithms and making informed decisions when choosing the most appropriate algorithm for a particular task.
 
-  <a href="https://www.bigocheatsheet.com/">More Details About Time Complexity</a>
+  <a href="https://www.bigocheatsheet.com/" target="_blank">More Details About Time Complexity</a>
 
   <h1>MEMORY COMPLEXITY ANALYSIS</h1>
   Memory complexity, also known as space complexity, refers to the amount of memory or storage required by an algorithm or program to solve a problem. 
@@ -1334,7 +1332,7 @@ convertToDecimalTOOCatal(100);
   It's worth mentioning that in C, memory complexity analysis often involves considering the sizes and types of data structures, 
   dynamically allocated memory, recursion stack usage, and other factors that impact memory consumption.
 
-  <a href="https://www.bigocheatsheet.com/">More Details About Space Complexity</a>
+  <a href="https://www.bigocheatsheet.com/" target="_blank">More Details About Space Complexity</a>
 
   <h1>FUNCTION</h1>
   In C, a function is a self-contained block of code that performs a specific task or computation. 
@@ -2182,7 +2180,7 @@ which makes it less efficient compared to more advanced sorting algorithms like 
   the complexity of `std::sort` is typically O(N log N), where N is the number of elements in the range, 
   making it an efficient sorting algorithm for most scenarios.
 
-  <a href="https://en.cppreference.com/w/cpp/algorithm/sort">STL Sort C++ Reference</a>
+  <a href="https://en.cppreference.com/w/cpp/algorithm/sort" target="_blank">STL Sort C++ Reference</a>
 
   <h1>BINARY SEARCH</h1>
   Binary search is an efficient algorithm used to search for a specific element in a sorted array or list. It repeatedly divides the search space in half, narrowing down the possible location of the target element, until the element is found or the search space becomes empty. This search technique has a time complexity of O(log n), making it much faster than linear search for large datasets.
@@ -2254,6 +2252,123 @@ which makes it less efficient compared to more advanced sorting algorithms like 
 
   Note: Binary search requires a sorted array as input. If the array is not sorted, the algorithm will not work correctly. 
   Additionally, binary search works best with random access data structures like arrays, as it needs to access elements by index efficiently.
+</div>
+<div>
+  <h2>BINARY PROPERTY</h2>
+  <h4>Day-10 (Date: 7-22-2023)</h4>
+  In C programming, a binary property typically refers to a property or attribute that can have one of two distinct values: 
+  true or false, 1 or 0, on or off. These binary properties are often represented using integers, 
+  where 0 represents the "false" state, and 1 represents the "true" state.
+
+  A common practice in C programming is to use bitwise operators to manipulate and check the binary properties of variables. 
+  The most common bitwise operators are:
+
+  1. Bitwise AND (`&`): This operator performs a bitwise AND operation on two operands. It sets each bit to 1 only if both 
+  corresponding bits in the operands are 1. Otherwise, it sets the bit to 0.
+
+  2. Bitwise OR (`|`): This operator performs a bitwise OR operation on two operands. It sets each bit to 1 if either of 
+  the corresponding bits in the operands is 1. If both bits are 0, it sets the result to 0.
+
+  3. Bitwise XOR (`^`): This operator performs a bitwise exclusive OR operation on two operands. It sets each bit to 1 only 
+  if one of the corresponding bits in the operands is 1. If both bits are the same (both 0 or both 1), it sets the result to 0.
+
+  4. Bitwise NOT (`~`): This operator performs a bitwise NOT operation on a single operand. It flips all the bits, changing 0s to 1s and 1s to 0s.
+
+  Binary properties are commonly used for various purposes in C programming. For example, they can be used to represent flags or switches, 
+  where a specific bit position is used to indicate the state of a particular option or configuration. 
+  By manipulating these bits using bitwise operations, you can efficiently set, clear, or check the status of various properties.
+
+  Here's an example of using binary properties in C:
+
+  <pre>
+    #include <stdio.h>
+
+      #define FLAG_A (1 << 0) // 00000001
+      #define FLAG_B (1 << 1) // 00000010
+      #define FLAG_C (1 << 2) // 00000100
+      #define FLAG_D (1 << 3) // 00001000
+    
+      int main() {
+        int properties = 0; // Initialize all flags to 0 (false)
+    
+        // Set the binary properties
+        properties |= FLAG_A; // Turn on FLAG_A (00000001)
+        properties |= FLAG_C; // Turn on FLAG_C (00000100)
+  
+        // Check if a property is set
+        if (properties & FLAG_A) {
+            printf("FLAG_A is set\n");
+        }
+  
+        // Check if a property is not set
+        if (!(properties & FLAG_B)) {
+            printf("FLAG_B is not set\n");
+        }
+  
+        // Clear a property
+        properties &= ~FLAG_A; // Turn off FLAG_A (00000001 -> 00000000)
+  
+        // Check the status of multiple properties
+        if ((properties & (FLAG_C | FLAG_D)) == (FLAG_C | FLAG_D)) {
+            printf("FLAG_C and FLAG_D are both set\n");
+        }
+  
+        return 0;
+      }
+  </pre>
+
+  In this example, we use bitwise operators to manipulate and check the binary properties represented by 
+  the constants `FLAG_A`, `FLAG_B`, `FLAG_C`, and `FLAG_D`. We set and clear these properties and perform checks based on their values.
+
+  <h2>UPPER BOUND</h2>
+  In mathematics and computer science, an upper bound is a value that represents an upper limit or maximum value for a set of numbers or elements. 
+  It defines an upper boundary beyond which the elements in the set cannot exceed. If an element in the set reaches or surpasses the upper bound, 
+  it is considered to be within the limit.
+
+  For a given set of numbers or elements, an upper bound can be determined based on the specific context and requirements of the problem being addressed. 
+  The upper bound is often used to establish the maximum resource usage or time complexity of an algorithm, or to set limits on data sizes or quantities.
+
+  In the context of algorithm analysis, an upper bound is used to describe the worst-case time complexity or space complexity of an algorithm. 
+  For example, if an algorithm has an upper bound of O(n), it means that the algorithm's time or space requirements grow no faster than linearly 
+  with the size of the input (n). It could be better, but it will not exceed the upper bound.
+
+  Similarly, in the context of data structures, an upper bound may refer to the maximum capacity or size that a data structure can handle efficiently. 
+  For instance, a stack data structure may have an upper bound on the number of elements it can hold to prevent overflow.
+
+  It is important to note that an upper bound is not necessarily a tight or precise value. It represents an upper limit, but the actual performance or 
+  resource usage may be much better than the upper bound. For algorithm analysis, it is common to also provide lower bounds to describe the best-case scenario.
+
+  In contrast to an upper bound, a lower bound represents a lower limit or minimum value for a set of numbers or elements. 
+  Together, the upper and lower bounds help in understanding the range of possibilities and provide valuable insights into the behavior of algorithms and data structures.
+
+  <h2>LOWER BOUND</h2>
+  In mathematics and computer science, a lower bound is a value that represents a lower limit or minimum value for a set of numbers or elements. 
+  It defines a lower boundary below which the elements in the set cannot go. If an element in the set reaches or falls below the lower bound, 
+  it is considered to be within the limit.
+
+  Like the upper bound, a lower bound is used to analyze and describe the behavior of algorithms and data structures. 
+  It is particularly relevant in the context of algorithm analysis, where it helps to determine the best-case time complexity or space complexity of an algorithm.
+
+  When analyzing algorithms, it is common to provide both upper and lower bounds to describe the range of possible scenarios. 
+  Together, these bounds give a more complete understanding of how the algorithm performs under different circumstances.
+
+  For example, consider an algorithm that sorts an array of n elements using a comparison-based sorting technique. 
+  The best-known comparison-based sorting algorithms, like Merge Sort and Quick Sort, have an upper bound of O(n log n) in terms of time complexity. 
+  This means that the time taken by these algorithms grows no faster than n log n as the size of the input (n) increases.
+
+  However, it has been proven that any comparison-based sorting algorithm must have a lower bound of Ω(n log n) as well. 
+  This implies that no comparison-based sorting algorithm can sort the elements in better than n log n time, regardless of the specific implementation. 
+  In other words, n log n is the best possible time complexity achievable using comparison-based sorting methods.
+
+  Lower bounds are crucial in algorithm analysis because they help identify the inherent limitations of certain approaches and provide insights into the optimal solutions. 
+  It is worth noting that lower bounds, like upper bounds, are not necessarily tight or precise. 
+  They represent lower limits, but the actual performance or resource usage may be much better than the lower bound.
+
+  In summary, a lower bound is a minimum value or lower limit that is used to analyze the performance of algorithms and data structures, 
+  particularly in terms of time complexity or space complexity. It provides valuable information about the best-case scenarios and helps 
+  identify fundamental limitations in solving specific problems.
+
+  <a href="https://www.topcoder.com/thrive/articles/Binary+Search" target="_blank">TOPCODER BINARY SEARCH ARTICLE</a>
 </div>
 </p>
 </div>
