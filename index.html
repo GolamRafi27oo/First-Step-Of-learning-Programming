@@ -2370,6 +2370,154 @@ which makes it less efficient compared to more advanced sorting algorithms like 
 
   <a href="https://www.topcoder.com/thrive/articles/Binary+Search" target="_blank">TOPCODER BINARY SEARCH ARTICLE</a>
 </div>
+
+<div>
+  <h1>FAST I/O FOR COMPETITIVE PROGRAMMING</h1>
+  <h4>Day-11 (Date: 7-23-2023)</h4>
+  Fast I/O techniques are essential in competitive programming to optimize the input/output operations, 
+  as conventional I/O methods like "cin" and "cout" in C++ and "input()" and "print()" in Python can be 
+  slow and lead to time limit exceeded errors for large input/output. Fast I/O techniques are particularly 
+  crucial in time-sensitive competitions where every millisecond counts. Here's a brief explanation of two 
+  common Fast I/O methods used in competitive programming:
+
+  1. C++ Fast I/O using "scanf" and "printf":
+  - Instead of using "cin" and "cout," you can use "scanf" and "printf" functions from the C standard library. 
+  These functions are generally faster than their C++ counterparts.
+  - For reading integers, use `scanf("%d", &variable)` instead of `cin >> variable`.
+  - For reading long long integers, use `scanf("%lld", &variable)` instead of `cin >> variable`.
+  - For printing integers, use `printf("%d", variable)` instead of `cout << variable`.
+  - For printing long long integers, use `printf("%lld", variable)` instead of `cout << variable`.
+  
+  2. C++ Fast I/O using "ios_base::sync_with_stdio(0)" and "cin.tie(0)":
+  - You can disable the synchronization between C and C++ standard streams to speed up I/O.
+  - Place `ios_base::sync_with_stdio(0);` at the beginning of your code to turn off synchronization.
+  - Use `cin.tie(0);` to untie cin from cout if you don't need flushing after every input operation.
+
+  Here's an example of using fast I/O in C++:
+  <pre>
+    #include <iostream>
+      using namespace std;
+      
+      int main() {
+          ios_base::sync_with_stdio(0); // Turn off synchronization
+          cin.tie(0); // Untie cin from cout
+      
+          int n;
+          cin >> n; // Fast input using cin
+          for (int i = 0; i < n; ++i) {
+            int x, y;
+            cin >> x >> y; // Fast input of two integers
+            int sum = x + y;
+            printf("%d\n", sum); // Fast output using printf
+          }
+        return 0;
+      }
+  </pre>  
+  Using fast I/O can significantly reduce the time taken for input/output operations and help you avoid time limit exceeded errors in competitive programming contests. 
+  However, keep in mind that these techniques might not be suitable for general programming, as they sacrifice some convenience for the sake of speed.
+
+  <h2>BUFFERS</h2>
+  In the context of computer systems and programming, a buffer refers to a temporary data storage area used to hold and manage data as 
+  it is transferred from one location to another. Buffers play a crucial role in optimizing data transfer and processing operations, 
+  especially in scenarios where the speed of data transmission or processing can vary significantly.
+
+  Here are some key points to understand about buffers:
+  
+  1. Data Transfer and I/O Operations: Buffers are often used to improve the efficiency of Input/Output (I/O) operations. 
+  When data is read from a source or written to a destination, it is not always processed immediately. Instead, 
+  it is first stored in a buffer before being sent or processed further. This way, the I/O operations can continue 
+  asynchronously while the buffer handles the data transfer at its own pace.
+  
+  2. Size and Capacity: Buffers have a specific size or capacity, which determines how much data they can hold. 
+  The size of the buffer is typically chosen based on the requirements of the system and the nature of the data being processed. 
+  A larger buffer can reduce the frequency of data transfers, improving efficiency in certain scenarios.
+  
+  3. Types of Buffers:
+  - Input Buffer: Used to temporarily store data read from an input source before it is processed by the system. For example, 
+  when reading data from a file or receiving data over a network, the data is stored in an input buffer until the system is ready to process it.
+  - Output Buffer: Used to temporarily store data before it is written to an output destination. This is often used in scenarios where the output 
+  device or destination may not be able to accept data as fast as it is being produced.
+  - Memory Buffer: Buffers can also exist in memory, allowing data to be temporarily held before being used or transmitted. 
+  This type of buffer is frequently used in data manipulation and data transfer operations.
+
+  4. Buffer Overflows: It is essential to manage buffers carefully to avoid buffer overflows. 
+  A buffer overflow occurs when more data is written to or read from a buffer than its capacity allows. 
+  This can lead to data corruption, system crashes, or security vulnerabilities. Proper bounds checking 
+  and buffer size management are crucial to prevent buffer overflows.
+  
+  5. Examples of Buffers: Buffers are commonly used in various aspects of computing, such as network communication, file I/O, 
+  video and audio streaming, and image processing. For example, when streaming a video online, the video data is stored in a 
+  buffer on the user's device. This allows the video to continue playing smoothly even if there are fluctuations in network speed.
+  
+  In summary, a buffer is a temporary data storage area used to facilitate the efficient transfer and processing of data in computer systems. 
+  It is an essential concept in computer programming and system design to optimize data handling and improve overall system performance.
+
+  <h2>STRUCTURE</h2>
+  In computer programming, a structure (also known as a struct) is a user-defined data type used to group together related data 
+  items of different data types into a single entity. It allows you to create a composite data structure that can hold multiple pieces of data, 
+  each with its own data type. Structures provide a way to represent and manage a collection of related data in a more organized and convenient manner.
+
+  In most programming languages, structures are used to define custom data types that are not available in the standard set of primitive data types. 
+  The syntax for creating a structure varies depending on the programming language, but the concept remains the same.
+  
+  Here are some key points to understand about structures:
+  
+  1. Data Members: A structure is composed of data members, also known as fields or variables. Each data member has its own name and data type, 
+  and it represents a specific piece of information related to the structure.
+  
+  2. Custom Data Type: Once a structure is defined, it becomes a new custom data type that can be used to create variables in the same way as 
+  primitive data types like int, float, etc.
+  
+  3. Grouping Related Data: The main purpose of using structures is to group together related data that belongs to the same entity. 
+  For example, if you need to represent information about a person, you could use a structure with data members like name (string), 
+  age (int), and address (string) to encapsulate all the person's details into a single structure.
+  
+  4. Accessing Data Members: To access the data members of a structure, you use the dot notation (.) followed by the data member's name. 
+  For example, if you have a structure called "Person," and it has a data member called "name," you can access it as `person.name`.
+  
+  5. Declaration and Definition: To use a structure, you first need to define it, specifying its data members and their data types. 
+  Then, you can declare variables of that structure type.
+  
+  Example (in C++):
+  
+  <pre>
+    // Defining the structure
+    struct Person {
+      string name;
+      int age;
+      string address;
+    };
+    
+    int main() {
+      // Declaring variables of the "Person" structure
+      Person person1;
+      Person person2;
+  
+      // Accessing and assigning values to data members
+      person1.name = "Alice";
+      person1.age = 30;
+      person1.address = "123 Main St";
+  
+      person2.name = "Bob";
+      person2.age = 25;
+      person2.address = "456 Elm St";
+  
+      // Using the structure data
+      cout << person1.name << " is " << person1.age << " years old and lives at " << person1.address << endl;
+      cout << person2.name << " is " << person2.age << " years old and lives at " << person2.address << endl;
+  
+      return 0;
+    }
+  </pre>
+
+  Output:
+  <pre>
+    Alice is 30 years old and lives at 123 Main St
+    Bob is 25 years old and lives at 456 Elm St
+  </pre>
+  In this example, we defined a "Person" structure with three data members (name, age, and address). 
+  We then declared two variables of the "Person" structure type and assigned values to their data members to represent information about two individuals.
+</div>
 </p>
 </div>
 </body>
