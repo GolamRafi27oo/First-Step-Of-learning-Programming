@@ -1510,91 +1510,90 @@ Merge Sort is a popular sorting algorithm that follows the divide-and-conquer ap
 Here's an implementation of Merge Sort in C:
 
 ```C
-    #include <stdio.h>
+#include <stdio.h>
 
-      // Function to merge two sorted subarrays
-      void merge(int arr[], int left[], int leftSize, int right[], int rightSize) {
-          int i = 0;     // Index for the left subarray
-          int j = 0;     // Index for the right subarray
-          int k = 0;     // Index for the merged array
+// Function to merge two sorted subarrays
+  void merge(int arr[], int left[], int leftSize, int right[], int rightSize) {
+    int i = 0;     // Index for the left subarray
+    int j = 0;     // Index for the right subarray
+    int k = 0;     // Index for the merged array
 
-          while (i < leftSize && j < rightSize) {
-            if (left[i] <= right[j]) {
-              arr[k] = left[i];
-              i++;
-          }
-          else {
-              arr[k] = right[j];
-              j++;
-          }
-          k++;
-          }
+    while (i < leftSize && j < rightSize) {
+      if (left[i] <= right[j]) {
+        arr[k] = left[i];
+        i++;
+    }
+    else {
+        arr[k] = right[j];
+        j++;
+    }
+    k++;
+    }
 
-          // Copy the remaining elements of the left subarray, if any
-          while (i < leftSize) {
-            arr[k] = left[i];
-            i++;
-            k++;
-          }
+    // Copy the remaining elements of the left subarray, if any
+    while (i < leftSize) {
+      arr[k] = left[i];
+      i++;
+      k++;
+    }
 
-          // Copy the remaining elements of the right subarray, if any
-          while (j < rightSize) {
-            arr[k] = right[j];
-            j++;
-            k++;
-          }
-      }
+    // Copy the remaining elements of the right subarray, if any
+    while (j < rightSize) {
+      arr[k] = right[j];
+      j++;
+      k++;
+    }
+}
 
       // Recursive function to perform Merge Sort
-      void mergeSort(int arr[], int size) {
-        if (size <= 1) {
-          return;  // Base case: already sorted
-      }
+void mergeSort(int arr[], int size) {
+    if (size <= 1) {
+        return;  // Base case: already sorted
+    }
+    int mid = size / 2;                  // Middle index
+    int left[mid];                       // Left subarray
+    int right[size - mid];               // Right subarray
 
-      int mid = size / 2;                  // Middle index
-      int left[mid];                       // Left subarray
-      int right[size - mid];               // Right subarray
+    // Populate the left subarray
+    for (int i = 0; i < mid; i++) {
+      left[i] = arr[i];
+    }
 
-      // Populate the left subarray
-      for (int i = 0; i < mid; i++) {
-        left[i] = arr[i];
-      }
+    // Populate the right subarray
+    for (int i = mid; i < size; i++) {
+      right[i - mid] = arr[i];
+    }
 
-      // Populate the right subarray
-      for (int i = mid; i < size; i++) {
-        right[i - mid] = arr[i];
-      }
+    // Recursively sort the left and right subarrays
+    mergeSort(left, mid);
+    mergeSort(right, size - mid);
 
-      // Recursively sort the left and right subarrays
-      mergeSort(left, mid);
-      mergeSort(right, size - mid);
+    // Merge the sorted subarrays
+    merge(arr, left, mid, right, size - mid);
+}
 
-      // Merge the sorted subarrays
-      merge(arr, left, mid, right, size - mid);
-      }
+// Function to print an array
+void printArray(int arr[], int size) {
+    for (int i = 0; i < size; i++) {
+      printf("%d ", arr[i]);
+    }
+    printf("\n");
+}
 
-      // Function to print an array
-      void printArray(int arr[], int size) {
-          for (int i = 0; i < size; i++) {
-            printf("%d ", arr[i]);
-          }
-          printf("\n");
-      }
+int main() {
+    int arr[] = {8, 3, 11, 2, 1, 6, 4, 7};
+    int size = sizeof(arr) / sizeof(arr[0]);
 
-      int main() {
-        int arr[] = {8, 3, 11, 2, 1, 6, 4, 7};
-        int size = sizeof(arr) / sizeof(arr[0]);
+    printf("Original array: ");
+    printArray(arr, size);
 
-        printf("Original array: ");
-        printArray(arr, size);
+    mergeSort(arr, size);
 
-        mergeSort(arr, size);
+    printf("Sorted array: ");
+    printArray(arr, size);
 
-        printf("Sorted array: ");
-        printArray(arr, size);
-
-        return 0;
-      }
+    return 0;
+  }
 ```
 In this implementation, the `merge()` function merges two sorted subarrays (`left[]` and `right[]`) into a single sorted array (`arr[]`). It iterates through both subarrays, comparing the elements and placing them in the merged array in ascending order.
 
@@ -1964,38 +1963,38 @@ Here's an example of using binary properties in C:
 ```C
 #include <stdio.h>
 
-      #define FLAG_A (1 << 0) // 00000001
-      #define FLAG_B (1 << 1) // 00000010
-      #define FLAG_C (1 << 2) // 00000100
-      #define FLAG_D (1 << 3) // 00001000
+#define FLAG_A (1 << 0) // 00000001
+#define FLAG_B (1 << 1) // 00000010
+#define FLAG_C (1 << 2) // 00000100
+#define FLAG_D (1 << 3) // 00001000
 
-      int main() {
-        int properties = 0; // Initialize all flags to 0 (false)
+int main() {
+  int properties = 0; // Initialize all flags to 0 (false)
 
-        // Set the binary properties
-        properties |= FLAG_A; // Turn on FLAG_A (00000001)
-        properties |= FLAG_C; // Turn on FLAG_C (00000100)
+  // Set the binary properties
+  properties |= FLAG_A; // Turn on FLAG_A (00000001)
+  properties |= FLAG_C; // Turn on FLAG_C (00000100)
 
-        // Check if a property is set
-        if (properties & FLAG_A) {
-            printf("FLAG_A is set\n");
-        }
+  // Check if a property is set
+  if (properties & FLAG_A) {
+      printf("FLAG_A is set\n");
+  }
 
-        // Check if a property is not set
-        if (!(properties & FLAG_B)) {
-            printf("FLAG_B is not set\n");
-        }
+  // Check if a property is not set
+  if (!(properties & FLAG_B)) {
+      printf("FLAG_B is not set\n");
+  }
 
-        // Clear a property
-        properties &= ~FLAG_A; // Turn off FLAG_A (00000001 -> 00000000)
+  // Clear a property
+  properties &= ~FLAG_A; // Turn off FLAG_A (00000001 -> 00000000)
 
-        // Check the status of multiple properties
-        if ((properties & (FLAG_C | FLAG_D)) == (FLAG_C | FLAG_D)) {
-            printf("FLAG_C and FLAG_D are both set\n");
-        }
+  // Check the status of multiple properties
+  if ((properties & (FLAG_C | FLAG_D)) == (FLAG_C | FLAG_D)) {
+      printf("FLAG_C and FLAG_D are both set\n");
+  }
 
-        return 0;
-      }
+  return 0;
+}
 ```
 
 In this example, we use bitwise operators to manipulate and check the binary properties represented by the constants `FLAG_A`, `FLAG_B`, `FLAG_C`, and `FLAG_D`. We set and clear these properties and perform checks based on their values.
@@ -2053,17 +2052,17 @@ Here's an example of using fast I/O in C++:
 using namespace std;
 
 int main() {
-    ios_base::sync_with_stdio(0); // Turn off synchronization
-    cin.tie(0); // Untie cin from cout
+  ios_base::sync_with_stdio(0); // Turn off synchronization
+  cin.tie(0); // Untie cin from cout
 
-    int n;
-    cin >> n; // Fast input using cin
-    for (int i = 0; i < n; ++i) {
-      int x, y;
-      cin >> x >> y; // Fast input of two integers
-      int sum = x + y;
-      printf("%d\n", sum); // Fast output using printf
-    }
+  int n;
+  cin >> n; // Fast input using cin
+  for (int i = 0; i < n; ++i) {
+    int x, y;
+    cin >> x >> y; // Fast input of two integers
+    int sum = x + y;
+    printf("%d\n", sum); // Fast output using printf
+  }
   return 0;
 }
 ```
@@ -2143,3 +2142,182 @@ Output:
 
 In this example, we defined a "Person" structure with three data members (name, age, and address). We then declared two variables of the "Person" structure type and assigned values to their data members to represent information about two individuals.
 
+# VECTOR
+#### Day-12 (Date: 7-25-2023)
+In C, a vector typically refers to a one-dimensional array. An array is a collection of elements of the same data type, and a vector is a specific case where it has only one dimension, meaning it consists of a sequence of elements arranged in a straight line.
+
+To create a vector in C, you need to declare an array variable. Here's the general syntax to declare a vector:
+
+```C
+data_type array_name[size];
+```
+
+- `data_type`: This is the data type of the elements that the vector will hold. It could be any valid C data type, such as int, float, char, etc.
+- `array_name`: This is the name of the vector, which you can use to access its elements later.
+- `size`: This represents the number of elements the vector can hold. It must be a positive integer constant.
+
+Here's an example of creating and using an integer vector in C:
+
+```C
+#include <stdio.h>
+
+int main() {
+    int numbers[5]; // Declaration of an integer vector with size 5
+
+    // Initializing the vector elements
+    numbers[0] = 10;
+    numbers[1] = 20;
+    numbers[2] = 30;
+    numbers[3] = 40;
+    numbers[4] = 50;
+
+    // Accessing and printing elements of the vector
+    printf("Element 0: %d\n", numbers[0]);
+    printf("Element 2: %d\n", numbers[2]);
+    printf("Element 4: %d\n", numbers[4]);
+
+    return 0;
+}
+```
+
+In this example, we declare an integer vector `numbers` with a size of 5. We then initialize its elements with specific values and later print out a few of the elements using the index notation `numbers[index]`.
+
+Remember that the index in C is 0-based, meaning the first element has an index of 0, the second element has an index of 1, and so on. It's essential to ensure that you don't access elements outside the bounds of the vector, as doing so could lead to undefined behavior or segmentation faults. Always make sure to stay within the valid index range, which is from 0 to size-1.
+
+### RECURSION TREE
+A recursion tree is a visual representation of the execution of a recursive function. It helps to understand how the function calls itself with different parameters and how the recursive calls are organized and executed. Recursion trees are particularly useful in visualizing the flow of recursive functions and can aid in analyzing the time complexity of recursive algorithms.
+
+Let's take an example of a simple recursive function to calculate the factorial of a positive integer `n`:
+
+```c
+#include <stdio.h>
+
+int factorial(int n) {
+    if (n == 0 || n == 1)
+        return 1;
+    else
+        return n * factorial(n - 1);
+}
+
+int main() {
+    int n = 5;
+    int result = factorial(n);
+    printf("Factorial of %d is %d\n", n, result);
+    return 0;
+}
+```
+
+The `factorial` function calculates the factorial of `n` by recursively multiplying `n` with the factorial of `n - 1`, until it reaches the base case where `n` is 0 or 1.
+
+Now, let's visualize the recursion tree for `factorial(5)`:
+
+```C
+                 factorial(5)
+               /             \
+       5 * factorial(4)       factorial(4)
+       /         \             /         \
+5 * factorial(3)  factorial(3) factorial(3) factorial(3)
+  /        \      /        \    /        \    /        \
+5 * fac(2) fac(2) fac(2) fac(2) fac(2) fac(2) fac(2) fac(2)
+  /     \   /     \   /     \   /     \   /     \   /     \
+5 * fac(1) fac(1) fac(1) fac(1) fac(1) fac(1) fac(1) fac(1)
+  /     \   /     \   /     \   /     \   /     \   /     \
+  5 * 1    1 * 1   1 * 1   1 * 1   1 * 1   1 * 1   1 * 1   1 * 1
+   /        \       \       \       \       \       \       \
+   5         1       1       1       1       1       1       1
+``` 
+
+In this recursion tree, each node represents a recursive call to the `factorial` function with a particular value of `n`. The edges connecting the nodes show the flow of execution during the recursive calls.
+
+For example, `factorial(5)` calls `factorial(4)` and `5 * factorial(4)`, which then lead to further recursive calls until it reaches the base case where `n` is 0 or 1. At that point, the recursion stops, and the function returns the result back through the tree until the final result for `factorial(5)` is obtained.
+
+Recursion trees help in understanding the recursive process and how it breaks down a complex problem into smaller subproblems. They can be especially helpful in visualizing the recursion flow and identifying patterns in recursive algorithms.
+
+### PRINT AN ARRAY USING RECURSION
+To print an array using recursion in C, you can define a recursive function that traverses the array and prints each element one by one. Here's an example of how to do it:
+
+```c
+#include <stdio.h>
+
+void printArray(int arr[], int size, int index) {
+    if (index == size) {
+        printf("\n");
+        return; // Base case: If the index reaches the size of the array, return to stop recursion.
+    }
+
+    printf("%d ", arr[index]); // Print the current element
+    printArray(arr, size, index + 1); // Recursively call the function with the next index
+}
+
+int main() {
+    int arr[] = {1, 2, 3, 4, 5};
+    int size = sizeof(arr) / sizeof(arr[0]);
+
+    printf("Array elements: ");
+    printArray(arr, size, 0); // Start printing from index 0
+
+    return 0;
+}
+```
+
+In this example, the function `printArray` takes three arguments:
+1. `arr`: The array to be printed.
+2. `size`: The size of the array.
+3. `index`: The current index of the array to be printed.
+
+The function starts by checking if the `index` has reached the `size`. If it has, the base case is reached, and the function returns, stopping the recursion. Otherwise, it prints the element at the current index and calls itself recursively with the next index (index + 1) to continue printing the remaining elements of the array.
+
+In the `main` function, we define an example integer array `arr`, and then we calculate its size using the `sizeof` operator. We then call the `printArray` function with the initial index of 0 to start printing the elements of the array.
+
+When you run this program, it will print the array elements as follows:
+
+```
+Array elements: 1 2 3 4 5
+```
+
+The elements of the array are printed using recursion, where the function calls itself repeatedly until it reaches the base case and then unwinds the recursive calls to print the elements in the correct order.
+
+### SOLVING FIBONACCI PROBLEM USING RECURSION
+In the Fibonacci problem using recursion, we write a C program to calculate the nth Fibonacci number by defining a recursive function that calls itself to calculate the previous two Fibonacci numbers.
+
+Here's the C program to calculate the nth Fibonacci number using recursion:
+
+```C
+#include <stdio.h>
+
+int fibonacci(int n) {
+    if (n == 0)
+        return 0;
+    else if (n == 1)
+        return 1;
+    else
+        return fibonacci(n - 1) + fibonacci(n - 2);
+}
+
+int main() {
+    int n;
+    printf("Enter the value of n: ");
+    scanf("%d", &n);
+
+    if (n < 0) {
+        printf("Invalid input. n must be a non-negative integer.\n");
+    } else {
+        int result = fibonacci(n);
+        printf("The %dth Fibonacci number is: %d\n", n, result);
+    }
+
+    return 0;
+}
+```
+
+In this program, we define a recursive function `fibonacci` that takes an integer `n` as input and returns the nth Fibonacci number. In the function, we use the base cases for n = 0 and n = 1, which are the first two numbers in the Fibonacci sequence (0 and 1). If n is greater than 1, the function calls itself recursively to calculate the (n - 1)th and (n - 2)th Fibonacci numbers, and then it adds them together to get the nth Fibonacci number.
+
+In the `main` function, we prompt the user to enter the value of `n`, and then we call the `fibonacci` function to calculate the corresponding Fibonacci number. The result is then printed to the console.
+
+When you run this program and provide a non-negative integer as input for `n`, it will calculate and display the nth Fibonacci number. For example, if you input `n = 7`, the program will output:
+
+```
+The 7th Fibonacci number is: 13
+```
+
+This is because the 7th Fibonacci number is 13 (0, 1, 1, 2, 3, 5, 8, 13). The recursive approach is elegant but may become inefficient for large values of `n` due to redundant calculations. Memoization or dynamic programming can be used to optimize the recursive Fibonacci function for better performance in such cases.

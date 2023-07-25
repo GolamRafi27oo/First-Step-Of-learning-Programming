@@ -2520,6 +2520,194 @@ which makes it less efficient compared to more advanced sorting algorithms like 
   We then declared two variables of the "Person" structure type and assigned values to their data members to represent information about two individuals.
 </div>
 
+<div>
+  <h1>VECTOR</h1>
+  <h4>Day-12 (Date: 7-25-2023)</h4>
+  In C, a vector typically refers to a one-dimensional array. An array is a collection of elements of the same data type, and a vector is a specific case where it has only one dimension, meaning it consists of a sequence of elements arranged in a straight line.
+
+To create a vector in C, you need to declare an array variable. Here's the general syntax to declare a vector:
+
+<pre>
+  data_type array_name[size];
+</pre>
+
+
+
+- `data_type`: This is the data type of the elements that the vector will hold. It could be any valid C data type, such as int, float, char, etc.
+- `array_name`: This is the name of the vector, which you can use to access its elements later.
+- `size`: This represents the number of elements the vector can hold. It must be a positive integer constant.
+
+Here's an example of creating and using an integer vector in C:
+
+<pre>
+  #include <stdio.h>
+
+    int main() {
+        int numbers[5]; // Declaration of an integer vector with size 5
+    
+        // Initializing the vector elements
+        numbers[0] = 10;
+        numbers[1] = 20;
+        numbers[2] = 30;
+        numbers[3] = 40;
+        numbers[4] = 50;
+    
+        // Accessing and printing elements of the vector
+        printf("Element 0: %d\n", numbers[0]);
+        printf("Element 2: %d\n", numbers[2]);
+        printf("Element 4: %d\n", numbers[4]);
+    
+        return 0;
+    }
+</pre>
+
+In this example, we declare an integer vector `numbers` with a size of 5. We then initialize its elements with specific values and later print out a few of the elements using the index notation `numbers[index]`.
+
+Remember that the index in C is 0-based, meaning the first element has an index of 0, the second element has an index of 1, and so on. It's essential to ensure that you don't access elements outside the bounds of the vector, as doing so could lead to undefined behavior or segmentation faults. Always make sure to stay within the valid index range, which is from 0 to size-1.
+
+
+<h3>RECURSION TREE</h3>
+A recursion tree is a visual representation of the execution of a recursive function. It helps to understand how the function calls itself with different parameters and how the recursive calls are organized and executed. Recursion trees are particularly useful in visualizing the flow of recursive functions and can aid in analyzing the time complexity of recursive algorithms.
+
+Let's take an example of a simple recursive function to calculate the factorial of a positive integer `n`:
+
+<pre>
+  #include <stdio.h>
+
+    int factorial(int n) {
+        if (n == 0 || n == 1)
+            return 1;
+        else
+            return n * factorial(n - 1);
+    }
+    
+    int main() {
+        int n = 5;
+        int result = factorial(n);
+        printf("Factorial of %d is %d\n", n, result);
+        return 0;
+    }
+</pre>
+
+The `factorial` function calculates the factorial of `n` by recursively multiplying `n` with the factorial of `n - 1`, until it reaches the base case where `n` is 0 or 1.
+
+Now, let's visualize the recursion tree for `factorial(5)`:
+
+<pre>
+                 factorial(5)
+               /             \
+       5 * factorial(4)       factorial(4)
+       /         \             /         \
+5 * factorial(3)  factorial(3) factorial(3) factorial(3)
+  /        \      /        \    /        \    /        \
+5 * fac(2) fac(2) fac(2) fac(2) fac(2) fac(2) fac(2) fac(2)
+  /     \   /     \   /     \   /     \   /     \   /     \
+5 * fac(1) fac(1) fac(1) fac(1) fac(1) fac(1) fac(1) fac(1)
+  /     \   /     \   /     \   /     \   /     \   /     \
+  5 * 1    1 * 1   1 * 1   1 * 1   1 * 1   1 * 1   1 * 1   1 * 1
+   /        \       \       \       \       \       \       \
+   5         1       1       1       1       1       1       1
+</pre>
+
+
+In this recursion tree, each node represents a recursive call to the `factorial` function with a particular value of `n`. The edges connecting the nodes show the flow of execution during the recursive calls.
+
+For example, `factorial(5)` calls `factorial(4)` and `5 * factorial(4)`, which then lead to further recursive calls until it reaches the base case where `n` is 0 or 1. At that point, the recursion stops, and the function returns the result back through the tree until the final result for `factorial(5)` is obtained.
+
+Recursion trees help in understanding the recursive process and how it breaks down a complex problem into smaller subproblems. They can be especially helpful in visualizing the recursion flow and identifying patterns in recursive algorithms.
+
+<h3>PRINT AN ARRAY USING RECURSION</h3> 
+To print an array using recursion in C, you can define a recursive function that traverses the array and prints each element one by one. Here's an example of how to do it:
+
+<pre>
+  #include <stdio.h>
+
+    void printArray(int arr[], int size, int index) {
+        if (index == size) {
+            printf("\n");
+            return; // Base case: If the index reaches the size of the array, return to stop recursion.
+        }
+    
+        printf("%d ", arr[index]); // Print the current element
+        printArray(arr, size, index + 1); // Recursively call the function with the next index
+    }
+    
+    int main() {
+        int arr[] = {1, 2, 3, 4, 5};
+        int size = sizeof(arr) / sizeof(arr[0]);
+    
+        printf("Array elements: ");
+        printArray(arr, size, 0); // Start printing from index 0
+    
+        return 0;
+    }
+</pre>
+
+In this example, the function `printArray` takes three arguments:
+1. `arr`: The array to be printed.
+2. `size`: The size of the array.
+3. `index`: The current index of the array to be printed.
+
+The function starts by checking if the `index` has reached the `size`. If it has, the base case is reached, and the function returns, stopping the recursion. Otherwise, it prints the element at the current index and calls itself recursively with the next index (index + 1) to continue printing the remaining elements of the array.
+
+In the `main` function, we define an example integer array `arr`, and then we calculate its size using the `sizeof` operator. We then call the `printArray` function with the initial index of 0 to start printing the elements of the array.
+
+When you run this program, it will print the array elements as follows:
+
+<pre>
+  Array elements: 1 2 3 4 5
+</pre>
+
+The elements of the array are printed using recursion, where the function calls itself repeatedly until it reaches the base case and then unwinds the recursive calls to print the elements in the correct order.
+
+<h3>SOLVING FIBONACCI PROBLEM USING RECURSION</h3>
+In the Fibonacci problem using recursion, we write a C program to calculate the nth Fibonacci number by defining a recursive function that calls itself to calculate the previous two Fibonacci numbers.
+
+Here's the C program to calculate the nth Fibonacci number using recursion:
+
+<pre>
+  #include <stdio.h>
+
+    int fibonacci(int n) {
+        if (n == 0)
+            return 0;
+        else if (n == 1)
+            return 1;
+        else
+            return fibonacci(n - 1) + fibonacci(n - 2);
+    }
+    
+    int main() {
+        int n;
+        printf("Enter the value of n: ");
+        scanf("%d", &n);
+    
+        if (n < 0) {
+            printf("Invalid input. n must be a non-negative integer.\n");
+        } else {
+            int result = fibonacci(n);
+            printf("The %dth Fibonacci number is: %d\n", n, result);
+        }
+    
+        return 0;
+    }
+</pre>
+
+
+In this program, we define a recursive function `fibonacci` that takes an integer `n` as input and returns the nth Fibonacci number. In the function, we use the base cases for n = 0 and n = 1, which are the first two numbers in the Fibonacci sequence (0 and 1). If n is greater than 1, the function calls itself recursively to calculate the (n - 1)th and (n - 2)th Fibonacci numbers, and then it adds them together to get the nth Fibonacci number.
+
+In the `main` function, we prompt the user to enter the value of `n`, and then we call the `fibonacci` function to calculate the corresponding Fibonacci number. The result is then printed to the console.
+
+When you run this program and provide a non-negative integer as input for `n`, it will calculate and display the nth Fibonacci number. For example, if you input `n = 7`, the program will output:
+
+<pre>
+  The 7th Fibonacci number is: 13
+</pre>
+
+
+This is because the 7th Fibonacci number is 13 (0, 1, 1, 2, 3, 5, 8, 13). The recursive approach is elegant but may become inefficient for large values of `n` due to redundant calculations. Memoization or dynamic programming can be used to optimize the recursive Fibonacci function for better performance in such cases.
+
+</div>
 </p>
 </div>
 </body>
