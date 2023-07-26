@@ -2693,7 +2693,6 @@ Here's the C program to calculate the nth Fibonacci number using recursion:
     }
 </pre>
 
-
 In this program, we define a recursive function `fibonacci` that takes an integer `n` as input and returns the nth Fibonacci number. In the function, we use the base cases for n = 0 and n = 1, which are the first two numbers in the Fibonacci sequence (0 and 1). If n is greater than 1, the function calls itself recursively to calculate the (n - 1)th and (n - 2)th Fibonacci numbers, and then it adds them together to get the nth Fibonacci number.
 
 In the `main` function, we prompt the user to enter the value of `n`, and then we call the `fibonacci` function to calculate the corresponding Fibonacci number. The result is then printed to the console.
@@ -2703,10 +2702,349 @@ When you run this program and provide a non-negative integer as input for `n`, i
 <pre>
   The 7th Fibonacci number is: 13
 </pre>
-
-
 This is because the 7th Fibonacci number is 13 (0, 1, 1, 2, 3, 5, 8, 13). The recursive approach is elegant but may become inefficient for large values of `n` due to redundant calculations. Memoization or dynamic programming can be used to optimize the recursive Fibonacci function for better performance in such cases.
+</div>
+<div>
+ <h3>NUMBER OF DIVISORS (NOD)</h3>
+ <h4>Day-13 (Date: 7-26-2023)</h4> 
+  In C programming, NOD stands for "Number of Divisors." It refers to a common mathematical concept related to finding the count of positive divisors for a given positive integer. A positive divisor of a number is an integer that evenly divides the number without leaving a remainder.
 
+  For example, the number 6 has four positive divisors: 1, 2, 3, and 6 (1 and 6 are divisors because 6 ÷ 1 = 6 and 6 ÷ 6 = 1; 2 and 3 are divisors because 6 ÷ 2 = 3 and 6 ÷ 3 = 2).
+
+  To calculate the NOD in C, you can use a function that counts the divisors. Here's a simple C function to find the NOD of a positive integer:
+
+  <pre>
+    #include <stdio.h>
+
+      int numberOfDivisors(int number) {
+          int count = 0;
+    
+          for (int i = 1; i <= number; i++) {
+              if (number % i == 0) {
+                  count++;
+              }
+          }
+    
+          return count;
+      }
+    
+      int main() {
+          int num;
+          printf("Enter a positive integer: ");
+          scanf("%d", &num);
+    
+          int nod = numberOfDivisors(num);
+          printf("Number of divisors of %d is %d\n", num, nod);
+    
+          return 0;
+      }
+  </pre>
+
+
+  In this code, the `numberOfDivisors` function takes an integer `number` as input and iterates from 1 to `number`, checking if each number is a divisor (i.e., `number % i == 0`). If it is, it increments the `count` variable. Finally, the function returns the total count of divisors.
+
+  In the `main` function, the user is prompted to input a positive integer, and then the `numberOfDivisors` function is called to calculate and display the NOD for the given input.
+
+  Keep in mind that this method is a simple approach to find the NOD and may not be efficient for large numbers. For larger numbers, more advanced algorithms like the prime factorization method can be used to compute the NOD more efficiently.
+
+  ### SUM OF DIVISORS (SOD)
+  In C programming, SOD stands for "Sum of Divisors." It refers to a mathematical concept of finding the sum of all the positive divisors of a given positive integer. A positive divisor of a number is an integer that evenly divides the number without leaving a remainder.
+
+  For example, the number 6 has four positive divisors: 1, 2, 3, and 6. The sum of these divisors is 1 + 2 + 3 + 6 = 12.
+
+  To calculate the SOD in C, you can use a function that finds the sum of divisors. Here's a simple C function to find the SOD of a positive integer:
+
+  <pre>
+    #include <stdio.h>
+
+      int sumOfDivisors(int number) {
+          int sum = 0;
+    
+          for (int i = 1; i <= number; i++) {
+              if (number % i == 0) {
+                  sum += i;
+              }
+          }
+    
+          return sum;
+      }
+    
+      int main() {
+          int num;
+          printf("Enter a positive integer: ");
+          scanf("%d", &num);
+    
+          int sod = sumOfDivisors(num);
+          printf("Sum of divisors of %d is %d\n", num, sod);
+    
+          return 0;
+      }
+  </pre>
+
+  In this code, the `sumOfDivisors` function takes an integer `number` as input and iterates from 1 to `number`, checking if each number is a divisor (i.e., `number % i == 0`). If it is, it adds the divisor to the `sum` variable. Finally, the function returns the total sum of divisors.
+
+  In the `main` function, the user is prompted to input a positive integer, and then the `sumOfDivisors` function is called to calculate and display the SOD for the given input.
+
+  Like the NOD (Number of Divisors) calculation, this method to compute the SOD is a simple approach and may not be efficient for large numbers. For larger numbers, more advanced algorithms like the prime factorization method can be used to compute the SOD more efficiently.
+
+  ### GREATEST COMMON DIVISOR (GCD)
+  In C programming, GCD stands for "Greatest Common Divisor." It is a mathematical concept used to find the largest positive integer that divides two or more given positive integers without leaving a remainder.
+
+  The GCD of two or more numbers is useful in various mathematical and programming applications. For example, it is used in simplifying fractions, solving linear Diophantine equations, and finding the least common multiple (LCM) of two numbers.
+
+  To calculate the GCD in C, you can use a function that implements the Euclidean algorithm, which is an efficient method to find the GCD of two numbers. Here's a simple C function to find the GCD of two positive integers:
+
+  <pre>
+    #include <stdio.h>
+
+      int gcd(int a, int b) {
+          while (b != 0) {
+              int temp = b;
+              b = a % b;
+              a = temp;
+          }
+          return a;
+      }
+    
+      int main() {
+          int num1, num2;
+          printf("Enter two positive integers: ");
+          scanf("%d %d", &num1, &num2);
+    
+          int result = gcd(num1, num2);
+          printf("Greatest Common Divisor of %d and %d is %d\n", num1, num2, result);
+    
+          return 0;
+      }
+  </pre>
+
+  In this code, the `gcd` function takes two integers `a` and `b` as input and uses the Euclidean algorithm to find their GCD. The algorithm repeatedly divides the larger number by the smaller number until the remainder becomes zero. The GCD is then the value of the last non-zero remainder.
+
+  In the `main` function, the user is prompted to input two positive integers, and then the `gcd` function is called to calculate and display the GCD for the given inputs.
+
+  The Euclidean algorithm is very efficient and can handle large numbers easily, making it a commonly used method to find the GCD of two integers.
+
+  ### LEAST COMMON DENOMINATOR (LCD)
+  In C programming, LCD stands for "Least Common Denominator" or "Least Common Divisor." However, the term "Least Common Denominator" is more commonly associated with fractions in mathematics, while the term "Least Common Divisor" is used to find the smallest positive integer that is divisible by two or more given positive integers without leaving a remainder.
+
+  To clarify, I'll explain both concepts:
+
+  1. Least Common Denominator (LCD):
+  The LCD is a concept used in fractions. It is the smallest common multiple of the denominators of two or more fractions. Finding the LCD is essential for adding or subtracting fractions with different denominators. To calculate the LCD of two fractions, you need to find the least common multiple (LCM) of their denominators.
+
+  Here's a simple C function to find the LCM (and consequently the LCD) of two positive integers:
+
+  <pre>
+    #include <stdio.h>
+
+      int gcd(int a, int b) {
+          while (b != 0) {
+              int temp = b;
+              b = a % b;
+              a = temp;
+          }
+          return a;
+      }
+    
+      int lcm(int a, int b) {
+          return (a * b) / gcd(a, b);
+      }
+    
+      int main() {
+          int num1, num2;
+          printf("Enter two positive integers: ");
+          scanf("%d %d", &num1, &num2);
+    
+          int result = lcm(num1, num2);
+          printf("Least Common Denominator of %d and %d is %d\n", num1, num2, result);
+    
+          return 0;
+      }
+  </pre>
+  2. Least Common Divisor (LCD):
+  As mentioned earlier, the LCD can also refer to the Least Common Divisor. It is the smallest positive integer that is divisible by two or more given positive integers without leaving a remainder. The LCD is synonymous with the Greatest Common Divisor (GCD), which we discussed in the previous explanation.
+
+  The code example provided earlier under the "GCD in C" explanation can be used to find the Least Common Divisor as well, as the GCD and LCD are the same.
+
+  Remember that the context in which you use "LCD" determines whether it refers to Least Common Denominator (for fractions) or Least Common Divisor (for positive integers).
+
+  ### MODULAR ARITHMETIC
+  Modular arithmetic in C follows the same principles as described in the previous explanation. Modular arithmetic involves performing arithmetic operations on integers, but instead of using the actual results, we take the remainder when divided by a fixed positive integer called the modulus.
+
+  In C, the modulus operation is represented using the `%` operator. Here's a brief explanation of each operation in modular arithmetic:
+
+  1. Addition (a + b) mod m:
+  To find the sum of two integers "a" and "b" in modular arithmetic, you calculate the sum "a + b" and then take the remainder when divided by the modulus "m." The result will be a value between 0 and "m-1".
+
+  <pre>
+    int addMod(int a, int b, int m) {
+      return (a + b) % m;
+  }
+  </pre>
+
+  2. Subtraction (a - b) mod m:
+  To find the difference of two integers "a" and "b" in modular arithmetic, you calculate the difference "a - b" and then take the remainder when divided by the modulus "m." The result will be a non-negative integer between 0 and "m-1".
+
+  <pre>
+    int subtractMod(int a, int b, int m) {
+      return (a - b + m) % m;
+  }
+  </pre>
+
+
+  3. Multiplication (a * b) mod m:
+  To find the product of two integers "a" and "b" in modular arithmetic, you calculate the product "a * b" and then take the remainder when divided by the modulus "m."
+
+  <pre>
+    int multiplyMod(int a, int b, int m) {
+      return (a * b) % m;
+  }
+  </pre>
+
+  4. Division (a / b) mod m:
+  As mentioned earlier, division in modular arithmetic is usually done using modular inverses. You need to find another integer "x" such that (b * x) mod m = 1. Once you find the modular inverse "x," you can compute the result of (a / b) mod m as (a * x) mod m.
+
+  <pre>
+    int modInverse(int a, int m) {
+      for (int x = 1; x < m; x++) {
+          if ((a * x) % m == 1) {
+              return x;
+          }
+      }
+      return -1; // Modular inverse doesn't exist
+  }
+
+  int divideMod(int a, int b, int m) {
+      int inverse = modInverse(b, m);
+      if (inverse != -1) {
+          return (a * inverse) % m;
+      }
+      return -1; // Modular inverse doesn't exist
+  }
+  </pre>
+
+  Modular arithmetic is useful in many applications, such as hashing functions, random number generation, and cryptography, where we often work with large numbers and need to ensure that results fit within a specified range.
+
+  ### BIG MOD
+  In C programming, "Big Mod" refers to the computation of a large exponentiation result modulo a given positive integer (the modulus). The regular approach of directly calculating the exponentiation result and then taking the modulo may not be efficient for very large numbers, as they can quickly grow to impractical sizes.
+
+  The Big Mod algorithm efficiently calculates (base^exponent) % modulus, where base, exponent, and modulus are all positive integers. The key idea behind the Big Mod algorithm is to perform modular exponentiation iteratively using the concept of repeated squaring.
+
+  Here's the Big Mod algorithm implemented in C:
+
+  <pre>
+    #include <stdio.h>
+
+      int bigMod(int base, int exponent, int modulus) {
+          if (modulus == 1) return 0; // Base case: Any number modulo 1 is 0.
+    
+          int result = 1;
+          base %= modulus; // Reduce the base to the range [0, modulus-1]
+    
+          while (exponent > 0) {
+              // If the current exponent bit is 1, multiply the result by the base and take the modulo.
+              if (exponent % 2 == 1) {
+                  result = (result * base) % modulus;
+              }
+              // Square the base and take the modulo for the next iteration.
+              base = (base * base) % modulus;
+              exponent /= 2; // Move to the next bit of the exponent.
+          }
+    
+          return result;
+      }
+    
+      int main() {
+          int base, exponent, modulus;
+          printf("Enter the base, exponent, and modulus: ");
+          scanf("%d %d %d", &base, &exponent, &modulus);
+    
+          int result = bigMod(base, exponent, modulus);
+          printf("Result of (%d^%d) mod %d is %d\n", base, exponent, modulus, result);
+    
+          return 0;
+      }
+  </pre>
+
+  In this algorithm, we repeatedly square the base while reducing the exponent by half at each step until the exponent becomes zero. Whenever a bit in the exponent is 1, we multiply the result by the base and take the modulo to ensure that the result remains within the modulus range. This way, we avoid dealing with very large intermediate results, making the computation more efficient.
+
+  The Big Mod algorithm is particularly useful in scenarios where you need to compute very large powers of numbers modulo a given value, common in cryptography and other mathematical applications.
+
+  ### FACTORIAL
+  In C programming, factorial refers to the product of all positive integers from 1 to a given positive integer. It is denoted by the symbol "!".
+
+  For example, the factorial of 5 is denoted as 5! and is calculated as:
+  <pre>
+    5! = 5 × 4 × 3 × 2 × 1 = 120
+  </pre>
+
+  Factorials are often used in mathematical and programming problems, especially in permutations, combinations, and various counting scenarios.
+
+  To calculate the factorial of a positive integer in C, you can use a recursive or iterative approach. Here's an example of both methods:
+
+  1. Recursive Approach:
+
+  <pre>
+    #include <stdio.h>
+
+      unsigned long long factorialRecursive(int n) {
+          if (n == 0) {
+              return 1; // 0! is defined as 1
+          } else {
+              return n * factorialRecursive(n - 1);
+          }
+      }
+    
+      int main() {
+          int num;
+          printf("Enter a positive integer: ");
+          scanf("%d", &num);
+    
+          if (num < 0) {
+              printf("Factorial is not defined for negative numbers.\n");
+          } else {
+              unsigned long long result = factorialRecursive(num);
+              printf("%d! = %llu\n", num, result);
+          }
+    
+          return 0;
+      }
+  </pre>
+
+  2. Iterative Approach:
+
+  <pre>
+    #include <stdio.h>
+
+      unsigned long long factorialIterative(int n) {
+          unsigned long long result = 1;
+    
+          for (int i = 1; i <= n; i++) {
+              result *= i;
+          }
+    
+          return result;
+      }
+    
+      int main() {
+          int num;
+          printf("Enter a positive integer: ");
+          scanf("%d", &num);
+    
+          if (num < 0) {
+              printf("Factorial is not defined for negative numbers.\n");
+          } else {
+              unsigned long long result = factorialIterative(num);
+              printf("%d! = %llu\n", num, result);
+          }
+    
+          return 0;
+      }
+  </pre>
+
+  Both approaches will calculate the factorial of the given positive integer. The recursive approach calls the function recursively until it reaches the base case (factorial of 0), while the iterative approach uses a loop to multiply all the integers from 1 to the given number to get the factorial result.
+
+  Keep in mind that factorials grow very rapidly, and for larger numbers, the result may exceed the capacity of standard data types. In such cases, you can use specialized libraries or algorithms to handle extremely large numbers.
 </div>
 </p>
 </div>
