@@ -166,25 +166,25 @@ Watch some videos read some documents about how compiler works
                           = 2^31 - 1
 
 ## HOW TO STORE NEGATIVE AND POSITIVE NUMBER IN MEMORY
-###Sign bit
-0 -> Positive
-1 -> Negative
-MSB = Most Significant Bit
-LSB = least Significant Bit
+### Sign bit
+    0 -> Positive
+    1 -> Negative
+    MSB = Most Significant Bit
+    LSB = least Significant Bit
 ![](Image/sign_and_magnitude.jpg)
 In this case in magnitude area first number is MSB and last number is LSB.
-###PROBLEM OF SIGN BIT
-0 0 0 0 !== 1 0 0 0
-+0 !== -0
-###SOLVE
-0011 = +3
-=> 1100(flip of 0011) = 1's complement
-1's complement + 1
-1100 + 1 = 1101 = -2 (2's complement)
-0010 + 1 = +3 (2's complement)
-###In this case computer can store 4bit.
-1111 + 1 = 10000
-So, answer = 0000 = -0
+### PROBLEM OF SIGN BIT
+    0 0 0 0 !== 1 0 0 0
+    +0 !== -0
+### SOLVE
+    0011 = +3
+    => 1100(flip of 0011) = 1's complement
+    1's complement + 1
+    1100 + 1 = 1101 = -2 (2's complement)
+    0010 + 1 = +3 (2's complement)
+### In this case computer can store 4bit.
+    1111 + 1 = 10000
+    So, answer = 0000 = -0
 
 > ## KEYWORDS
     CodeBlocks,Environment setup,terminal,GCC,cmd
