@@ -170,8 +170,8 @@ Watch some videos read some documents about how compiler works
     0 -> Positive
     1 -> Negative
     MSB = Most Significant Bit
-    LSB = Most Significant Bit
-    <img style="width: 80%;" src="Image/sign_and_magnitude.jpg" alt="">
+    LSB = least Significant Bit
+    ![](Image/sign_and_magnitude.jpg)
     In this case in magnitude area first number is MSB and last number is LSB.
     <h4>PROBLEM OF SIGN BIT</h4>
     0 0 0 0 !== 1 0 0 0
