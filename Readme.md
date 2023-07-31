@@ -556,6 +556,8 @@ In this case, since the value 255 cannot be represented by a single byte, `memse
 
 To initialize an array with a specific value other than 0 or -1, you can use a loop to individually set each element of the array to the desired value. Alternatively, you can use language-specific features or library functions that provide array initialization mechanisms, such as brace initialization in C++ or `Arrays.fill()` method in Java, to achieve the desired result reliably.
 
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array" target ="_blank">Learn More About Array<a>
+
 # PRECISION LOSS
 #### Day-5 (Date: 7-12-2023)
 Precision loss in programming refers to the loss of precision or accuracy in numerical calculations due to limitations in the representation of numbers in computer systems. Computers use finite binary representations to store and manipulate numbers, which can lead to rounding errors and loss of precision.
