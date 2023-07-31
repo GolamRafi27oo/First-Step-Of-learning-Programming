@@ -520,21 +520,19 @@ int main() {
 int main() {
  printf("Input array index: ");
  int MXN = 100;
- int ara[MXN];
-
- memset(ara, 0, sizeof ara);
+ int ara[MXN] = {1,2,3,4,5};
 
  printf("Displaying integers: ");
  for(int i = 0; i < MXN; i++){
     printf("%d ", ara[i]);
  }
-
+ memset(ara, 0, sizeof ara);
  return 0;
 }
 ```
 
 
-  ### Note memsent works on three value.
+### Note memsent works on three value.
      
     1. memset(arrayName, 0, sizeof arrayName);
     2. memset(arrayName, -1, sizeof arrayName);
