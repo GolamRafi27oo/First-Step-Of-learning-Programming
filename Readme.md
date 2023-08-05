@@ -2,7 +2,7 @@
 ## Basic
 #### Day-1 (Date: 7-4-2023)
 ### Before You Start
-In this documentation there are three kind of programming language C, C++, JS. but the concept are same. If know any programming language you are good to go.
+In this documentation there are three kind of programming language C, C++, JS. but the concept are same. If you know any programming language you are good to go.
 
 if you don't know any programming language yet learn the basic first:
 - <a href="Book-Files/COMPUTER-PROGRAMMING-TAMIM-SHAHRIAR-SHUBEEN.pdf" target="_blank">Book(Bangla) - COMPUTER PROGRAMMING TAMIM SHAHRIAR SHUBEEN (Language C)</a>
