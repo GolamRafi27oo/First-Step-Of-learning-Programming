@@ -605,8 +605,122 @@ convertToDecimalTOOCatal(100);
   To initialize an array with a specific value other than 0 or -1, you can use a loop to individually set each element of the array to the desired value. 
   Alternatively, you can use language-specific features or library functions that provide array initialization mechanisms, 
   such as brace initialization in C++ or `Arrays.fill()` method in Java, to achieve the desired result reliably.
-</div>
+
+  <h3>ARRAY COMPRESSION</h3> 
+  The term "array compression" might be less commonly used, but it can refer to a technique where you represent an array using less memory by exploiting patterns or repetitions in the data. This concept is also known as "run-length encoding."
+
+  Run-length encoding is a simple form of data compression, where consecutive occurrences of the same value in an array are replaced with a single value and the number of repetitions. This can significantly reduce the memory usage for arrays with repetitive elements.
+
+  Here's a basic explanation and example of array compression (run-length encoding) in C:
+
+<pre>
+  #include <stdio.h>
+
+    // Function to perform array compression (run-length encoding)
+    // Input: src - the input array to be compressed
+    //        n - the size of the input array
+    //        dest - the output compressed array
+    // Returns: the size of the compressed array
+    int compressArray(int src[], int n, int dest[]) {
+        int compressedIndex = 0;
+        int i = 0;
+    
+        while (i < n) {
+            int currentElement = src[i];
+            int count = 1;
+    
+            // Count the number of consecutive occurrences of the current element
+            while ((i + 1 < n) && (src[i + 1] == currentElement)) {
+                count++;
+                i++;
+            }
+    
+            // Store the compressed value and its count in the destination array
+            dest[compressedIndex++] = currentElement;
+            dest[compressedIndex++] = count;
+    
+            i++; // Move to the next element in the source array
+        }
+    
+        return compressedIndex; // Return the size of the compressed array
+    }
+    
+    int main() {
+        int originalArray[] = {1, 1, 1, 2, 2, 3, 3, 3, 3, 3, 4, 5, 5, 5};
+        int n = sizeof(originalArray) / sizeof(originalArray[0]);
+    
+        // The destination array for the compressed data
+        int compressedArray[2 * n]; // The compressed array can be at most twice the size of the original array
+    
+        // Compress the original array
+        int compressedSize = compressArray(originalArray, n, compressedArray);
+    
+        // Print the compressed array
+        printf("Compressed Array: ");
+        for (int i = 0; i < compressedSize; i += 2) {
+            printf("(%d, %d) ", compressedArray[i], compressedArray[i + 1]);
+        }
+        printf("\n");
+    
+        return 0;
+    }
+</pre>
+
+
+In this example, the `compressArray` function takes an input array `src`, its size `n`, and an output array `dest` to store the compressed data. The function iterates through the input array, counts consecutive occurrences of each element, and writes the compressed data (element, count) to the destination array. The main function demonstrates how to use the `compressArray` function.
+
+Keep in mind that array compression is not always beneficial, and its effectiveness depends on the nature of the data. For some arrays, compression can lead to a smaller memory footprint, but for others, it might increase the memory usage due to additional metadata for representing the counts.
+
+<h3>MAP ARRAY</h3>
+In C, the term "array map" is not a standard language feature or a commonly used concept. However, it might refer to a technique or operation applied to each element of an array to transform its values into new values based on a specific function or mapping rule.
+
+The process of applying a function to each element of an array to generate a new array of transformed elements is often called "array mapping" or "element-wise mapping." It is a common operation in many programming languages, including C.
+
+Here's a simple explanation of array mapping in C:
+
+Suppose you have an array of integers, and you want to create a new array where each element is the square of the corresponding element from the original array. In this case, you can use array mapping to achieve this transformation.
+
+<pre>
+  #include <stdio.h>
+
+    // Function to perform array mapping (element-wise mapping)
+    // Input: src - the input array
+    //        n - the size of the input array
+    //        dest - the output mapped array
+    void mapArray(int src[], int n, int dest[]) {
+        for (int i = 0; i < n; i++) {
+            dest[i] = src[i] * src[i]; // Square each element
+        }
+    }
+    
+    int main() {
+        int originalArray[] = {1, 2, 3, 4, 5};
+        int n = sizeof(originalArray) / sizeof(originalArray[0]);
+    
+        // The destination array for the mapped data
+        int mappedArray[n];
+    
+        // Map the original array to create the mapped array
+        mapArray(originalArray, n, mappedArray);
+    
+        // Print the mapped array
+        printf("Mapped Array: ");
+        for (int i = 0; i < n; i++) {
+            printf("%d ", mappedArray[i]);
+        }
+        printf("\n");
+    
+        return 0;
+    }
+</pre>
+
+In this example, the `mapArray` function takes an input array `src`, its size `n`, and an output array `dest`. It iterates through the input array, applies the mapping function (in this case, squaring each element), and stores the transformed elements in the destination array.
+
+Please note that "array mapping" is not a standard term in C, but it's commonly used to describe this kind of element-wise transformation on arrays. The operation can vary depending on the mapping function used and the desired transformation.
+
 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array" target ="_blank">Learn More About Array<a></a>
+</div>
+
 <div>
   <h1>PRECISION LOSS</h1>
   <h4>Day-5 (Date: 7-12-2023)</h4>
@@ -3751,6 +3865,20 @@ This is because the 7th Fibonacci number is 13 (0, 1, 1, 2, 3, 5, 8, 13). The re
   </pre>
 
   `std::pair` is a versatile and useful class in C++ that simplifies working with pairs of values, especially when you need to pass or return multiple values from a function or store them in a container.
+</div>
+<div>
+  <h1>Learn More</h1>
+  <h2>Bangla Resource</h2>
+  <ul>
+    <li><a href="https://github.com/me-shaon/bangla-programming-resources">Bangla Programming Resources GIT REPO by Ahmed shamim</a></li>
+    <li><a href="https://progkriya.org/gyan/basic-number-theory">Basic Number Theory by Ikram Mahmud</a></li>
+  </ul>
+
+  <h2>English Resource</h2>
+  <ul>
+    <li><a href="https://cp-algorithms.com/">Algorithms for Competitive Programming</a></li>
+    <li><a href="https://usaco.guide/">USACO Guide</a></li>
+  </ul>
 </div>
 </p>
 </div>
