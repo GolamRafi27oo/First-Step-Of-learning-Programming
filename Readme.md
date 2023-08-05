@@ -1,6 +1,14 @@
 # Daily Learning
 ## Basic
 #### Day-1 (Date: 7-4-2023)
+### Before You Start
+In this documentation there are three kind of programming language C, C++, JS. but the concept are same. If know any programming language you are good to go.
+
+if you don't know any programming language yet learn the basic first:
+- <a href="Book-Files/COMPUTER-PROGRAMMING-TAMIM-SHAHRIAR-SHUBEEN.pdf" target="_blank">Book(Bangla) - COMPUTER PROGRAMMING TAMIM SHAHRIAR SHUBEEN (Language C)</a>
+
+- <a href="Book-Files/Programming in C - Stephen G.Cochan.pdf" target="_blank">Book(English) - PROGRAMMING IN C - STEPHEN G.COCHAN (Language C)</a>
+
 ### Why Binary not Decimal
  Computers use binary numbers instead of decimal numbers because binary is well-suited for electronic systems and digital processing. Here are a few reasons why binary is preferred over decimal in computer systems:
 
@@ -147,10 +155,6 @@ convertToDecimalTOOCatal(100);
 # Learn About Compiler and C/C++
 #### Day-2 (Date: 7-6-2023)
 Watch some videos read some documents about how compiler works
-
-<a href="Book-Files/COMPUTER-PROGRAMMING-TAMIM-SHAHRIAR-SHUBEEN.pdf" target="_blank">Book(Bangla) - COMPUTER PROGRAMMING TAMIM SHAHRIAR SHUBEEN (Language C)</a>
-</br>
-<a href="Book-Files/Programming in C - Stephen G.Cochan.pdf" target="_blank">Book(English) - PROGRAMMING IN C - STEPHEN G.COCHAN (Language C)</a>
 
 ### MEMORY
 
