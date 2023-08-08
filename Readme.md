@@ -193,11 +193,13 @@ In this case in magnitude area first number is MSB and last number is LSB.
 > ## KEYWORDS
     CodeBlocks,Environment setup,terminal,GCC,cmd
 
-# Bit Manipulaion
+# Bit Manipulaion / Bitwise
 #### Day-2 (Date: 7-5-2023)
 Bit manipulation is a technique used in computer programming to manipulate individual bits within a binary representation of data. It involves performing logical and arithmetic operations at the bit level, allowing developers to perform various tasks efficiently and compactly. Here are some commonly used bit manipulation operations:
 
-1. Bitwise AND (&): Performs a logical AND operation on each corresponding pair of bits. The result is 1 if both bits are 1; otherwise, it is 0.
+
+### AND (&): 
+Bitwise AND (&): Performs a logical AND operation on each corresponding pair of bits. The result is 1 if both bits are 1; otherwise, it is 0.
 
         Example:
         ```
@@ -207,7 +209,8 @@ Bit manipulation is a technique used in computer programming to manipulate indiv
         10001000
         ```
 
-3. Bitwise OR (|): Performs a logical OR operation on each corresponding pair of bits. The result is 1 if either of the bits is 1; otherwise, it is 0.
+### OR (|): 
+Bitwise OR (|): Performs a logical OR operation on each corresponding pair of bits. The result is 1 if either of the bits is 1; otherwise, it is 0.
 
         Example:
         ```
@@ -217,7 +220,8 @@ Bit manipulation is a technique used in computer programming to manipulate indiv
         11101110
         ```
 
-4. Bitwise XOR (^): Performs a logical XOR (exclusive OR) operation on each corresponding pair of bits. The result is 1 if the bits are different; otherwise, it is 0.
+### XOR (^): 
+Bitwise XOR (^): Performs a logical XOR (exclusive OR) operation on each corresponding pair of bits. The result is 1 if the bits are different; otherwise, it is 0.
 
         Example:
         ```
@@ -227,7 +231,8 @@ Bit manipulation is a technique used in computer programming to manipulate indiv
         01100110
         ```
 
-5. Bitwise NOT (~): Flips the bits of a binary number. The result is the one's complement of the number.
+### NOT (~): 
+Bitwise NOT (~): Flips the bits of a binary number. The result is the one's complement of the number.
 
         Example:
         ```
@@ -236,7 +241,8 @@ Bit manipulation is a technique used in computer programming to manipulate indiv
         01010101
         ```
 
-6. Bitwise left shift (<<): Shifts the bits of a number to the left by a specified number of positions. This operation effectively multiplies the number by 2 raised to the power of the shift amount.
+### LEFT SHIFT (<<):
+Bitwise left shift (<<): Shifts the bits of a number to the left by a specified number of positions. This operation effectively multiplies the number by 2 raised to the power of the shift amount.
 
         Example:
         ```
@@ -245,7 +251,8 @@ Bit manipulation is a technique used in computer programming to manipulate indiv
         1010101000
         ```
 
-7. Bitwise right shift (>>): Shifts the bits of a number to the right by a specified number of positions. This operation effectively divides the number by 2 raised to the power of the shift amount.
+### RIGHT SHIFT (>>):
+Bitwise right shift (>>): Shifts the bits of a number to the right by a specified number of positions. This operation effectively divides the number by 2 raised to the power of the shift amount.
 
         Example:
         ```
