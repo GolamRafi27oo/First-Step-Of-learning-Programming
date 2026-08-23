@@ -219,7 +219,7 @@ console.log(encoded);
 #include <stdio.h>
 
 int main(void) {
-    int matrix[2][3] = {{1, 2, 3}, {4, 5, 6}};
+    int matrix[2][3] = { {1, 2, 3}, {4, 5, 6} };
     for (size_t row = 0; row < 2; ++row) {
         for (size_t column = 0; column < 3; ++column)
             printf("%d%c", matrix[row][column], column == 2 ? '\n' : ' ');

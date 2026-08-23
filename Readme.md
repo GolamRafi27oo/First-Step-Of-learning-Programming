@@ -450,7 +450,7 @@ Brace initialization uses values enclosed in `{ }` to initialize arrays in C and
 In this example, we declare an integer array called `myArray` and initialize it with the values 1, 2, 3, 4, and 5 using the brace initializer. The number of elements in the array is determined by the number of values provided within the braces. The brace initializer can also be used for multi-dimensional arrays.
 
 #### Here's an example of a 2D array:
-    int myArray2D[][3] = {{1, 2, 3}, {4, 5, 6}};
+    int myArray2D[][3] = { {1, 2, 3}, {4, 5, 6} };
 
 In this case, we declare a 2D integer array called `myArray2D` with two rows and three columns. We use the brace initializer to provide the values for each row. The inner braces are used to specify the values for each row, and the outer braces encompass the entire initializer list.
 
