@@ -1,15 +1,22 @@
-# Daily Learning
-## Basic
+# First Steps in Programming
+
+A beginner-friendly set of notes covering programming fundamentals, C, C++, JavaScript, algorithms, and data structures. The entries are organized by the date on which they were originally studied, so the language used in examples varies by section.
+
+> **Before running an example:** Check the language label on its code block. C examples require a C compiler, C++ examples require a C++ compiler, and JavaScript examples run in a browser console or Node.js. Several examples use variable-length arrays, which require C99 or later and are not part of standard C++.
+
+> **Paired examples:** The runnable examples are also collected in [C and JavaScript Examples](Examples.md), where every example is shown in both languages. C++-specific STL examples remain in this guide as optional extras.
+
+## Basic concepts
 #### Day-1 (Date: 7-4-2023)
 ### Before You Start
-In this documentation there are three kind of programming language C, C++, JS. but the concept are same. If you know any programming language you are good to go.
+This guide uses C, C++, and JavaScript. Although their syntax differs, many foundational ideas—variables, conditions, loops, functions, and data structures—carry across languages.
 
-if you don't know any programming language yet learn the basic first:
+If you have not programmed before, start with one of these books:
 - <a href="Book-Files/COMPUTER-PROGRAMMING-TAMIM-SHAHRIAR-SHUBEEN.pdf" target="_blank">Book(Bangla) - COMPUTER PROGRAMMING TAMIM SHAHRIAR SHUBEEN (Language C)</a>
 
 - <a href="Book-Files/Programming in C - Stephen G.Cochan.pdf" target="_blank">Book(English) - PROGRAMMING IN C - STEPHEN G.COCHAN (Language C)</a>
 
-### Why Binary not Decimal
+### Why computers use binary
  Computers use binary numbers instead of decimal numbers because binary is well-suited for electronic systems and digital processing. Here are a few reasons why binary is preferred over decimal in computer systems:
 
 1. Simplicity of representation: Binary numbers consist of only two digits, 0 and 1, which aligns well with the on/off states of electronic switches (transistors). This simplicity makes it easier to design and implement digital circuits.
@@ -18,7 +25,7 @@ if you don't know any programming language yet learn the basic first:
 
 3. Reliability and noise resistance: Binary signals are more robust against noise and interference. The distinction between the binary digits 0 and 1 is easier to maintain in electronic circuits, reducing the chances of errors due to signal distortion.
 
-4. Efficiency in storage: Binary numbers require fewer bits to represent the same value compared to decimal numbers. This efficiency in storage is crucial for memory and storage devices, as it allows for more information to be stored using the same amount of physical resources.
+4. Reliable representation: Digital hardware can distinguish two voltage ranges reliably. Decimal hardware would need ten reliably distinguishable states, making circuits more complex and more sensitive to noise. Binary is not inherently more information-dense than decimal; its advantage is its practical implementation in electronic circuits.
 
 5. Logical operations: Binary numbers lend themselves well to logical operations like AND, OR, and NOT. These operations form the basis of computational operations in computers. Using binary simplifies the design and implementation of logical circuits and arithmetic units.
 
@@ -26,29 +33,22 @@ Although decimal numbers are more intuitive for human comprehension, they are no
 
 ### Number System
 
-    1.Binary - Two base number.
-    2.Octal - Eight base number.
-    2.Decimal - Ten base number.
-    2.Hexadecimal - Sixteen base number.
+    1. Binary      — base 2  (digits 0–1)
+    2. Octal       — base 8  (digits 0–7)
+    3. Decimal     — base 10 (digits 0–9)
+    4. Hexadecimal — base 16 (digits 0–9 and A–F)
 
 ### Binary to Decimal
 ![](Image/binaryToDecimal.jpg)
 
 ```javascript
-function convertToDecimal(x) {
-    let bin = 0;
-    let rem, i = 1, step = 1;
-    while (x != 0) {
-        rem = x % 10;
-        x = parseInt(x / 10);
-        bin = bin + rem * i;
-        i = i * 2;
-    }
-console.log(`Decimal:  ${bin}`);
+function binaryToDecimal(binaryDigits) {
+    const text = String(binaryDigits);
+    if (!/^[01]+$/.test(text)) throw new Error("Input must contain only 0 and 1");
+    const decimal = Number.parseInt(text, 2);
+    console.log(`Decimal: ${decimal}`);
 }
-// take input
-//let number = prompt('Enter a Binary number: ');
-convertToDecimal(101);
+binaryToDecimal("101"); // Decimal: 5
 ```
 ### Decimal to Binary
 ![](Image/asd.png)
@@ -81,93 +81,60 @@ convertToDecimal(101);
     75 = 1001011
 
 ```javascript
-function convertToBinary(x) {
-    let bin = 0;
-    let rem, i = 1, step = 1;
-    while (x != 0) {
-        rem = x % 2;
-        console.log(
-            `Step ${step++}: ${x}/2, Remainder = ${rem}, Quotient = ${parseInt(x/2)}`
-        );
-        x = parseInt(x / 2);
-        bin = bin + rem * i;
-        i = i * 10;
+function decimalToBinary(decimal) {
+    if (!Number.isSafeInteger(decimal) || decimal < 0) {
+        throw new Error("Input must be a non-negative safe integer");
     }
-    console.log(`Binary:  ${bin}`);
+    console.log(`Binary: ${decimal.toString(2)}`);
 }
-// take input
-//let number = prompt('Enter a decimal number: ');
-convertToBinary(5);
+decimalToBinary(5); // Binary: 101
 ```
 ### Decimal to Octal
 ![](Image/decimal-to-octal.png)
 
 ```javascript
-function convertToCOtalTOdecimal(x) {
-    let bin = 0;
-    let rem, i = 1, step = 1;
-    while (x != 0) {
-        rem = x % 8;
-        x = parseInt(x / 8);
-        bin = bin + rem * i;
-        i = i * 10;
+function decimalToOctal(decimal) {
+    if (!Number.isSafeInteger(decimal) || decimal < 0) {
+        throw new Error("Input must be a non-negative safe integer");
     }
-console.log(`Octal:  ${bin}`);
+    console.log(`Octal: ${decimal.toString(8)}`);
 }
-// take input
-//let number = prompt('Enter a Decimal number: ');
-convertToCOtalTOdecimal(8);
+decimalToOctal(8); // Octal: 10
 ```
 ### Octal to Decimal
 ![](Image/octaltodecimal.png)
 
 ```javascript
-function convertToDecimalTOOCatal(x) {
-    let bin = 0;
-    let rem, i = 1, step = 1;
-    while (x != 0) {
-        rem = x % 10;
-        x = parseInt(x / 10);
-        bin = bin + rem * i;
-        i = i * 8;
-    }
-    console.log(`Decimal:  ${bin}`);
+function octalToDecimal(octalDigits) {
+    const text = String(octalDigits);
+    if (!/^[0-7]+$/.test(text)) throw new Error("Input must contain only digits 0–7");
+    console.log(`Decimal: ${Number.parseInt(text, 8)}`);
 }
-// take input
-//let number = prompt('Enter a Octal number: ');
-
-convertToDecimalTOOCatal(100);
+octalToDecimal("100"); // Decimal: 64
 ```
-### DIFFERENT BETWEEM INTERPRETER AND COMPILAR
-  A compiler translates the entire source code in a single run.
-  An interpreter translates the entire source code line by line
+### Difference between a compiler and an interpreter
+
+A compiler translates source code into another form (often machine code or bytecode) before execution. An interpreter executes a program through another program, often translating or evaluating it as execution proceeds. Real implementations frequently combine both techniques—for example, compiling to bytecode and then interpreting or just-in-time compiling that bytecode.
 
   > ## KEYWORDS
 
-    1. High level Language > INTERPRETER(Work line by line) > Machine Language
+    1. High-level language → compiler/interpreter → executable behavior
     2. Assembly language > Assembler > Machine Language
-    3. Mid level language ( C )
-    4. High level language(python, c++, c# etc)
-    5. compiler(GNU, CSS) - A compiler translates the entire source code in a single run
-    6. CodeBlocks(IDE-Integrated Development Environment)
+    3. C is commonly described informally as a middle-level language, though this is not a formal category.
+    4. Examples of high-level languages include Python, C++, and C#.
+    5. GCC is a compiler collection; CSS is a web styling language, not a compiler.
+    6. Code::Blocks is an IDE (integrated development environment).
 
 ---
 # Learn About Compiler and C/C++
 #### Day-2 (Date: 7-6-2023)
 Watch some videos read some documents about how compiler works
 
-### MEMORY
+### Memory and integer sizes
 
-    Int (32bit) = {
-      2 byte = 2 x 8 bit
-             = 16 bit
-    }
-    Int(64bit) = {
-      4 byte = 4 x 8 bit
-             = 32 bit
-    }
-    32 bit maximum number = 2^n - 1
-                          = 2^31 - 1
+One byte is at least 8 bits and is 8 bits on nearly all modern systems. In C and C++, `sizeof(int)` is implementation-defined: it is commonly 4 bytes (32 bits), but the language only guarantees that it is at least 16 bits. Check a specific implementation with `sizeof(int)` and `CHAR_BIT` from `<limits.h>`.
+
+For a 32-bit signed two's-complement integer, the range is −2^31 through 2^31 − 1. For a 32-bit unsigned integer, the range is 0 through 2^32 − 1.
 
 ## HOW TO STORE NEGATIVE AND POSITIVE NUMBER IN MEMORY
 ### Sign bit
@@ -180,20 +147,14 @@ In this case in magnitude area first number is MSB and last number is LSB.
 ### PROBLEM OF SIGN BIT
     0 0 0 0 !== 1 0 0 0
     +0 !== -0
-### SOLVE
-    0011 = +3
-    => 1100(flip of 0011) = 1's complement
-    1's complement + 1
-    1100 + 1 = 1101 = -2 (2's complement)
-    0010 + 1 = +3 (2's complement)
-### In this case computer can store 4bit.
-    1111 + 1 = 10000
-    So, answer = 0000 = -0
+### Two's complement solution
+
+To encode −3 in 4-bit two's complement, start with `0011` (+3), invert the bits to get `1100`, and add 1 to get `1101`. Thus, `1101` represents −3—not −2. Four-bit two's complement has the range −8 through +7 and only one representation of zero (`0000`). Arithmetic overflow discards a carry beyond the fixed width; for example, `1111` (−1) + `0001` (+1) produces `0000`.
 
 > ## KEYWORDS
     CodeBlocks,Environment setup,terminal,GCC,cmd
 
-# Bit Manipulaion / Bitwise
+# Bit manipulation and bitwise operators
 #### Day-2 (Date: 7-5-2023)
 Bit manipulation is a technique used in computer programming to manipulate individual bits within a binary representation of data. It involves performing logical and arithmetic operations at the bit level, allowing developers to perform various tasks efficiently and compactly. Here are some commonly used bit manipulation operations:
 
@@ -264,15 +225,14 @@ Bitwise right shift (>>): Shifts the bits of a number to the right by a specifie
 Bit manipulation is often used in various applications, such as optimizing code, implementing data structures, and working with low-level operations like device drivers, network protocols, and cryptography algorithms. It allows for compact representation of data and efficient bitwise operations that can significantly improve performance in certain scenarios.
 
 ### Example of bit off or on test
-```C
-let x,y,z;
-x = parseInt(prompt("Inter number ", y));
-bit = parseInt(prompt("Inter bit number ", z));
+```javascript
+const x = Number.parseInt(prompt("Enter a non-negative integer:"), 10);
+const bit = Number.parseInt(prompt("Enter the zero-based bit position:"), 10);
 
-if(x & (1 << bit)){
-  console.log(`${bit} nd bit is ON`);
+if ((x & (1 << bit)) !== 0) {
+  console.log(`Bit ${bit} is ON`);
 }else{
-  console.log(`${bit} nd bit is OFF`);
+  console.log(`Bit ${bit} is OFF`);
 }
 ```
 
@@ -369,6 +329,7 @@ console.log(string);
 
 ```C
 #include <stdio.h>
+#include <math.h>
 int main() {
 int n=3;
 
@@ -421,38 +382,27 @@ for(int l = 0; l < n; l++){
 }
 ```
 
-# SWITCH-STATEMENT AND ARRAY
+# Switch statements and arrays
 #### Day-4 (Date: 7-11-2023)
 ### STRUCTURE
 
-```C
-switch(variable){
-    case value 1;
-    //statement
-    break;
-    case value 2;
-    //statement
-    break;
+```javascript
+console.log("1. User login\n2. User list\n3. Sign up");
+const answer = Number.parseInt(prompt("Choose an option:"), 10);
 
-    #Example
-    console.log("1.User login\n 2.User list\n 3.Sign up\n");
-    let op;
-    let answer = parseInt(prompt("which option to choese? ", op));
-
-    switch(answer){
+switch (answer) {
         case 1:
-            console.log("User login successful\n");
+            console.log("User login successful");
             break;
         case 2:
-            console.log("User list shown\n");
+            console.log("User list shown");
             break;
         case 3:
-            console.log("Sign up done\n");
+            console.log("Sign up done");
             break;
         default:
-            console.log("Inter number 1 to 3\n");
-    }
-  }
+            console.log("Enter a number from 1 to 3");
+}
 ```
 
 ### ARRAY
@@ -491,7 +441,7 @@ int main() {
 }
 ```
 ### Brace Initializer
-The brace initializer, also known as initializer list syntax, is a way to initialize the elements of an array in many programming languages, including C++, Java, and JavaScript. It allows you to provide a list of values enclosed in braces { }, which are used to populate the array with the specified values.
+Brace initialization uses values enclosed in `{ }` to initialize arrays in C and C++. Java has related array-initializer syntax, while JavaScript arrays use square brackets (`[ ]`), not braces.
 
 #### Here's an example in C++:
     int myArray[] = {1, 2, 3, 4, 5};
@@ -506,7 +456,9 @@ In this case, we declare a 2D integer array called `myArray2D` with two rows and
 
 The brace initializer syntax can be handy when you want to quickly initialize an array with a known set of values. It eliminates the need for individual assignments to each element of the array and provides a concise and readable way to initialize the array elements directly within the declaration statement.
 
-### If you specify the value for the array index it will replace the garbage value into 0.
+### Partial array initialization
+
+When a C or C++ array has an initializer with fewer values than its declared size, the remaining elements are zero-initialized. This rule applies at initialization; assigning one element later does not initialize the others.
 #### Example
 
 ```C
@@ -543,25 +495,25 @@ int main() {
 ```
 
 
-### Note memsent works on three value.
+### Common `memset` patterns
      
     1. memset(arrayName, 0, sizeof arrayName);
     2. memset(arrayName, -1, sizeof arrayName);
-    3. memset(arrayName, 0x3f3f3f3f, sizeof arrayName); (Infinity Number = 0x3f3f3f3f);
+    3. memset(arrayName, 0x3f, sizeof arrayName); // each int is often 0x3f3f3f3f
 
-### Memeset Library
+### The `memset` function
 The `memset` function is a standard C library function that is used to set a block of memory with a specified value. It takes three arguments: a pointer to the memory block, the value to be set, and the number of bytes to set.
 
-The `memset` function works well when you need to set memory blocks with values such as 0 or -1. However, it may not work as expected when you try to set memory blocks with values other than 0 or -1.
+`memset` writes the same converted `unsigned char` value into every byte. Zeroing an integer array is portable. Filling bytes with `0xFF` commonly produces −1 for two's-complement signed integers, but that integer interpretation is not guaranteed by the C standard. For arbitrary element values, use a loop or `std::fill` in C++.
 
-The reason for this limitation is that `memset` operates on a byte level and sets each byte of the memory block to the specified value. If the desired value is not representable in a single byte, the behavior of `memset` becomes undefined.
+The second argument is converted to `unsigned char`; the operation is well-defined, but the resulting multi-byte integer values may not be what you intended.
 
 For example, consider setting a memory block with the value 255 (0xFF) using `memset`:
 ```C
 int myArray[10];
 memset(myArray, 255, sizeof(myArray));
 ```
-In this case, since the value 255 cannot be represented by a single byte, `memset` will set each byte of the memory block to 255 independently. This can result in unexpected behavior, as the resulting value in each element of `myArray` may not be 255.
+Here every byte becomes `0xFF`; this does not set each `int` to the numeric value 255.
 
 To initialize an array with a specific value other than 0 or -1, you can use a loop to individually set each element of the array to the desired value. Alternatively, you can use language-specific features or library functions that provide array initialization mechanisms, such as brace initialization in C++ or `Arrays.fill()` method in Java, to achieve the desired result reliably.
 
@@ -676,7 +628,7 @@ In this example, the `mapArray` function takes an input array `src`, its size `n
 
 Please note that "array mapping" is not a standard term in C, but it's commonly used to describe this kind of element-wise transformation on arrays. The operation can vary depending on the mapping function used and the desired transformation.
 
-<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array" target ="_blank">Learn More About Array<a>
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array" target="_blank" rel="noopener noreferrer">Learn more about JavaScript arrays</a>
 
 # PRECISION LOSS
 #### Day-5 (Date: 7-12-2023)
@@ -708,8 +660,8 @@ int main() {
   a = 2.99999999999;
   b = 3.00000000001;
 
-  sum = a-b;
-  if(sum < eps){
+  sum = a - b;
+  if (fabs(sum) < eps) {
       printf("a and b are same");
   }
   return 0;
@@ -962,7 +914,7 @@ To determine which string is lexicographically smaller, you compare the correspo
 
 For example, let's compare two strings "apple" and "banana" lexicographically. Starting from the leftmost character, 'a' and 'b' are compared. Since 'a' has a lower Unicode value than 'b', "apple" is lexicographically smaller than "banana". The comparison stops at the first difference encountered.
 
-In another example, comparing "cat" and "car," the first three characters are the same. However, the fourth character 't' has a lower Unicode value than 'r,' so "cat" is lexicographically smaller than "car."
+In another example, comparing "cat" and "car," the first two characters are equal. At the third character, `r` has a lower character code than `t`, so "car" is lexicographically smaller than "cat."
 
 Lexicographic order is commonly used in sorting algorithms and dictionary implementations to determine the ordering of words or sequences based on their characters.
 
@@ -1030,7 +982,7 @@ int main() {
 }
 ```
 
-### PALINDR0ME
+### PALINDROME
 A palindrome is a word, phrase, number, or sequence of characters that reads the same forwards and backwards. In C, we can write a program to check whether a given string is a palindrome or not.
 
 Here's an example code snippet that demonstrates how to check for a palindrome in C:
@@ -1070,7 +1022,7 @@ In this code, we define a function `isPalindrome()` that takes a string `str` as
 
 In the `main()` function, we prompt the user to enter a string, read it using `scanf()`, and then call the `isPalindrome()` function to check whether the entered string is a palindrome or not. Based on the return value, we print the appropriate message to indicate whether the string is a palindrome or not.
 
-### PALINDR0ME
+### PALINDROME (pointer version)
 A palindrome is a word, phrase, number, or sequence of characters that reads the same forwards and backwards. In C, we can write a program to check whether a given string is a palindrome or not.
 
 Here's an example code snippet that demonstrates how to check for a palindrome in C:
@@ -1111,7 +1063,7 @@ In this code, we define a function `isPalindrome()` that takes a string `str` as
 
 In the `main()` function, we prompt the user to enter a string, read it using `scanf()`, and then call the `isPalindrome()` function to check whether the entered string is a palindrome or not. Based on the return value, we print the appropriate message to indicate whether the string is a palindrome or not.
 
-### CONTATENATION OF STRING
+### STRING CONCATENATION
 In C, string concatenation refers to the process of combining two or more strings to create a single string. This operation is commonly performed using the strcat() function from the C standard library or by manually manipulating character arrays.
 
 The strcat() function is declared in the `string.h` header file and has the following syntax:
@@ -1172,20 +1124,20 @@ int main() {
 ```
 This code manually iterates over the characters in the destination string to find the end of it and then appends the characters of the source string one by one. Finally, a null terminator ('\0') is added to mark the end of the concatenated string.
 
-Both approaches achieve string concatenation, but using the `strcat()` function is generally considered safer and more convenient, as it handles the details of finding the end of the destination string and ensures proper termination.
+Both approaches achieve string concatenation. `strcat()` is convenient but is safe only when the destination array has enough room for both strings and the null terminator; it does not perform bounds checking.
 
 # TIME COMPLEXITY ANALYSIS
 #### Day-7 (Date: 7-16-2023)
-- Big-O notation (Upper Bound)
-- Omega Notation (Lower Bound)
-- Theta Notation (average case)
+- Big O notation: asymptotic upper bound
+- Omega notation: asymptotic lower bound
+- Theta notation: tight asymptotic bound
 
 ### BIG-O NOTATION
 Big O notation is a mathematical notation used to describe the performance characteristics of an algorithm or the growth rate of a function. It is commonly used to analyze the time complexity and space complexity of algorithms.
 
 In C, Big O notation helps us understand how the runtime of an algorithm or the memory usage of a program scales with respect to the input size. It provides a way to compare algorithms and determine their efficiency.
 
-When using Big O notation, we focus on the dominant term or the term that grows the fastest as the input size increases. The dominant term represents the worst-case performance of the algorithm.
+When using Big O notation, we usually simplify a bound by retaining its fastest-growing term and ignoring constant factors. Big O does not inherently mean “worst case”: it can bound a best-case, average-case, or worst-case running-time function, provided the case is stated.
 
 Here are some commonly used notations in Big O notation:
 
@@ -1205,9 +1157,9 @@ It's important to note that Big O notation represents an upper bound on the grow
 By analyzing the Big O notation of different algorithms, you can make informed decisions about choosing the most efficient algorithm for a particular task or understand the scalability of your code.
 
 ### OMEGA NOTATION
-Omega notation, also known as Ω notation, is a mathematical notation used to describe the lower bound or best-case performance of an algorithm or function. It provides a way to analyze the minimum growth rate or lower limit of a function as the input size increases.
+Omega notation, written Ω, describes an asymptotic lower bound. It does not inherently mean “best case”; it may be applied to any explicitly chosen running-time function.
 
-In C, Omega notation helps us understand the best-case scenario or lower bound of an algorithm's runtime or the memory usage of a program. It complements the Big O notation, which describes the upper bound or worst-case scenario.
+Omega complements Big O: if a function is both O(g(n)) and Ω(g(n)), it is Θ(g(n)).
 
 When using Omega notation, we focus on the dominant term or the term that grows the slowest as the input size increases. The dominant term represents the best-case performance of the algorithm.
 
@@ -1221,16 +1173,16 @@ Here are some examples of commonly used Omega notations:
 
 4. Ω(n^2) - Quadratic Lower Bound: This indicates that the algorithm's runtime has a lower bound of quadratic growth. Common examples include nested loops or algorithms that involve comparing each element with every other element in the best-case scenario.
 
-5. Ω(2^n) - Exponential Lower Bound: This indicates that the algorithm's runtime has a lower bound of exponential growth. This is generally considered very efficient or the best possible for some problems.
+5. Ω(2^n) - Exponential Lower Bound: This indicates that the measured function grows at least exponentially. Such growth is generally expensive, although it may be unavoidable for some problems.
 
 Similar to Big O notation, Omega notation represents a lower bound on the growth rate of an algorithm or function. It provides insights into the best-case performance but doesn't provide information about the actual execution time.
 
 By analyzing the Omega notation of different algorithms, you can understand the minimum growth rate or lower limit of the algorithm's performance in the best-case scenario. This can help you evaluate the efficiency of your code or make informed decisions when choosing the most suitable algorithm for a specific task.
 
 ### THETA NOTATION
-Omega notation and theta notation are both mathematical notations used to describe the performance characteristics of algorithms or the growth rate of functions. While omega notation represents the lower bound or best-case performance, theta notation represents both the upper and lower bounds or the average-case performance.
+Theta notation describes a tight asymptotic bound: the function is bounded above and below by constant multiples of the same comparison function. Theta does not mean “average case.” Best, average, and worst cases are separate choices of which running-time function to analyze.
 
-In C, theta notation helps us understand both the best-case and worst-case scenarios of an algorithm's runtime or the memory usage of a program. It provides a tighter bound on the growth rate compared to omega notation, which only provides the lower bound.
+Theta provides more information than a one-sided O or Ω bound because it identifies the growth rate up to constant factors.
 
 When using theta notation, we focus on the dominant term or the term that grows at the same rate as the input size increases. The dominant term represents the average-case performance of the algorithm.
 
@@ -1262,7 +1214,7 @@ There are several common memory complexity notations:
 
 5. O(2^n) - Exponential Space Complexity: This indicates that the algorithm's memory usage grows exponentially with the input size. Such algorithms are generally considered inefficient in terms of memory usage.
 
-It's important to note that memory complexity focuses on the additional memory used by an algorithm, excluding the input itself. It quantifies the growth in memory consumption as the input size increases.
+State whether an analysis measures total space (including the input) or auxiliary space (additional memory excluding the input). “Space complexity” is sometimes used for either, so the distinction matters.
 
 Analyzing the memory complexity of your code helps you understand the trade-off between memory usage and algorithmic efficiency. By minimizing unnecessary memory allocations or optimizing data structures, you can reduce the memory requirements of your code and improve its overall performance.
 
@@ -1309,17 +1261,18 @@ In this example, we define a function called `addNumbers` that takes two integer
 
 Functions are a powerful feature of C programming that enables code modularity, reusability, and abstraction. They help manage complex programs, improve code organization, and promote code reuse by encapsulating specific functionality within separate units of code.
 
-# FUNCTION CALLING
+# Function arguments in C
 #### Day-8 (Date: 7-17-2023)
 
-- Call by reference
-- Call by pointer
+- C passes every argument by value.
+- Passing a pointer value lets a function modify the pointed-to object.
 
 
-### CALL BY REFERENCE
-In C, "call by reference" is a mechanism where a function receives the memory address (reference) of a variable as a parameter. By using this reference, the function can directly access and modify the original value of the variable in the calling code. In other words, any changes made to the parameter within the function will affect the original variable outside the function.
+### Simulating reference semantics with pointers
 
-To pass a variable by reference in C, you need to use pointers. Pointers are variables that store memory addresses. Here's how you can achieve call by reference in C:
+C does not have call-by-reference parameters. It always passes arguments by value. When an address is passed, the pointer itself is copied, but dereferencing that copied pointer allows the function to modify the original object.
+
+To obtain similar behavior in C, pass a pointer to the object. A pointer stores a memory address:
 
 1. Define a function that takes a pointer as a parameter. For example:
 ```C
@@ -1339,10 +1292,10 @@ modifyValue(&number);  // Pass the address of 'number'
   
 After the function call, the value of the `number` variable will be modified to 10 because the function modified the original variable directly through the pointer.
 
-Call by reference is useful when you need to modify variables within a function and have those changes reflected in the calling code. It allows you to avoid returning values and provides a more efficient way to manipulate large data structures without creating copies. However, it requires careful handling of pointers to avoid unintended consequences such as invalid memory accesses or unintended modifications.
+Passing pointers is useful when a function must modify a caller-owned object or avoid copying a large object. Handle pointers carefully to prevent invalid memory access or unintended modification.
 
 ### CALL BY POINTER
-In C, "call by pointer" is similar to call by reference, as it allows a function to modify the original value of a variable in the calling code. However, instead of passing the memory address directly, you pass a pointer variable that holds the memory address of the variable you want to modify.
+Whether you pass `&number` directly or first store it in a pointer variable, C still copies the pointer value into the parameter. Both forms have the same semantics.
 
 Here's how call by pointer works in C:
 
@@ -1407,7 +1360,7 @@ Function overloading is a feature in some programming languages, but it is not d
 
 Function overloading refers to the ability to define multiple functions with the same name but different parameter lists. Each function with the same name but different parameter lists is considered a separate function and can be called based on the arguments provided.
 
-However, in C, if you define multiple functions with the same name, the compiler will generate an error indicating a redefinition of the function. This is because C uses a process called name mangling, where function names are "mangled" or modified to include additional information based on the function signature to create a unique symbol in the compiled object code. Since C does not support overloading, it expects each function to have a unique name in the source code.
+Standard C has no function overloading and requires distinct identifiers for functions in the same scope. C++ implementations commonly encode parameter types in linker symbols (name mangling) to support overloading; that is not the reason C rejects two definitions with the same name.
 
 To achieve similar behavior to function overloading in C, you can use different function names for different functionalities or use different function names along with unique identifier prefixes to differentiate them. Alternatively, you can define a single function with multiple parameters and use conditional statements within the function body to handle different cases based on the arguments provided.
 
@@ -1419,7 +1372,7 @@ void printNumber(int num) {
   printf("Integer: %d\n", num);
 }
 
-void printNumber(float num) {
+void printFloat(float num) {
   printf("Float: %f\n", num);
 }
 
@@ -1428,12 +1381,12 @@ int main() {
   float floating = 3.14;
 
   printNumber(integer);   // Calls the first printNumber function
-  printNumber(floating);  // Calls the second printNumber function
+  printFloat(floating);
 
   return 0;
 }
 ```
-In this example, we define two separate functions named `printNumber`, one accepting an integer and the other accepting a float. Although this is not true function overloading, we can achieve similar behavior by providing different function names. When we call the `printNumber` function with an integer or a float argument, the corresponding version of the function will be invoked.
+This version uses the distinct names `printNumber` and `printFloat`, which is valid C. In C11, `_Generic` can also dispatch to different functions based on an expression's type.
 
 The output of the above code will be:
 
@@ -1445,7 +1398,7 @@ Remember that this is a workaround in C to achieve similar functionality, but it
 ### OPERATOR OVERLOADING
 Operator overloading is a feature in some programming languages, such as C++, that allows operators to be redefined for user-defined types. However, operator overloading is not directly supported in the C programming language.
 
-In C, operators have fixed predefined behaviors based on the data types they operate on. For example, the "+" operator performs addition for numeric types and string concatenation for strings. You cannot change the behavior of operators or define new operators in C.
+In C, operators have fixed behavior for the operand types the language supports. For example, `+` performs arithmetic on numeric operands; C has no built-in string-concatenation operator. You cannot overload an operator for a struct or define a new operator.
 
 If you want to achieve similar functionality to operator overloading in C, you can create functions that mimic the behavior of operators. Instead of using operators directly, you would call these functions to perform the desired operations.
 
@@ -1526,7 +1479,7 @@ The output of the above code will be:
 
 While C doesn't provide the full range of features found in classes in OOP languages, you can emulate some class-like behavior using structs and functions. However, it's important to note that C does not provide inherent support for concepts like encapsulation, inheritance, or polymorphism, which are core principles of object-oriented programming.
 
-### DIFFERENT BETWEEM PUBLIC CLASS AND PRIVET CLASS
+### Public and private class members
 In the context of object-oriented programming, the terms "public class" and "private class" are not commonly used. However, there are concepts related to visibility and access control that are relevant, such as public and private members within a class.
 
 1. Public Members:
@@ -1562,7 +1515,7 @@ The distinction between public and private members allows for encapsulation, whi
 It's worth noting that in some languages, such as C#, there is a concept of nested classes, where one class can be declared within another class. In this case, the outer class is often referred to as the "parent" or "containing" class, and the inner class is called the "nested" or "inner" class. However, the visibility of the nested class members is still controlled using access specifiers like public and private.
 
 # SORTING
-- Marge Sort
+- Merge Sort
 - Bubble Sort
 - Insertion Sort
 - Counting Sort
@@ -1628,7 +1581,7 @@ The output of the above code will be:
 
 Insertion Sort has an average and worst-case time complexity of O(n^2). It is efficient for small arrays or partially sorted arrays but may not be the best choice for larger or highly unsorted arrays.
 
-### MARGE SORT
+### MERGE SORT
 Merge Sort is a popular sorting algorithm that follows the divide-and-conquer approach to sort a list of elements. It recursively divides the input list into smaller sublists, sorts them, and then merges them back together to produce a sorted result. Merge Sort has a time complexity of O(n log n), making it an efficient sorting algorithm.
 
 Here's an implementation of Merge Sort in C:
@@ -2124,7 +2077,7 @@ int main() {
 In this example, we use bitwise operators to manipulate and check the binary properties represented by the constants `FLAG_A`, `FLAG_B`, `FLAG_C`, and `FLAG_D`. We set and clear these properties and perform checks based on their values.
 
 ### UPPER BOUND
-In mathematics and computer science, an upper bound is a value that represents an upper limit or maximum value for a set of numbers or elements. It defines an upper boundary beyond which the elements in the set cannot exceed. If an element in the set reaches or surpasses the upper bound, it is considered to be within the limit.
+In mathematics, an upper bound of a set is a value greater than or equal to every element of that set. In algorithm analysis, Big O gives an asymptotic upper bound on the growth of a chosen cost function.
 
 For a given set of numbers or elements, an upper bound can be determined based on the specific context and requirements of the problem being addressed. The upper bound is often used to establish the maximum resource usage or time complexity of an algorithm, or to set limits on data sizes or quantities.
 
@@ -2137,13 +2090,13 @@ It is important to note that an upper bound is not necessarily a tight or precis
 In contrast to an upper bound, a lower bound represents a lower limit or minimum value for a set of numbers or elements. Together, the upper and lower bounds help in understanding the range of possibilities and provide valuable insights into the behavior of algorithms and data structures.
 
 ### LOWER BOUND
-In mathematics and computer science, a lower bound is a value that represents a lower limit or minimum value for a set of numbers or elements. It defines a lower boundary below which the elements in the set cannot go. If an element in the set reaches or falls below the lower bound, it is considered to be within the limit.
+In mathematics, a lower bound of a set is a value less than or equal to every element of that set. In algorithm analysis, Ω gives an asymptotic lower bound on the growth of a chosen cost function.
 
 Like the upper bound, a lower bound is used to analyze and describe the behavior of algorithms and data structures. It is particularly relevant in the context of algorithm analysis, where it helps to determine the best-case time complexity or space complexity of an algorithm.
 
 When analyzing algorithms, it is common to provide both upper and lower bounds to describe the range of possible scenarios. Together, these bounds give a more complete understanding of how the algorithm performs under different circumstances.
 
-For example, consider an algorithm that sorts an array of n elements using a comparison-based sorting technique. The best-known comparison-based sorting algorithms, like Merge Sort and Quick Sort, have an upper bound of O(n log n) in terms of time complexity. This means that the time taken by these algorithms grows no faster than n log n as the size of the input (n) increases.
+For example, merge sort has O(n log n) worst-case time. Typical quicksort has O(n log n) expected time but O(n²) worst-case time unless its pivot strategy provides stronger guarantees.
 
 However, it has been proven that any comparison-based sorting algorithm must have a lower bound of Ω(n log n) as well. This implies that no comparison-based sorting algorithm can sort the elements in better than n log n time, regardless of the specific implementation. In other words, n log n is the best possible time complexity achievable using comparison-based sorting methods.
 
@@ -2171,7 +2124,7 @@ Fast I/O techniques are essential in competitive programming to optimize the inp
   - Use `cin.tie(0);` to untie cin from cout if you don't need flushing after every input operation.
 
 Here's an example of using fast I/O in C++:
-```C
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -2185,12 +2138,12 @@ int main() {
     int x, y;
     cin >> x >> y; // Fast input of two integers
     int sum = x + y;
-    printf("%d\n", sum); // Fast output using printf
+    cout << sum << '\n';
   }
   return 0;
 }
 ```
-Using fast I/O can significantly reduce the time taken for input/output operations and help you avoid time limit exceeded errors in competitive programming contests. However, keep in mind that these techniques might not be suitable for general programming, as they sacrifice some convenience for the sake of speed.
+After disabling synchronization, avoid mixing C (`scanf`/`printf`) and C++ (`cin`/`cout`) I/O on the same streams because their relative ordering is no longer guaranteed. Use `'\n'` instead of `std::endl` when you do not need to flush the stream.
 
 ### BUFFERS
 In the context of computer systems and programming, a buffer refers to a temporary data storage area used to hold and manage data as it is transferred from one location to another. Buffers play a crucial role in optimizing data transfer and processing operations, especially in scenarios where the speed of data transmission or processing can vary significantly.
@@ -2615,15 +2568,11 @@ In the `main` function, the user is prompted to input two positive integers, and
 
 The Euclidean algorithm is very efficient and can handle large numbers easily, making it a commonly used method to find the GCD of two integers.
 
-### LEAST COMMON DENOMINATOR (LCD)
-In C programming, LCD stands for "Least Common Denominator" or "Least Common Divisor." However, the term "Least Common Denominator" is more commonly associated with fractions in mathematics, while the term "Least Common Divisor" is used to find the smallest positive integer that is divisible by two or more given positive integers without leaving a remainder.
+### LEAST COMMON MULTIPLE (LCM)
 
-To clarify, I'll explain both concepts:
+The least common multiple of two positive integers is the smallest positive integer divisible by both. “Least common denominator” (LCD) is the LCM of the denominators of a group of fractions. “Least common divisor” is not a standard synonym for either LCM or GCD.
 
-1. Least Common Denominator (LCD):
-The LCD is a concept used in fractions. It is the smallest common multiple of the denominators of two or more fractions. Finding the LCD is essential for adding or subtracting fractions with different denominators. To calculate the LCD of two fractions, you need to find the least common multiple (LCM) of their denominators.
-
-Here's a simple C function to find the LCM (and consequently the LCD) of two positive integers:
+The identity `lcm(a, b) = abs(a / gcd(a, b) * b)` avoids some intermediate overflow compared with multiplying first (though the result can still exceed the integer type):
 
 ```C
 #include <stdio.h>
@@ -2638,7 +2587,9 @@ int gcd(int a, int b) {
 }
 
 int lcm(int a, int b) {
-    return (a * b) / gcd(a, b);
+    if (a == 0 || b == 0) return 0;
+    int result = (a / gcd(a, b)) * b;
+    return result < 0 ? -result : result;
 }
 
 int main() {
@@ -2647,18 +2598,11 @@ int main() {
     scanf("%d %d", &num1, &num2);
 
     int result = lcm(num1, num2);
-    printf("Least Common Denominator of %d and %d is %d\n", num1, num2, result);
+    printf("Least Common Multiple of %d and %d is %d\n", num1, num2, result);
 
     return 0;
 }
 ```
-
-2. Least Common Divisor (LCD):
-As mentioned earlier, the LCD can also refer to the Least Common Divisor. It is the smallest positive integer that is divisible by two or more given positive integers without leaving a remainder. The LCD is synonymous with the Greatest Common Divisor (GCD), which we discussed in the previous explanation.
-
-The code example provided earlier under the "GCD in C" explanation can be used to find the Least Common Divisor as well, as the GCD and LCD are the same.
-
-Remember that the context in which you use "LCD" determines whether it refers to Least Common Denominator (for fractions) or Least Common Divisor (for positive integers).
 
 ### MODULAR ARITHMETIC
 Modular arithmetic in C follows the same principles as described in the previous explanation. Modular arithmetic involves performing arithmetic operations on integers, but instead of using the actual results, we take the remainder when divided by a fixed positive integer called the modulus.
